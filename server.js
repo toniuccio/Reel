@@ -5,8 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const { spawn, execFileSync } = require('child_process');
 const crypto = require('crypto');
+const os = require('os');
 
 const PORT = process.env.PORT || 4747;
+const HOST = process.env.HOST || '0.0.0.0'; // 0.0.0.0 = raggiungibile dal telefono sulla stessa Wi-Fi
 const ROOT = __dirname;
 const PUBLIC = path.join(ROOT, 'public');
 const DATA = path.join(ROOT, 'data');
@@ -18,6 +20,7 @@ const DIRS = {
   luts: path.join(DATA, 'luts'),
   tmp: path.join(DATA, 'tmp'),
 };
+const LIBRARY = path.join(DATA, 'library.json');
 Object.values(DIRS).forEach((d) => fs.mkdirSync(d, { recursive: true }));
 
 const MIME = {
@@ -25,7 +28,7 @@ const MIME = {
   '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp',
   '.gif': 'image/gif', '.svg': 'image/svg+xml', '.mp4': 'video/mp4', '.mov': 'video/quicktime', '.webm': 'video/webm',
   '.m4v': 'video/mp4', '.mp3': 'audio/mpeg', '.wav': 'audio/wav', '.m4a': 'audio/mp4', '.aac': 'audio/aac',
-  '.ogg': 'audio/ogg', '.cube': 'text/plain',
+  '.ogg': 'audio/ogg', '.cube': 'text/plain', '.webmanifest': 'application/manifest+json',
 };
 const IMAGE_EXT = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.heic'];
 const AUDIO_EXT = ['.mp3', '.wav', '.m4a', '.aac', '.ogg'];
@@ -230,6 +233,38 @@ const api = {
     return { jobId };
   },
 
+  // indirizzi per aprire lo studio dal telefono
+  async 'GET /api/lan'() { return { port: PORT, urls: lanIps().map((ip) => `http://${ip}:${PORT}`) }; },
+
+  // rileva i silenzi (per tagliare automaticamente pause e tempi morti)
+  async 'POST /api/silences'(req) {
+    const b = await readJson(req);
+    const src = localPath(b.source);
+    const noise = Number.isFinite(+b.noise) ? +b.noise : -32, min = Number.isFinite(+b.min) ? +b.min : 0.45;
+    let log = '';
+    await run('ffmpeg', ['-hide_banner', '-nostats', '-i', src, '-vn', '-af', `silencedetect=noise=${noise}dB:d=${min}`, '-f', 'null', '-'], { onStderr: (d) => (log += d) });
+    const out = []; let cur = null;
+    for (const line of log.split('\n')) {
+      let m = /silence_start: (-?[\d.]+)/.exec(line); if (m) cur = { start: Math.max(0, +m[1]) };
+      m = /silence_end: ([\d.]+)/.exec(line); if (m && cur) { cur.end = +m[1]; out.push(cur); cur = null; }
+    }
+    if (cur) { cur.end = (await probe(src)).duration; out.push(cur); }
+    return { silences: out };
+  },
+
+  // libreria riferimenti/B-roll (file scaricati da Pinterest ecc., con tag)
+  async 'GET /api/library'() { return readLib(); },
+  async 'POST /api/library'(req) {
+    const b = await readJson(req), lib = readLib();
+    const item = { id: id(), url: b.url, thumb: b.thumb || b.url, name: b.name || '', kind: b.kind === 'image' ? 'image' : 'video', category: b.category || 'all', trend: b.trend || 'cinematic', duration: b.duration || 0, added: Date.now() };
+    localPath(item.url); lib.unshift(item); fs.writeFileSync(LIBRARY, JSON.stringify(lib, null, 1));
+    return item;
+  },
+  async 'DELETE /api/library'(req, res, q) {
+    const lib = readLib().filter((x) => x.id !== q.get('id'));
+    fs.writeFileSync(LIBRARY, JSON.stringify(lib, null, 1)); return { ok: true };
+  },
+
   async 'GET /api/job'(req, res, q) {
     const j = jobs[q.get('id')];
     if (!j) throw new Error('Job inesistente');
@@ -344,6 +379,13 @@ const api = {
   },
 };
 
+function readLib() { try { return JSON.parse(fs.readFileSync(LIBRARY, 'utf8')); } catch { return []; } }
+function lanIps() {
+  const out = [];
+  for (const list of Object.values(os.networkInterfaces())) for (const a of list || []) if (a.family === 'IPv4' && !a.internal) out.push(a.address);
+  return out;
+}
+
 function splitEven(text, t0, t1) {
   const ws = String(text).trim().split(/\s+/).filter(Boolean);
   const d = (t1 - t0) / Math.max(1, ws.length);
@@ -390,7 +432,8 @@ const server = http.createServer(async (req, res) => {
   } catch (e) { send(res, 400, { error: e.message }); }
 });
 
-server.listen(PORT, '127.0.0.1', () => {
+server.listen(PORT, HOST, () => {
   console.log('\n  ▶ Vels Reel Studio attivo su  http://localhost:' + PORT);
+  if (HOST === '0.0.0.0') lanIps().forEach((ip) => console.log('    📱 Dal telefono (stessa Wi-Fi):  http://' + ip + ':' + PORT));
   console.log('    FFmpeg: ' + (hasCmd('ffmpeg') ? 'ok' : 'NON TROVATO (installalo!)') + '   Whisper: ' + (hasCmd('whisper') ? 'ok' : 'non installato (sottotitoli automatici disattivati)') + '\n');
 });

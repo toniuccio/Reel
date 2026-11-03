@@ -72,6 +72,7 @@
     updateTime();
     clearTimeout(saveTimer);
     saveTimer = setTimeout(() => saveProject(true), 1500);
+    if (VRS.onChange) VRS.onChange();
   }
 
   // ---------- navigazione ----------
@@ -80,23 +81,25 @@
     $$('#nav button').forEach((b) => b.classList.toggle('active', b.dataset.view === view));
     $$('.view').forEach((v) => v.classList.toggle('active', v.id === 'view-' + view));
     if (view === 'dash') renderDash();
-    if (view === 'editor') { renderEditor(); setTimeout(fitPreview, 30); }
+    if (view === 'editor') { const ph = $('#view-editor .phone'); if (engine.canvas.parentElement !== ph) ph.prepend(engine.canvas); renderEditor(); setTimeout(fitPreview, 30); }
+    if (VRS.views && VRS.views[view]) VRS.views[view]();
     if (view === 'music') renderMusic();
     if (view === 'exports') renderExports();
-    if (view !== 'editor' && engine.playing) engine.pause();
+    if (view !== 'editor' && view !== 'crea' && engine.playing) engine.pause();
+    window.scrollTo({ top: 0 });
   }
   $$('#nav button').forEach((b) => (b.onclick = () => go(b.dataset.view)));
   document.addEventListener('click', (e) => { const g = e.target.closest('[data-goto]'); if (g) go(g.dataset.goto); });
 
   function fitPreview() {
-    const ph = $('.phone');
+    const ph = engine.canvas.parentElement && engine.canvas.parentElement.closest('.phone') || $('.phone');
     ph.classList.toggle('f45', S.project.format === '4:5');
     ph.classList.toggle('f11', S.project.format === '1:1');
     const w = ph.clientWidth || 360;
     const scale = Math.min(1, (w * (window.devicePixelRatio || 1)) / engine.W);
     engine.resize(Math.max(0.3, scale));
   }
-  window.addEventListener('resize', () => S.view === 'editor' && fitPreview());
+  window.addEventListener('resize', () => (S.view === 'editor' || S.view === 'crea') && fitPreview());
 
   // ================= DASHBOARD =================
   async function renderDash() {
@@ -145,13 +148,13 @@
       <span class="stxt"><b>${esc(s.name)}</b><span>${esc(s.desc)}</span></span><span class="sbadge">${s.badge}</span></a>`;
   }
   document.addEventListener('click', async (e) => {
-    const n = e.target.closest('[data-new]'); if (n) { newProject(n.dataset.new); go('editor'); return; }
+    const n = e.target.closest('[data-new]'); if (n) { newProject(n.dataset.new); go('crea'); return; }
     const d = e.target.closest('[data-del]');
     if (d) { e.stopPropagation(); if (confirm('Eliminare il progetto?')) { await api('/api/project?id=' + d.dataset.del, { method: 'DELETE' }); renderDash(); } return; }
-    const o = e.target.closest('[data-open]'); if (o) { await openProject(o.dataset.open); go('editor'); }
+    const o = e.target.closest('[data-open]'); if (o) { await openProject(o.dataset.open); go('crea'); }
   });
-  $('#hero-new').onclick = () => { newProject(S.walletSel); go('editor'); };
-  $('#hero-upload').onchange = (e) => { newProject(S.walletSel); go('editor'); addFiles(e.target.files); e.target.value = ''; };
+  $('#hero-new').onclick = () => { newProject(S.walletSel); go('crea'); };
+  $('#hero-upload').onchange = (e) => { newProject(S.walletSel); go('crea'); addFiles(e.target.files); e.target.value = ''; };
   $('#btn-refresh').onclick = renderDash;
 
   function newProject(catId) {
@@ -233,6 +236,7 @@
         <button class="x" data-rm="${c.id}" title="Rimuovi">✕</button>
       </div>`).join('') + ups;
     if (!p.clips.length && !ups) $('#clip-list').innerHTML = '<div class="empty">Nessuna clip.<br>Carica uno o più video/foto.</div>';
+    if (VRS.onBin) VRS.onBin();
     let dragId = null;
     $$('#clip-list [data-clip]').forEach((el) => {
       el.onclick = (e) => {
@@ -264,7 +268,7 @@
     el.addEventListener('drop', (e) => { if (!e.dataTransfer.files.length) return; e.preventDefault(); el.classList.remove('over'); onFiles(e.dataTransfer.files); });
   }
   setupDrop($('#dropzone'), addFiles);
-  setupDrop($('.phone'), addFiles);
+  setupDrop($('#view-editor .phone'), addFiles);
   setupDrop($('#clip-list'), addFiles);
 
   // ----- trasporto -----
@@ -550,7 +554,8 @@
         <button class="btn-mini ghost" data-bgo="${b.id}">▶</button><button class="btn-mini ghost" data-bdel="${b.id}">✕</button></div>
       ${sel ? `
       <div class="row" style="margin-bottom:10px">${optBtn(k('kind'), 'card', '<b>Card grafica</b>')}${optBtn(k('kind'), 'media', '<b>Clip / foto</b>')}</div>
-      <div class="field"><label>Titolo</label><input class="input" data-k="${k('text')}" value="${esc(b.text)}"></div>
+      <div class="field"><label>Layout</label><div class="opt-grid">${VRS.BROLL_LAYOUTS.map((l) => optBtn(k('layout'), l.id, `<b>${l.name}</b><span>${l.desc}</span>`)).join('')}</div></div>
+      <div class="field"><label>Testo</label><input class="input" data-k="${k('text')}" value="${esc(b.text)}"></div>
       <div class="field"><label>Sottotitolo / tag</label><input class="input" data-k="${k('sub')}" value="${esc(b.sub)}"></div>
       <div class="row"><div class="field"><label>Inizio (s)</label><input class="input" type="number" step="0.1" min="0" data-k="${k('start')}" value="${b.start}"></div>
         <div class="field"><label>Durata (s)</label><input class="input" type="number" step="0.1" min="0.3" data-k="${k('dur')}" value="${b.dur}"></div></div>
@@ -585,7 +590,7 @@
       $('#btn-gen-broll').onclick = generateBroll;
       $('#btn-add-broll').onclick = () => {
         const c = cat(), t = cat().broll[S.project.broll.length % c.broll.length];
-        const b = { id: uid(), kind: 'card', start: +engine.t.toFixed(2), dur: 2, text: t.text, sub: t.sub, motion: t.motion, query: t.query, bg: 'cat', textSize: 1 };
+        const b = { id: uid(), kind: 'card', layout: t.layout || 'title', start: +engine.t.toFixed(2), dur: t.layout === 'list' ? 3 : 2, text: t.text, sub: t.sub, motion: t.motion, query: t.query, bg: 'cat', textSize: 1 };
         S.project.broll.push(b); S.selBroll = b.id; changed({ panel: true });
       };
       $$('[data-bid]').forEach((el) => el.addEventListener('click', (e) => {
@@ -729,7 +734,7 @@
       const near = pages.reduce((best, pg) => (Math.abs(pg.t0 - start) < Math.abs((best ? best.t0 : 1e9) - start) ? pg : best), null);
       if (near && Math.abs(near.t0 - start) < 1.5) start = near.t0;
       const t = c.broll[i % c.broll.length];
-      p.broll.push({ id: uid(), kind: 'card', start: +Math.max(0, start).toFixed(2), dur: 2, text: t.text, sub: t.sub, motion: t.motion, query: t.query, bg: 'cat', textSize: 1 });
+      p.broll.push({ id: uid(), kind: 'card', layout: t.layout || 'title', start: +Math.max(0, start).toFixed(2), dur: t.layout === 'list' ? 3 : 2, text: t.text, sub: t.sub, motion: t.motion, query: t.query, bg: 'cat', textSize: 1 });
     }
     S.selBroll = p.broll[0] && p.broll[0].id;
     changed({ panel: true });
@@ -841,6 +846,11 @@
     $('#h-ok', m).onclick = closeModal;
   };
 
+  // API interne condivise con wizard.js e trend.js
+  window.VRS_APP = { S, engine, go, api, uploadFile, waitJob, toast, modal, closeModal, changed, addFiles, enhance, transcribe,
+    generateBroll, useTrack, uploadTrack, addTrack, saveProject, newProject, applyCategory, applyText, renderBin, renderPanel, renderTimeline,
+    cat, fmt, esc, uid, fitPreview, srcItem, setupDrop, openSettings };
+
   // ================= AVVIO =================
   (async function init() {
     try {
@@ -850,6 +860,6 @@
     engine.audio && document.addEventListener('pointerdown', () => { const ac = engine.audio(); ac.resume(); engine.sfxBus.gain.value = S.settings.sfxVol; }, { once: true });
     if (document.fonts) document.fonts.ready.then(() => engine.requestDraw());
     renderDash();
-    window.VRS_APP = { S, engine, go }; // debug
+    if (VRS.onAppReady) VRS.onAppReady();
   })();
 })();

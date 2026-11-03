@@ -11,7 +11,8 @@
   const gradColors = (g) => (String(g).match(/#[0-9a-f]{6}/gi) || ['#222222', '#444444']);
 
   class Engine {
-    constructor(canvas) {
+    constructor(canvas, opts = {}) {
+      this.opts = opts; // {silent, loop} per le anteprime
       this.canvas = canvas;
       this.ctx = canvas.getContext('2d');
       this.project = null;
@@ -70,7 +71,7 @@
     }
     pages() {
       if (this._pages) return this._pages;
-      const words = this.timelineWords(), max = this.project.captions.maxWords || 3, pages = [];
+      const words = this.timelineWords(), max = this.project.captions.style === 'single' ? 1 : (this.project.captions.maxWords || 3), pages = [];
       let cur = null;
       words.forEach((w, i) => {
         const prev = words[i - 1];
@@ -107,10 +108,13 @@
       } else {
         el = document.createElement('video');
         el.src = url; el.preload = 'auto'; el.playsInline = true; el.crossOrigin = 'anonymous';
-        el.muted = !!opts.muted;
+        el.muted = !!opts.muted || !!this.opts.silent;
+        let holder = document.getElementById('vrs-media-holder');
+        if (!holder) { holder = document.createElement('div'); holder.id = 'vrs-media-holder'; holder.style.cssText = 'position:fixed;left:0;top:0;width:2px;height:2px;overflow:hidden;opacity:0;pointer-events:none'; document.body.appendChild(holder); }
+        el.setAttribute('playsinline', ''); el.setAttribute('webkit-playsinline', ''); holder.appendChild(el);
         el.addEventListener('loadeddata', () => { m.ready = true; this.requestDraw(); });
         el.addEventListener('seeked', () => this.requestDraw());
-        if (!opts.muted) this._routeAudio(el, key);
+        if (!el.muted) this._routeAudio(el, key);
       }
       m = { el, kind, url, ready: false };
       this.media.set(key, m);
@@ -118,7 +122,7 @@
     }
     disposeMedia(key) {
       const m = this.media.get(key); if (!m) return;
-      if (m.kind === 'video') { m.el.pause(); m.el.removeAttribute('src'); m.el.load(); }
+      if (m.kind === 'video') { m.el.pause(); m.el.removeAttribute('src'); m.el.load(); m.el.remove(); }
       if (m.gain) m.gain.disconnect();
       this.media.delete(key);
     }
@@ -221,7 +225,7 @@
     // ---------- trasporto ----------
     async play() {
       if (!this.project || !this.duration) return;
-      const ac = this.audio(); if (ac.state === 'suspended') await ac.resume();
+      if (!this.opts.silent) { const ac = this.audio(); if (ac.state === 'suspended') await ac.resume(); }
       if (this.t >= this.duration - 0.05) this.t = 0;
       this.playing = true;
       this._clock = performance.now() - this.t * 1000;
@@ -290,7 +294,9 @@
       }
     }
 
+    destroy() { this._dead = true; this.playing = false; for (const k of [...this.media.keys()]) this.disposeMedia(k); }
     _raf(now) {
+      if (this._dead) return;
       requestAnimationFrame(this._raf);
       if (!this.project) return;
       if (this.playing) {
@@ -305,6 +311,7 @@
             else if (m.el.readyState < 3) { this._clock += 16; t = (now - this._clock) / 1000; } // buffering: aspetta
           }
         }
+        if (t >= this.duration && this.opts.loop) { this.t = 0; this._clock = now; this._prevT = 0; this._dirty = true; this.draw(0); return; }
         if (t >= this.duration) { this.t = this.duration; this.pause(); this.emit('time', this.t); this.emit('ended'); return; }
         // effetti sonori
         for (const e of this._events || (this._events = this.events())) if (e.t > this._prevT && e.t <= t) this.sfx(e.type);
@@ -365,7 +372,8 @@
         scale = 1 + 0.08 * I * (dir > 0 ? e : 1 - e);
         if (s.clip.kind === 'image') x = 0.02 * I * (idx % 3 === 0 ? e - 0.5 : idx % 3 === 1 ? 0.5 - e : 0);
       }
-      if (mode === 'dinamico') {
+      if (mode === 'push') scale = 1 + 0.12 * I * easeInOut(u);
+      if (mode === 'dinamico' || mode === 'impact') {
         scale = Math.max(scale, 1 + 0.03 * I * u);
         // punch-in alternati sull'inizio di ogni frase
         const pages = this.pages().filter((pg) => pg.t0 >= s.start - 0.01 && pg.t0 < s.end);
@@ -374,12 +382,16 @@
         else { const step = 2.2; k = Math.floor((t - s.start) / step); since = (t - s.start) % step; }
         if (k >= 0 && k % 2 === 1) scale += 0.12 * I * easeOut(clamp(since / 0.14));
         else if (k >= 0 && k > 0) scale += 0.12 * I * (1 - easeOut(clamp(since / 0.14)));
+        if (mode === 'impact' && k >= 0 && since < 0.3) {
+          const a = (1 - since / 0.3) * 0.012 * I;
+          x += Math.sin(since * 90) * a; y += Math.cos(since * 70) * a;
+        }
       }
       return { scale, x, y };
     }
     transitionFx(t) {
       const p = this.project, tr = p.motion.transition, D = p.motion.transDur || 0.35;
-      const out = { scale: 1, x: 0, y: 0, blur: 0, black: 0 };
+      const out = { scale: 1, x: 0, y: 0, blur: 0, black: 0, white: 0 };
       if (tr === 'cut') return out;
       const { segs } = this.layout();
       for (let i = 1; i < segs.length; i++) {
@@ -391,6 +403,8 @@
         if (tr === 'zoom') { out.scale = 1 + 0.45 * k * k; out.blur = 14 * k; }
         if (tr === 'slide') { out.y = -sign * 0.12 * k * k; out.blur = 10 * k; out.black = 0.25 * k; }
         if (tr === 'whip') { out.x = -sign * 0.22 * k * k; out.blur = 22 * k; }
+        if (tr === 'flash') { out.white = Math.pow(k, 1.5); out.scale = 1 + 0.06 * k; }
+        if (tr === 'spin') { out.scale = 1 + 0.3 * k * k; out.blur = 16 * k; out.rot = -sign * 0.35 * k * k; }
       }
       return out;
     }
@@ -408,6 +422,7 @@
       const [sw, sh] = this.mediaSize(m);
       ctx.save();
       ctx.filter = this.filterString(tr.blur);
+      if (tr.rot) { ctx.translate(W / 2, H / 2); ctx.rotate(tr.rot); ctx.translate(-W / 2, -H / 2); }
       if (sw) this.drawCover(m.el, sw, sh, { scale: mo.scale * tr.scale, x: mo.x + tr.x, y: mo.y + tr.y, fit: s.clip.fit });
       ctx.restore();
 
@@ -416,6 +431,7 @@
 
       this.drawLook();
       if (tr.black > 0.001) { ctx.fillStyle = `rgba(0,0,0,${tr.black})`; ctx.fillRect(0, 0, W, H); }
+      if (tr.white > 0.001) { ctx.fillStyle = `rgba(255,255,255,${tr.white})`; ctx.fillRect(0, 0, W, H); }
       if (p.captions.enabled) this.drawCaptions(t);
       if (p.watermark.enabled) this.drawWatermark();
     }
@@ -520,6 +536,7 @@
       ctx.restore();
     }
     _brollText(b, u, sc, dy, cat) {
+      if (b.layout && b.layout !== 'title') return this._brollLayout(b, u, dy, cat);
       const ctx = this.ctx, W = this.W, H = this.H;
       const dark = b.kind !== 'media' && b.bg === 'light';
       const color = b.textColor || (dark ? '#111' : '#fff');
@@ -580,6 +597,7 @@
       const p = this.project, C = p.captions, ctx = this.ctx, W = this.W, H = this.H;
       const page = this.pages().find((pg) => t >= pg.t0 - 0.03 && t < pg.end);
       if (!page) return;
+      if (['single', 'typewriter', 'minimal'].includes(C.style)) return this._drawCaptionsAlt(t, page);
       const style = VRS.CAPTION_STYLES.find((s) => s.id === C.style) || VRS.CAPTION_STYLES[0];
       const size = 76 * (C.size || 1) * (W / 1080);
       ctx.save();
@@ -649,6 +667,113 @@
       });
       ctx.restore();
     }
+    // stili caption alternativi: parola singola, macchina da scrivere, minimal
+    _drawCaptionsAlt(t, page) {
+      const C = this.project.captions, ctx = this.ctx, W = this.W, H = this.H;
+      const style = VRS.CAPTION_STYLES.find((s) => s.id === C.style);
+      const accent = C.accent || '#ffd400', base = C.color || '#fff';
+      const pageIn = clamp((t - page.t0) / 0.14), pageOut = clamp((page.end - t) / 0.12);
+      ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const y = H * C.position;
+      if (C.style === 'single') {
+        // una parola alla volta, grande, pop centrale; parole lunghe/chiave in colore
+        const w = page.words[0], word = C.uppercase !== false ? w.w.toUpperCase() : w.w;
+        let size = 150 * (C.size || 1) * (W / 1080);
+        ctx.font = style.font.replace('{s}', size.toFixed(1));
+        const mw = ctx.measureText(word).width;
+        if (mw > W * 0.86) { size *= (W * 0.86) / mw; ctx.font = style.font.replace('{s}', size.toFixed(1)); }
+        const k = clamp((t - w.t0) / 0.18), sc = 0.5 + 0.5 * backOut(k);
+        const key = word.replace(/[^\p{L}\p{N}]/gu, '').length >= 7 || /\d/.test(word);
+        ctx.globalAlpha = Math.min(clamp((t - w.t0) / 0.06), pageOut);
+        ctx.translate(W / 2, y); ctx.scale(sc, sc); ctx.rotate((1 - k) * -0.06);
+        ctx.lineJoin = 'round'; ctx.lineWidth = size * 0.14; ctx.strokeStyle = '#000'; ctx.strokeText(word, 0, 0);
+        ctx.shadowColor = 'rgba(0,0,0,.4)'; ctx.shadowBlur = 20;
+        ctx.fillStyle = key ? accent : base; ctx.fillText(word, 0, 0);
+      } else if (C.style === 'typewriter') {
+        // lettere che compaiono una alla volta su box scuro
+        const size = 60 * (C.size || 1) * (W / 1080);
+        ctx.font = style.font.replace('{s}', size.toFixed(1));
+        const full = page.words.map((w) => (C.uppercase ? w.w.toUpperCase() : w.w)).join(' ');
+        const dur = Math.max(0.15, Math.min(page.t1 - page.t0, full.length * 0.045));
+        const n = Math.floor(full.length * clamp((t - page.t0) / dur));
+        const lines = this._wrap(full, W * 0.78), lh = size * 1.35;
+        let shown = n, y0 = y - (lines.length - 1) * lh / 2;
+        ctx.globalAlpha = pageOut;
+        lines.forEach((line, i) => {
+          const part = line.slice(0, Math.max(0, shown)); shown -= line.length + 1;
+          const lw = ctx.measureText(line).width, pad = size * 0.3;
+          ctx.fillStyle = 'rgba(0,0,0,.72)';
+          this._roundRect(W / 2 - lw / 2 - pad, y0 + i * lh - size * 0.68, lw + pad * 2, size * 1.36, size * 0.18); ctx.fill();
+          ctx.textAlign = 'left'; ctx.fillStyle = base;
+          ctx.fillText(part, W / 2 - lw / 2, y0 + i * lh);
+          if (shown <= 0 && shown > -line.length - 1 && Math.floor(t * 2.5) % 2 === 0) {
+            ctx.fillStyle = accent; ctx.fillRect(W / 2 - lw / 2 + ctx.measureText(part).width + 4, y0 + i * lh - size * 0.45, size * 0.08, size * 0.9);
+          }
+        });
+      } else {
+        // minimal: minuscolo, piccolo, elegante, dissolvenza morbida
+        const size = 52 * (C.size || 1) * (W / 1080);
+        ctx.font = style.font.replace('{s}', size.toFixed(1));
+        const full = page.words.map((w) => w.w.toLowerCase()).join(' ');
+        const lines = this._wrap(full, W * 0.8), lh = size * 1.3;
+        ctx.globalAlpha = Math.min(easeOut(pageIn), pageOut);
+        ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 10;
+        ctx.fillStyle = base;
+        lines.forEach((l, i) => ctx.fillText(l, W / 2, y - (lines.length - 1) * lh / 2 + i * lh + (1 - easeOut(pageIn)) * 10));
+      }
+      ctx.restore();
+    }
+
+    // layout B-roll: numero/statistica, citazione, lista
+    _brollLayout(b, u, dy, cat) {
+      const ctx = this.ctx, W = this.W, H = this.H;
+      const dark = b.kind !== 'media' && b.bg === 'light';
+      const color = b.textColor || (dark ? '#111' : '#fff');
+      const accent = b.kind === 'media' ? cat.accent : (dark ? '#111' : '#fff');
+      const S = b.textSize || 1, cy = H * 0.5 + dy * H;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      if (b.layout === 'stat') {
+        const m = /([\d.,]+)/.exec(b.text || '');
+        const num = m ? parseFloat(m[1].replace(/\./g, '').replace(',', '.')) : 0;
+        const k = easeOut(clamp((u - 0.1) / 0.9));
+        const shown = m ? (b.text || '').replace(m[1], (Number.isInteger(num) ? Math.round(num * k) : (num * k).toFixed(1)).toLocaleString('it-IT')) : b.text;
+        let size = 230 * S; ctx.font = `900 ${size}px Montserrat, Arial, sans-serif`;
+        const mw = ctx.measureText(shown).width; if (mw > W * 0.88) { size *= W * 0.88 / mw; ctx.font = `900 ${size}px Montserrat, Arial, sans-serif`; }
+        ctx.fillStyle = color; if (b.kind === 'media') { ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 30; }
+        ctx.save(); ctx.translate(W / 2, cy - 40); const s0 = 0.8 + 0.2 * backOut(clamp(u / 0.35)); ctx.scale(s0, s0); ctx.fillText(shown, 0, 0); ctx.restore();
+        if (b.sub) {
+          const kk = easeOut(clamp((u - 0.5) / 0.4));
+          ctx.globalAlpha *= kk; ctx.font = `700 ${54 * S}px Manrope, Inter, sans-serif`;
+          this._wrap(b.sub, W * 0.8).forEach((l, i) => ctx.fillText(l, W / 2, cy + size * 0.55 + i * 64 * S + (1 - kk) * 20));
+        }
+      } else if (b.layout === 'quote') {
+        const k = easeOut(clamp(u / 0.4));
+        ctx.font = `italic 700 ${320 * S}px Georgia, "Times New Roman", serif`;
+        ctx.globalAlpha *= 0.35 * k; ctx.fillStyle = accent; ctx.fillText('“', W / 2, cy - 330 * S);
+        ctx.globalAlpha /= 0.35;
+        ctx.font = `italic 600 ${82 * S}px Georgia, "Times New Roman", serif`; ctx.fillStyle = color;
+        if (b.kind === 'media') { ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 24; }
+        const lines = this._wrap(b.text || '', W * 0.78), lh = 100 * S;
+        lines.forEach((l, i) => { const kk = easeOut(clamp((u - 0.1 - i * 0.12) / 0.4)); ctx.globalAlpha = kk; ctx.fillText(l, W / 2, cy - (lines.length - 1) * lh / 2 + i * lh + (1 - kk) * 24); });
+        if (b.sub) { const kk = easeOut(clamp((u - 0.5) / 0.4)); ctx.globalAlpha = kk; ctx.font = `700 ${40 * S}px Manrope, Inter, sans-serif`; ctx.fillText('— ' + b.sub, W / 2, cy + (lines.length + 1) * lh / 2 + 30); }
+      } else if (b.layout === 'list') {
+        const items = String(b.text || '').split(/\s*[|\n]\s*/).filter(Boolean);
+        if (b.sub) { ctx.font = `900 ${84 * S}px Montserrat, Arial, sans-serif`; ctx.fillStyle = color; ctx.fillText(b.sub.toUpperCase(), W / 2, H * 0.28); }
+        const step = Math.max(0.25, Math.min(0.6, (b.dur - 0.6) / Math.max(1, items.length)));
+        ctx.textAlign = 'left'; ctx.font = `700 ${62 * S}px Manrope, Inter, sans-serif`;
+        items.forEach((it, i) => {
+          const kk = easeOut(clamp((u - 0.2 - i * step) / 0.3)), yy = H * 0.4 + i * 120 * S;
+          ctx.globalAlpha = kk;
+          ctx.fillStyle = b.kind === 'media' ? cat.accent : (dark ? '#111' : 'rgba(255,255,255,.95)');
+          this._roundRect(W * 0.1 + (1 - kk) * -60, yy - 42 * S, 84 * S, 84 * S, 22 * S); ctx.fill();
+          ctx.fillStyle = b.kind === 'media' ? '#111' : (dark ? '#fff' : '#111'); ctx.textAlign = 'center';
+          ctx.fillText(String(i + 1), W * 0.1 + 42 * S + (1 - kk) * -60, yy + 2);
+          ctx.textAlign = 'left'; ctx.fillStyle = color;
+          ctx.fillText(it, W * 0.1 + 110 * S + (1 - kk) * -60, yy + 2);
+        });
+      }
+    }
+
     drawWatermark() {
       const wm = this.project.watermark, ctx = this.ctx, W = this.W, H = this.H;
       const img = wm.variant === 'black' ? this.logo.black : this.logo.white;

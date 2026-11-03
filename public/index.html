@@ -2,7 +2,14 @@
 <html lang="it">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c18" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Vels Reel" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/assets/icon-512.png" />
   <title>Vels Reel Studio</title>
   <link rel="icon" href="/assets/logo-white.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,12 +28,15 @@
       </div>
       <nav class="pillnav" id="nav">
         <span class="pillnav-dot"></span>
-        <button data-view="dash" class="active">Dashboard</button>
-        <button data-view="editor">Editor</button>
+        <button data-view="dash" class="active">Home</button>
+        <button data-view="crea">Crea</button>
+        <button data-view="trend">Trend</button>
+        <button data-view="editor">Editor pro</button>
         <button data-view="music">Musica</button>
         <button data-view="exports">Export</button>
       </nav>
       <div class="top-actions">
+        <button class="icon-btn" id="btn-phone" title="Usa dal telefono">📱</button>
         <button class="icon-btn" id="btn-settings" title="Impostazioni">⚙</button>
         <button class="icon-btn" id="btn-help" title="Guida rapida">?</button>
         <div class="avatar"><img src="/assets/logo-white.png" alt="" /></div>
@@ -89,6 +99,34 @@
           <div class="recent-list" id="recent-list"></div>
         </section>
       </div>
+    </main>
+
+    <!-- ============ CREA (percorso guidato) ============ -->
+    <main class="view" id="view-crea">
+      <div class="wiz-head">
+        <input class="title-input" id="wiz-title" value="Nuovo reel" />
+        <span class="chip" id="wiz-cat"></span>
+        <div class="wiz-prog"><div class="big-prog"><i id="wiz-prog"></i></div><span class="muted small" id="wiz-prog-t">0/8</span></div>
+      </div>
+      <div class="wiz">
+        <div class="wiz-steps" id="wiz-steps"></div>
+        <aside class="wiz-stage">
+          <div class="phone wiz-phone" id="wiz-phone"><div class="phone-notch"></div></div>
+          <div class="transport">
+            <button class="play-btn" id="wiz-play">▶</button>
+            <input type="range" id="wiz-scrub" min="0" max="1000" value="0" />
+            <span class="timecode" id="wiz-time">00:00.0 / 00:00.0</span>
+            <button class="icon-btn sm only-mobile" id="wiz-collapse" title="Riduci anteprima">⇕</button>
+          </div>
+          <button class="link" id="wiz-pro">Apri l’Editor pro (timeline) ›</button>
+        </aside>
+      </div>
+    </main>
+
+    <!-- ============ TREND ============ -->
+    <main class="view" id="view-trend">
+      <h1 class="page-title">Trend & Ricerca</h1>
+      <div class="trend-root" id="trend-root"></div>
     </main>
 
     <!-- ============ EDITOR ============ -->
@@ -198,8 +236,11 @@
   <div class="modal" id="modal"><div class="modal-card" id="modal-card"></div></div>
   <div class="toasts" id="toasts"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
   <script src="/js/data.js"></script>
   <script src="/js/engine.js"></script>
+  <script src="/js/wizard.js"></script>
+  <script src="/js/trend.js"></script>
   <script src="/js/app.js"></script>
 </body>
 </html>
