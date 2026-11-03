@@ -299,14 +299,14 @@ const S9236: React.FC = () => {
 const S9239: React.FC = () => {
   const f = useCurrentFrame();
   const L = (w: string, n = 0) => atLocal('9239', w, n);
-  const back = L('perché') - 2;
+  const back = L('perché') + 6;
   const pIn = interpolate(f, [0, 7], [0, 1], {...clamp, easing: ease});
   const pBack = interpolate(f, [back - 8, back], [1, 0], {...clamp, easing: Easing.in(Easing.cubic)});
   const p = Math.min(pIn, pBack);
   const card = {x: (W - 600) / 2, y: 330, w: 600, h: 750};
-  const click = L('straordinario') + 10;
-  const cursorX = interpolate(f, [click - 12, click], [900, 700], {...clamp, easing: Easing.out(Easing.cubic)});
-  const cursorY = interpolate(f, [click - 12, click], [1700, 1555], {...clamp, easing: Easing.out(Easing.cubic)});
+  const click = L('straordinario') + 7;
+  const cursorX = interpolate(f, [click - 12, click], [860, 600], {...clamp, easing: Easing.out(Easing.cubic)});
+  const cursorY = interpolate(f, [click - 12, click], [1520, 1290], {...clamp, easing: Easing.out(Easing.cubic)});
   const press = f >= click && f < click + 3 ? 0.85 : 1;
   const pill = interpolate(f, [click, click + 5], [0, 1], {...clamp, easing: Easing.out(Easing.back(2))});
   return (

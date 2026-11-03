@@ -129,10 +129,10 @@ const ticks = (from: number, to: number, vol = 0.08) => {
   add('boom_sub', at('9236', 'fermeremo'), 0.6);
   // 9239
   add('low_whoosh', s['9239'], 0.35);
-  const click = at('9239', 'straordinario') + 10;
+  const click = at('9239', 'straordinario') + 7;
   add('click_secco', click, 0.4);
   add('swoosh_brillante', click + 2, 0.3);
-  add('short_whoosh', at('9239', 'perché') - 6, 0.3);
+  add('short_whoosh', at('9239', 'perché') + 2, 0.3);
   add('short_whoosh', at('9239', 'cittadini'), 0.3);
   // 9241
   add('click_secco', s['9241'], 0.25);
