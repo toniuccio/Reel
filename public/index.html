@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vels Reel Studio</title>
+  <link rel="icon" href="/assets/logo-white.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="app">
+    <!-- Barra superiore -->
+    <header class="topbar">
+      <div class="brand">
+        <img src="/assets/logo-white.png" alt="Vell's" class="brand-logo" />
+        <div class="brand-text"><b>Reel Studio</b><span>by Vell's</span></div>
+      </div>
+      <nav class="pillnav" id="nav">
+        <span class="pillnav-dot"></span>
+        <button data-view="dash" class="active">Dashboard</button>
+        <button data-view="editor">Editor</button>
+        <button data-view="music">Musica</button>
+        <button data-view="exports">Export</button>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-btn" id="btn-settings" title="Impostazioni">⚙</button>
+        <button class="icon-btn" id="btn-help" title="Guida rapida">?</button>
+        <div class="avatar"><img src="/assets/logo-white.png" alt="" /></div>
+      </div>
+    </header>
+
+    <!-- ============ DASHBOARD ============ -->
+    <main class="view active" id="view-dash">
+      <h1 class="page-title">Il mio Studio</h1>
+      <div class="dash-grid">
+        <section class="card hero">
+          <div class="hero-top">
+            <span class="card-label">Nuovo reel</span>
+            <span class="chip dark" id="hero-status">FFmpeg …</span>
+          </div>
+          <h2>Dai video grezzi al reel virale,<br />in pochi clic.</h2>
+          <p class="muted-dark">Carica le clip, scegli lo stile: sottotitoli, B-roll, zoom, filtri, musica e ducking li gestisce lo studio.</p>
+          <div class="hero-actions">
+            <label class="btn btn-black">
+              <input type="file" id="hero-upload" multiple accept="video/*,image/*" hidden />
+              ⬆ Carica video
+            </label>
+            <button class="btn btn-white" id="hero-new">Nuovo progetto <span class="btn-ico">＋</span></button>
+          </div>
+          <div class="hero-shape"></div>
+        </section>
+
+        <section class="card stat">
+          <span class="card-label">Progetti</span>
+          <div class="stat-num" id="stat-projects">0</div>
+          <span class="muted small">salvati in locale</span>
+          <span class="badge green" id="stat-projects-badge">attivo</span>
+        </section>
+        <section class="card stat">
+          <span class="card-label">Reel esportati</span>
+          <div class="stat-num" id="stat-exports">0</div>
+          <span class="muted small">pronti per IG & TikTok</span>
+          <span class="badge purple">MP4 1080p</span>
+        </section>
+
+        <section class="card wallet">
+          <div class="row-between"><span class="card-label">Le mie categorie <sup>5</sup></span></div>
+          <div class="wallet-stack" id="wallet"></div>
+          <div class="wallet-info" id="wallet-info"></div>
+        </section>
+
+        <section class="card cats">
+          <div class="row-between"><span class="card-label">Scegli il format</span><span class="chip">5 stili</span></div>
+          <div class="cat-grid" id="cat-grid"></div>
+        </section>
+
+        <section class="card trends">
+          <div class="row-between"><span class="card-label">Audio di tendenza</span><button class="link" data-goto="music">Gestisci ›</button></div>
+          <div class="src-icons" id="src-icons"></div>
+          <div class="src-list" id="src-list"></div>
+        </section>
+
+        <section class="card recent">
+          <div class="row-between"><span class="card-label">Progetti recenti <sup id="recent-count">0</sup></span><button class="link" id="btn-refresh">Aggiorna</button></div>
+          <div class="recent-list" id="recent-list"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ============ EDITOR ============ -->
+    <main class="view" id="view-editor">
+      <div class="editor-head">
+        <input class="title-input" id="proj-name" value="Nuovo reel" />
+        <span class="chip" id="proj-cat-chip"></span>
+        <div class="grow"></div>
+        <select id="proj-format" class="select small">
+          <option value="9:16">9:16 Reel</option><option value="4:5">4:5 Feed</option><option value="1:1">1:1 Quadrato</option>
+        </select>
+        <button class="btn btn-ghost" id="btn-save">💾 Salva</button>
+        <button class="btn btn-lime" id="btn-export">Esporta MP4 ↗</button>
+      </div>
+      <div class="editor">
+        <!-- media bin -->
+        <aside class="card bin">
+          <div class="row-between"><span class="card-label">Media</span>
+            <label class="btn-mini"><input type="file" id="bin-upload" multiple accept="video/*,image/*" hidden />＋ Aggiungi</label>
+          </div>
+          <div class="dropzone" id="dropzone"><b>Trascina qui</b><span>video e foto · uno o più</span></div>
+          <div class="clip-list" id="clip-list"></div>
+          <div class="hint">Trascina per riordinare. Clicca una clip per tagliarla e correggerla.</div>
+        </aside>
+
+        <!-- anteprima -->
+        <section class="stage">
+          <div class="phone"><canvas id="preview"></canvas><div class="phone-notch"></div></div>
+          <div class="transport">
+            <button class="icon-btn" id="btn-back" title="Inizio">⏮</button>
+            <button class="play-btn" id="btn-play">▶</button>
+            <span class="timecode" id="timecode">00:00.0 / 00:00.0</span>
+            <span class="duck-meter" title="Ducking musica"><i id="duck-bar"></i></span>
+          </div>
+        </section>
+
+        <!-- pannello controlli -->
+        <aside class="card inspector">
+          <div class="tabs" id="tabs">
+            <button data-tab="stile" class="active">Stile</button>
+            <button data-tab="testi">Testi</button>
+            <button data-tab="broll">B-roll</button>
+            <button data-tab="movimento">Zoom</button>
+            <button data-tab="look">Look</button>
+            <button data-tab="audio">Audio</button>
+          </div>
+          <div class="panel" id="panel"></div>
+        </aside>
+      </div>
+
+      <!-- timeline -->
+      <section class="card timeline">
+        <div class="tl-head">
+          <span class="card-label">Timeline</span>
+          <div class="grow"></div>
+          <span class="muted small">Zoom</span><input type="range" id="tl-zoom" min="20" max="200" value="60" />
+        </div>
+        <div class="tl-body" id="tl-body">
+          <div class="tl-labels"><div>Video</div><div>B-roll</div><div>Testi</div><div>Musica</div></div>
+          <div class="tl-scroll" id="tl-scroll">
+            <div class="tl-inner" id="tl-inner">
+              <div class="tl-ruler" id="tl-ruler"></div>
+              <div class="tl-track" id="tr-video"></div>
+              <div class="tl-track" id="tr-broll"></div>
+              <div class="tl-track" id="tr-text"></div>
+              <div class="tl-track" id="tr-music"></div>
+              <div class="tl-playhead" id="tl-playhead"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ MUSICA ============ -->
+    <main class="view" id="view-music">
+      <h1 class="page-title">Musica & Audio</h1>
+      <div class="music-grid">
+        <section class="card">
+          <span class="card-label">Dove trovare i brani</span>
+          <p class="muted small">Per i diritti d'autore lo studio non può scaricare brani da TikTok/Instagram. Scegli il suono di tendenza dalle classifiche ufficiali (per pubblicarlo usa l'audio direttamente nell'app social) oppure scarica brani liberi e trascinali qui.</p>
+          <div class="src-list big" id="src-list-big"></div>
+        </section>
+        <section class="card">
+          <div class="row-between"><span class="card-label">La mia libreria</span>
+            <label class="btn-mini"><input type="file" id="music-upload" multiple accept="audio/*" hidden />＋ Carica brano</label>
+          </div>
+          <div class="dropzone small" id="music-drop"><b>Trascina mp3 / wav / m4a</b></div>
+          <div class="track-list" id="track-list"></div>
+        </section>
+        <section class="card">
+          <span class="card-label">Mood consigliati per categoria</span>
+          <div class="mood-list" id="mood-list"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ============ EXPORT ============ -->
+    <main class="view" id="view-exports">
+      <h1 class="page-title">I tuoi export</h1>
+      <section class="card">
+        <div class="export-list" id="export-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- modali -->
+  <div class="modal" id="modal"><div class="modal-card" id="modal-card"></div></div>
+  <div class="toasts" id="toasts"></div>
+
+  <script src="/js/data.js"></script>
+  <script src="/js/engine.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
