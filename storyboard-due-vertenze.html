@@ -40,7 +40,7 @@ code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius
 
 /* fotogramma 9:16 */
 .frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#000;container-type:inline-size;box-shadow:0 0 0 1px var(--line)}
-.frame img.bg{position:absolute;width:calc(var(--z,1)*100%);height:calc(var(--z,1)*100%);left:calc(var(--ox,0)*-100%);top:calc(var(--oy,0)*-100%);object-fit:cover}
+.frame img.bg{position:absolute;max-width:none;max-height:none;width:calc(var(--z,1)*100%);height:calc(var(--z,1)*100%);left:calc(var(--ox,0)*-100%);top:calc(var(--oy,0)*-100%);object-fit:cover}
 .frame .badge{position:absolute;top:2.5cqw;left:2.5cqw;font-family:var(--f-mono);font-size:3.2cqw;background:rgba(0,0,0,.55);color:#fff;padding:.6cqw 1.6cqw;border-radius:2cqw;z-index:3}
 .frame.white{background:#F4F4F2}
 .frame.black{background:#000}
