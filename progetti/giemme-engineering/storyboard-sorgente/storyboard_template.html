@@ -105,7 +105,7 @@ body.graf{--paper:#16171A;--ink:#ECEBE7;--gl:rgba(255,255,255,.07);--gl2:rgba(25
 .lbl small{color:#8a8a86;font-size:.85em}
 
 /* timbro */
-.stamp{position:absolute;transform:translate(-50%,-50%) rotate(-9deg);font-weight:800;font-size:9cqw;letter-spacing:.04em;color:var(--red);border:1.1cqw solid var(--red);border-radius:2cqw;padding:1cqw 3.5cqw;opacity:.92;white-space:nowrap}
+.stamp{position:absolute;transform:translate(-50%,-50%) rotate(-9deg);font-weight:800;font-size:11cqw;letter-spacing:.04em;color:var(--red);border:1.1cqw solid var(--red);border-radius:2cqw;padding:1cqw 3.5cqw;opacity:.92;white-space:nowrap}
 .stamp i{position:absolute;left:-6%;right:-6%;top:50%;height:1.6cqw;background:var(--ink);transform:rotate(-4deg)}
 
 /* lavagna 3 passi */
@@ -115,15 +115,17 @@ body.graf{--paper:#16171A;--ink:#ECEBE7;--gl:rgba(255,255,255,.07);--gl2:rgba(25
 .st.on{background:var(--red);color:#fff}
 .st.done{color:var(--ink)}
 .st.done::after{content:"✓";color:var(--ok);margin-left:auto}
-.node{position:absolute;left:6%;display:flex;align-items:center;gap:2cqw;font-weight:700;font-size:4.4cqw;color:var(--ink)}
-.node svg{width:12cqw;height:12cqw;border-radius:50%;background:var(--f1);outline:.35cqw dashed var(--ink);outline-offset:.8cqw;padding:1cqw;box-sizing:border-box}
-.node.r{left:auto;right:6%;flex-direction:row-reverse}
+.node{position:absolute;left:5%;display:flex;align-items:center;gap:2.2cqw;font-weight:700;font-size:4.8cqw;color:var(--ink)}
+.tile{position:absolute;width:38%;display:grid;justify-items:center;gap:1.6cqw;font-weight:800;font-size:5.6cqw;letter-spacing:-.02em;color:var(--ink)}
+.tile svg{width:24cqw;height:24cqw;border-radius:50%;background:var(--f1);outline:.4cqw dashed var(--ink);outline-offset:1.4cqw;padding:3cqw;box-sizing:border-box}
+.node svg{width:13cqw;height:13cqw;border-radius:50%;background:var(--f1);outline:.35cqw dashed var(--ink);outline-offset:.8cqw;padding:1cqw;box-sizing:border-box}
+.node.r{left:auto;right:5%;flex-direction:row-reverse}
 .node.r svg{border-radius:0;outline:none;background:transparent;padding:0}
 .links{position:absolute;inset:0;width:100%;height:100%}
-.shield{position:absolute;left:32%;top:30%;width:36%}
+.shield{position:absolute;left:30%;top:28%;width:40%}
 .gauge{position:absolute;left:23%;top:61%;width:54%;filter:drop-shadow(0 .6cqw 2cqw rgba(0,0,0,.4))}
 .art{position:absolute}
-.wk{position:absolute;width:8.6cqw}
+.wk{position:absolute;width:13cqw}
 .wk.on{filter:drop-shadow(0 0 1.4cqw rgba(229,2,16,.45))}
 .arrow{position:absolute;left:38%;top:66%;transform:translateX(-50%);font-weight:800;font-size:12cqw;color:#fff;text-shadow:0 0 2cqw rgba(229,2,16,.9)}
 

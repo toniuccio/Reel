@@ -26,6 +26,7 @@ Se il repository è disponibile, riparti da lì invece di riscrivere da zero.
 - **Colore del brand sulle scritte**: mai pieno sui toni scuri. La parola chiave nasce colorata e **si accende**: nucleo chiaro con il bagliore del colore intorno. Il colore pieno va bene solo sul bianco.
 - **Transizioni**: slide veloci, zoom e film burn **leggero**, mai esagerati. Niente speed ramp sul parlato, niente dissolvenze generiche.
 - **Logo**: piccolo, compare solo quando il soggetto nomina il partito o il brand. In chiusura niente nome e niente logo, salvo richiesta.
+- **Grafiche ed esempi (b-roll)**: quando il soggetto fa esempi o elenca concetti, le scene sono solo grafica e il soggetto compare **solo ogni tanto** (una card o un cerchio, non in ogni scena). Le grafiche riempiono la zona utile con **equilibrio**, senza grandi vuoti bianchi ma ordinate: elementi grandi, distribuiti dall'alto fino al limite del 20% basso.
 - **Anteprime HTML**: sulle immagini dei fotogrammi metti `max-width:none`, altrimenti la pagina pubblicata le taglia e compare una fascia nera.
 
 ## Testi
