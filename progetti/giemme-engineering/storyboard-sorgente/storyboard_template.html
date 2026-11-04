@@ -1,0 +1,187 @@
+<title>Storyboard Giemme DVR</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700;800&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tavolo di montaggio scuro (come lo storyboard "Due vertenze"), una riga per scena:
+   fotogramma 9:16 a sinistra, note di regia a destra. Pagina volutamente solo scura. */
+:root{
+  --bg:#121315; --panel:#1a1b1e; --line:#2b2d32; --fg:#ECEBE7; --muted:#9a9ca3; --cut:#F2C14E;
+  --red:#E50210; --paper:#F4F4F2; --ink:#1A1A1E; --ok:#1F9D55;
+  --f-ui:"Inter Tight",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --f-serif:"Instrument Serif","Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-ui);font-size:15px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding-block:40px 96px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:grid;gap:12px;margin-bottom:28px}
+.kicker{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.05;letter-spacing:-.03em;margin:0;font-weight:800;text-wrap:balance}
+h1 em{font-family:var(--f-serif);font-weight:400;letter-spacing:0;color:#FFF4F2;text-shadow:0 0 18px rgba(229,2,16,.9),0 0 42px rgba(229,2,16,.55)}
+h2{font-size:22px;letter-spacing:-.02em;margin:0 0 14px;font-weight:700;text-wrap:balance}
+h3{font-size:19px;margin:0;letter-spacing:-.01em}
+p.lead{color:var(--muted);max-width:65ch;margin:0}
+section{margin-top:52px}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.fact{font-family:var(--f-mono);font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--fg)}
+.fact b{color:var(--cut);font-weight:500}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.rule{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.rule b{display:block;margin-bottom:4px}
+.rule span{color:var(--muted);font-size:14px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+
+/* lettore della voce montata */
+.player{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(18,19,21,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.player audio{flex:1 1 260px;min-width:0;height:36px}
+.player .now{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:0}
+button{font:inherit;cursor:pointer}
+.play,.hookbtn{font-family:var(--f-mono);font-size:12px;background:transparent;color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.play:hover,.hookbtn:hover{border-color:var(--red)}
+.play:focus-visible,.hookbtn:focus-visible{outline:2px solid var(--cut);outline-offset:2px}
+.hookbtn{border-color:var(--red);color:#FFF4F2}
+
+/* scene */
+.scene{display:grid;grid-template-columns:270px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--line);align-items:start}
+@media (max-width:640px){.scene{grid-template-columns:1fr}.frame{max-width:300px}}
+.meta{display:grid;gap:10px;min-width:0}
+.tc{font-family:var(--f-mono);font-size:13px;color:var(--cut);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tc span{color:var(--muted)}
+.quote{font-size:18px;line-height:1.4;margin:0;font-weight:500;text-wrap:pretty}
+dl{display:grid;grid-template-columns:104px 1fr;gap:6px 14px;margin:0;font-size:14px}
+dt{color:var(--muted);font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+dd{margin:0;min-width:0}
+dd em{font-family:var(--f-serif);font-size:1.1em}
+code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius:4px;padding:1px 5px;color:#d8d6cf}
+@media (max-width:420px){dl{grid-template-columns:1fr}dt{padding-top:6px}}
+
+/* fotogramma 9:16 */
+.frame{position:relative;width:100%;max-width:100%;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--paper);container-type:inline-size;box-shadow:0 0 0 1px var(--line)}
+.frame img{max-width:none;max-height:none}
+.frame img.bg{position:absolute;object-fit:cover}
+.frame .safe{position:absolute;left:0;right:0;bottom:0;height:20%;border-top:1px dashed rgba(242,193,78,.55);pointer-events:none}
+.grid{position:absolute;inset:0;background-color:var(--paper);
+  background-image:linear-gradient(rgba(26,26,30,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(26,26,30,.07) 1px,transparent 1px),
+  linear-gradient(rgba(26,26,30,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(26,26,30,.035) 1px,transparent 1px);
+  background-size:10cqw 10cqw,10cqw 10cqw,2cqw 2cqw,2cqw 2cqw}
+
+/* testi nello stile parola per parola */
+.words{position:absolute;left:6%;right:6%;text-align:center;font-weight:700;font-size:5.2cqw;line-height:1.15;color:#fff;text-shadow:0 .4cqw 2.2cqw rgba(0,0,0,.45);letter-spacing:-.01em}
+.words.dark{color:var(--ink);text-shadow:none}
+.ser{font-family:var(--f-serif);font-weight:400;font-style:italic;font-size:1.25em;letter-spacing:0}
+.red{color:var(--red)}
+.kw{position:absolute;left:0;right:0;text-align:center;font-weight:800;font-size:19cqw;line-height:1;letter-spacing:-.04em;color:#FFF4F2;
+  text-shadow:0 0 2cqw rgba(229,2,16,.95),0 0 6cqw rgba(229,2,16,.6),0 .5cqw 2.5cqw rgba(0,0,0,.45)}
+.kw.sm{font-size:13cqw;font-family:var(--f-serif);font-weight:400;font-style:italic;letter-spacing:0}
+.tbox{position:absolute;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-weight:800;font-size:8.6cqw;line-height:1.02;letter-spacing:-.03em;padding:3cqw 4.5cqw;border-radius:3cqw;white-space:nowrap;text-align:left}
+.tbox i{font-family:var(--f-serif);font-weight:400;letter-spacing:0;font-size:1.12em}
+.tbox .sq{position:absolute;right:-2cqw;top:-2cqw;width:5cqw;height:5cqw;background:#fff;box-shadow:0 0 0 .8cqw var(--red)}
+.tbox.sm{font-size:5.6cqw;padding:2cqw 3cqw;border-radius:2cqw}
+.tbox.sm .sq{width:3.4cqw;height:3.4cqw;right:-1.4cqw;top:-1.4cqw}
+
+/* card del soggetto */
+.card{position:absolute;border-radius:4cqw;overflow:hidden;box-shadow:0 2cqw 6cqw rgba(26,26,30,.18)}
+.card img,.circ img{width:100%;height:100%;object-fit:cover;display:block}
+.circ{position:absolute;right:6%;top:15%;width:30%;aspect-ratio:1;border-radius:50%;overflow:hidden;outline:.5cqw dashed var(--ink);outline-offset:1.6cqw}
+
+/* etichette con le maniglie */
+.tag{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:2.2cqw;padding:1.8cqw 4cqw;border:.35cqw dashed var(--ink);font-family:var(--f-serif);font-style:italic;font-size:7.4cqw;line-height:1;color:var(--ink);background:rgba(255,255,255,.6);white-space:nowrap}
+.tag b{position:absolute;width:1.6cqw;height:1.6cqw;background:var(--ink)}
+.tag b:nth-of-type(1){left:-1cqw;top:-1cqw}.tag b:nth-of-type(2){right:-1cqw;top:-1cqw}.tag b:nth-of-type(3){left:-1cqw;bottom:-1cqw}.tag b:nth-of-type(4){right:-1cqw;bottom:-1cqw}
+.sq{display:inline-block;width:2.4cqw;height:2.4cqw;background:var(--red);flex:none}
+.ck{width:5.4cqw;height:5.4cqw;flex:none}
+.lbl{position:absolute;font-family:var(--f-mono);font-size:3cqw;color:var(--ink);background:#fff;border:.3cqw solid var(--ink);padding:.6cqw 1.6cqw}
+.lbl small{color:#8a8a86;font-size:.85em}
+
+/* timbro */
+.stamp{position:absolute;transform:translate(-50%,-50%) rotate(-9deg);font-weight:800;font-size:9cqw;letter-spacing:.04em;color:var(--red);border:1.1cqw solid var(--red);border-radius:2cqw;padding:1cqw 3.5cqw;opacity:.92;white-space:nowrap}
+.stamp i{position:absolute;left:-6%;right:-6%;top:50%;height:1.6cqw;background:var(--ink);transform:rotate(-4deg)}
+
+/* lavagna 3 passi */
+.steps{position:absolute;left:6%;top:5%;display:grid;gap:1.6cqw;width:52%}
+.st{display:flex;align-items:center;gap:2.4cqw;font-weight:800;font-size:6cqw;letter-spacing:-.02em;color:#B9B9B4;border-radius:2cqw;padding:1.2cqw 2.6cqw}
+.st em{font-family:var(--f-mono);font-style:normal;font-weight:500;font-size:3.6cqw}
+.st.on{background:var(--red);color:#fff}
+.st.done{color:var(--ink)}
+.st.done::after{content:"✓";color:var(--ok);margin-left:auto}
+.node{position:absolute;left:6%;display:flex;align-items:center;gap:2cqw;font-weight:700;font-size:4.4cqw;color:var(--ink)}
+.node svg{width:12cqw;height:12cqw;border-radius:50%;background:#fff;outline:.35cqw dashed var(--ink);outline-offset:.8cqw;padding:1cqw;box-sizing:border-box}
+.node.r{left:auto;right:6%;flex-direction:row-reverse}
+.node.r svg{border-radius:0;outline:none;background:transparent;padding:0}
+.links{position:absolute;inset:0;width:100%;height:100%}
+.shield{position:absolute;left:32%;top:30%;width:36%}
+.gauge{position:absolute;left:23%;top:61%;width:54%;filter:drop-shadow(0 .6cqw 2cqw rgba(0,0,0,.4))}
+.art{position:absolute}
+.wk{position:absolute;width:8.6cqw}
+.wk.on{filter:drop-shadow(0 0 1.4cqw rgba(229,2,16,.45))}
+.arrow{position:absolute;left:38%;top:66%;transform:translateX(-50%);font-weight:800;font-size:12cqw;color:#fff;text-shadow:0 0 2cqw rgba(229,2,16,.9)}
+
+.open{display:grid;gap:12px}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.q b{display:block}
+.q span{color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="kicker">Giemme Engineering · Reel 9:16 · storyboard v1 · 4 nov 2026</div>
+  <h1>Il tuo DVR è in un <em>cassetto?</em></h1>
+  <p class="lead">Piano frase per frase con i fotogrammi veri, già pareggiati nel colore e inquadrati come nel montaggio (zoom massimo 118%). Le grafiche su fondo chiaro sono bozze dei b-roll animati: in Remotion si muovono come nel video di riferimento. Il lettore qui sotto suona la voce già tagliata e accelerata a 1,06×.</p>
+  <div class="facts">
+    <span class="fact">durata <b>42,3 s</b></span><span class="fact">13 scene</span><span class="fact">voce <b>1,06×</b></span><span class="fact">rosso <b>#E50210</b></span><span class="fact">1080×1920 · 30 fps</span>
+  </div>
+</header>
+
+<div class="player">
+  <audio id="au" controls preload="auto" src="%%AUDIO%%"></audio>
+  <button class="hookbtn" data-a="0" data-b="5.33" type="button">▶ ascolta l'hook tagliato</button>
+  <span class="now" id="now">voce montata · 0103a → 0110</span>
+</div>
+
+<section>
+  <h2>Linguaggio delle grafiche</h2>
+  <div class="rules">
+    <div class="rule"><b>Fondo da tavola tecnica</b><span>Bianco #F4F4F2 con griglia millimetrata, come il riferimento, ma letta come un foglio da progettista.</span></div>
+    <div class="rule"><b><i class="sw" style="background:#E50210"></i>Rosso Giemme</b><span>Pieno solo sul bianco. Sul video la parola nasce rossa e si accende: nucleo chiaro, bagliore rosso.</span></div>
+    <div class="rule"><b><i class="sw" style="background:#E50210;border-radius:0"></i>Il quadratino del logo</b><span>L'elemento che torna ovunque: rimbalza sul box del titolo, fa da punto elenco e da punto di quota.</span></div>
+    <div class="rule"><b>Isometria del monogramma</b><span>Cassetto, edificio e sezioni sono disegnati con gli stessi angoli della «GM».</span></div>
+    <div class="rule"><b>Soggetto sempre presente</b><span>Negli insert il video continua nella card o nel cerchio tratteggiato: niente foto vuote.</span></div>
+    <div class="rule"><b>Testi</b><span>Inter Tight 700/800 + Instrument Serif corsivo, parola per parola nel frame in cui viene detta. Una sola parola chiave per frase.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Scene</h2>
+%%SCENES%%
+</section>
+
+<section>
+  <h2>Da decidere prima del montaggio</h2>
+  <div class="open">
+    <div class="q"><b>1 · L'hook tagliato suona naturale?</b><span>«Il DVR… non è solamente un documento…»: ho tolto l'inciso «documento di valutazione dei rischi». Ascoltalo con il pulsante rosso in alto.</span></div>
+    <div class="q"><b>2 · «D.Lgs. 81/08» nella scena 3</b><span>Etichetta piccola che dà autorevolezza. La tengo o la tolgo?</span></div>
+    <div class="q"><b>3 · Logo in chiusura</b><span>Il soggetto non nomina Giemme, quindi di regola niente logo. Se lo vuoi, entra piccolo nell'ultima mezza secondo.</span></div>
+    <div class="q"><b>4 · CTA</b><span>Resta «Fammelo sapere» nei commenti, oppure aggiungiamo un invito a Giemme («verifica il tuo DVR con noi»)?</span></div>
+  </div>
+</section>
+</div>
+
+<script>
+(function(){
+  var au=document.getElementById('au'), now=document.getElementById('now'), stopAt=null;
+  function play(a,b,label){ try{ au.currentTime=a; stopAt=b; var p=au.play(); if(p&&p.catch)p.catch(function(){}); now.textContent=label; }catch(e){} }
+  au.addEventListener('timeupdate',function(){ if(stopAt!==null && au.currentTime>=stopAt){ au.pause(); stopAt=null; } });
+  au.addEventListener('seeking',function(){ if(!au.paused) return; });
+  document.querySelectorAll('[data-a]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var a=parseFloat(btn.dataset.a), b=parseFloat(btn.dataset.b);
+      var sc=btn.closest('.scene'); play(a,b, sc ? 'scena '+sc.querySelector('.tc span').textContent : 'hook · 0 → 5,3 s');
+    });
+  });
+  document.querySelectorAll('.frame').forEach(function(f){ var s=document.createElement('div'); s.className='safe'; f.appendChild(s); });
+})();
+</script>

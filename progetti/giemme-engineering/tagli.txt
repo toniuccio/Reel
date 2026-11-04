@@ -1,6 +1,10 @@
-# numero inizio fine (secondi, sul girato originale), nell'ordine del montaggio
-# 0103: la pausa 4,1-5,6 s dopo "DVR?" va tolta in montaggio (trim interno)
-0103 1.75 13.30
-0104 0.85 8.30
-0109 1.45 22.15
-0110 1.85 11.75
+# numero inizio fine nome (secondi sul girato originale), nell'ordine del montaggio
+# hook: "Il DVR [inciso tolto] non è solamente un documento ... in regola."
+0103 5.82 6.72 0103a
+0103 8.64 13.37 0103b
+# domanda: "Sai che cos'è realmente un DVR?"
+0103 2.12 4.22 0103c
+# "Tale documento deve essere presente ... tutti i lavoratori." (il resto della 0104 è rifatto nella 0109)
+0104 1.27 8.37 0104
+0109 1.67 22.27 0109
+0110 2.22 11.62 0110
