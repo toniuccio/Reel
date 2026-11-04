@@ -2,6 +2,8 @@ import React from 'react';
 import {Composition, continueRender, delayRender, staticFile} from 'remotion';
 import {Reel} from './Reel';
 import {FPS, H, TOTAL, W} from './timeline';
+import {ReelCentro} from './centro/Reel';
+import {TOTAL as TOTAL_CENTRO} from './centro/timeline';
 
 const FONTS: [string, string, string, string][] = [
   ['Inter Tight', 'fonts/inter-tight-latin-700-normal.woff2', '700', 'normal'],
@@ -23,5 +25,8 @@ Promise.all(
   });
 
 export const Root: React.FC = () => (
-  <Composition id="DueVertenze" component={Reel} durationInFrames={TOTAL} fps={FPS} width={W} height={H} />
+  <>
+    <Composition id="DueVertenze" component={Reel} durationInFrames={TOTAL} fps={FPS} width={W} height={H} />
+    <Composition id="CentroStorico" component={ReelCentro} durationInFrames={TOTAL_CENTRO} fps={FPS} width={W} height={H} />
+  </>
 );

@@ -1,0 +1,625 @@
+{
+ "0370": {
+  "text": "Eppure le proposte non mancano.",
+  "words": [
+   {
+    "w": "Eppure",
+    "t": 0.0
+   },
+   {
+    "w": "le",
+    "t": 0.72
+   },
+   {
+    "w": "proposte",
+    "t": 0.88
+   },
+   {
+    "w": "non",
+    "t": 1.36
+   },
+   {
+    "w": "mancano.",
+    "t": 1.52
+   }
+  ]
+ },
+ "0374": {
+  "text": "Giustamente Confcommercio ha chiesto un intervento immediato al Comune di Crotone, che non preveda soltanto degli interventi durante il periodo natalizio.",
+  "words": [
+   {
+    "w": "Giustamente",
+    "t": 0.24
+   },
+   {
+    "w": "Confcommercio",
+    "t": 0.88
+   },
+   {
+    "w": "ha",
+    "t": 1.76
+   },
+   {
+    "w": "chiesto",
+    "t": 1.92
+   },
+   {
+    "w": "un",
+    "t": 2.24
+   },
+   {
+    "w": "intervento",
+    "t": 2.32
+   },
+   {
+    "w": "immediato",
+    "t": 2.72
+   },
+   {
+    "w": "al",
+    "t": 3.12
+   },
+   {
+    "w": "Comune",
+    "t": 3.2
+   },
+   {
+    "w": "di",
+    "t": 3.52
+   },
+   {
+    "w": "Crotone,",
+    "t": 3.6
+   },
+   {
+    "w": "che",
+    "t": 4.16
+   },
+   {
+    "w": "non",
+    "t": 4.24
+   },
+   {
+    "w": "preveda",
+    "t": 4.4
+   },
+   {
+    "w": "soltanto",
+    "t": 4.88
+   },
+   {
+    "w": "degli",
+    "t": 5.28
+   },
+   {
+    "w": "interventi",
+    "t": 5.52
+   },
+   {
+    "w": "durante",
+    "t": 6.0
+   },
+   {
+    "w": "il",
+    "t": 6.24
+   },
+   {
+    "w": "periodo",
+    "t": 6.32
+   },
+   {
+    "w": "natalizio.",
+    "t": 6.64
+   }
+  ]
+ },
+ "0380": {
+  "text": "E allora partiamo da una proposta concreta, un tavolo permanente che preveda la presenza del comune, associazioni, comitati di quartiere, residenti e commercianti.",
+  "words": [
+   {
+    "w": "E",
+    "t": 0.32
+   },
+   {
+    "w": "allora",
+    "t": 0.56
+   },
+   {
+    "w": "partiamo",
+    "t": 0.88
+   },
+   {
+    "w": "da",
+    "t": 1.28
+   },
+   {
+    "w": "una",
+    "t": 1.44
+   },
+   {
+    "w": "proposta",
+    "t": 1.52
+   },
+   {
+    "w": "concreta,",
+    "t": 1.92
+   },
+   {
+    "w": "un",
+    "t": 2.56
+   },
+   {
+    "w": "tavolo",
+    "t": 2.72
+   },
+   {
+    "w": "permanente",
+    "t": 3.12
+   },
+   {
+    "w": "che",
+    "t": 3.6
+   },
+   {
+    "w": "preveda",
+    "t": 3.68
+   },
+   {
+    "w": "la",
+    "t": 4.16
+   },
+   {
+    "w": "presenza",
+    "t": 4.24
+   },
+   {
+    "w": "del",
+    "t": 4.64
+   },
+   {
+    "w": "comune,",
+    "t": 4.8
+   },
+   {
+    "w": "associazioni,",
+    "t": 5.52
+   },
+   {
+    "w": "comitati",
+    "t": 6.48
+   },
+   {
+    "w": "di",
+    "t": 7.04
+   },
+   {
+    "w": "quartiere,",
+    "t": 7.12
+   },
+   {
+    "w": "residenti",
+    "t": 7.84
+   },
+   {
+    "w": "e",
+    "t": 8.48
+   },
+   {
+    "w": "commercianti.",
+    "t": 8.64
+   }
+  ]
+ },
+ "0381": {
+  "text": "Affin si possano inquadrare le problematiche, stabilire un programma di intervento, ma soprattutto quelle che sono le priorità che garantiscono al centro storico di risplendere per tutto l'anno e non soltanto durante il periodo natalizio, come sta cercando di fare questa amministrazione.",
+  "words": [
+   {
+    "w": "Affin",
+    "t": 0.24
+   },
+   {
+    "w": "si",
+    "t": 0.88
+   },
+   {
+    "w": "possano",
+    "t": 0.96
+   },
+   {
+    "w": "inquadrare",
+    "t": 1.36
+   },
+   {
+    "w": "le",
+    "t": 2.0
+   },
+   {
+    "w": "problematiche,",
+    "t": 2.24
+   },
+   {
+    "w": "stabilire",
+    "t": 3.12
+   },
+   {
+    "w": "un",
+    "t": 3.84
+   },
+   {
+    "w": "programma",
+    "t": 4.0
+   },
+   {
+    "w": "di",
+    "t": 4.4
+   },
+   {
+    "w": "intervento,",
+    "t": 4.56
+   },
+   {
+    "w": "ma",
+    "t": 5.12
+   },
+   {
+    "w": "soprattutto",
+    "t": 5.28
+   },
+   {
+    "w": "quelle",
+    "t": 5.68
+   },
+   {
+    "w": "che",
+    "t": 5.92
+   },
+   {
+    "w": "sono",
+    "t": 6.08
+   },
+   {
+    "w": "le",
+    "t": 6.32
+   },
+   {
+    "w": "priorità",
+    "t": 6.4
+   },
+   {
+    "w": "che",
+    "t": 6.88
+   },
+   {
+    "w": "garantiscono",
+    "t": 7.04
+   },
+   {
+    "w": "al",
+    "t": 7.68
+   },
+   {
+    "w": "centro",
+    "t": 7.76
+   },
+   {
+    "w": "storico",
+    "t": 8.08
+   },
+   {
+    "w": "di",
+    "t": 8.4
+   },
+   {
+    "w": "risplendere",
+    "t": 8.56
+   },
+   {
+    "w": "per",
+    "t": 9.2
+   },
+   {
+    "w": "tutto",
+    "t": 9.36
+   },
+   {
+    "w": "l'anno",
+    "t": 9.52
+   },
+   {
+    "w": "e",
+    "t": 9.92
+   },
+   {
+    "w": "non",
+    "t": 10.16
+   },
+   {
+    "w": "soltanto",
+    "t": 10.32
+   },
+   {
+    "w": "durante",
+    "t": 10.72
+   },
+   {
+    "w": "il",
+    "t": 10.96
+   },
+   {
+    "w": "periodo",
+    "t": 11.04
+   },
+   {
+    "w": "natalizio,",
+    "t": 11.36
+   },
+   {
+    "w": "come",
+    "t": 12.0
+   },
+   {
+    "w": "sta",
+    "t": 12.16
+   },
+   {
+    "w": "cercando",
+    "t": 12.4
+   },
+   {
+    "w": "di",
+    "t": 12.72
+   },
+   {
+    "w": "fare",
+    "t": 12.8
+   },
+   {
+    "w": "questa",
+    "t": 13.04
+   },
+   {
+    "w": "amministrazione.",
+    "t": 13.28
+   }
+  ]
+ },
+ "0383": {
+  "text": "Proposte e idee ci sono. Adesso partiamo con una campagna concreta e seria per il centro storico di Crotone.",
+  "words": [
+   {
+    "w": "Proposte",
+    "t": 0.16
+   },
+   {
+    "w": "e",
+    "t": 0.72
+   },
+   {
+    "w": "idee",
+    "t": 0.88
+   },
+   {
+    "w": "ci",
+    "t": 1.2
+   },
+   {
+    "w": "sono.",
+    "t": 1.36
+   },
+   {
+    "w": "Adesso",
+    "t": 1.76
+   },
+   {
+    "w": "partiamo",
+    "t": 2.08
+   },
+   {
+    "w": "con",
+    "t": 2.48
+   },
+   {
+    "w": "una",
+    "t": 2.64
+   },
+   {
+    "w": "campagna",
+    "t": 2.8
+   },
+   {
+    "w": "concreta",
+    "t": 3.2
+   },
+   {
+    "w": "e",
+    "t": 3.6
+   },
+   {
+    "w": "seria",
+    "t": 3.76
+   },
+   {
+    "w": "per",
+    "t": 4.08
+   },
+   {
+    "w": "il",
+    "t": 4.16
+   },
+   {
+    "w": "centro",
+    "t": 4.24
+   },
+   {
+    "w": "storico",
+    "t": 4.56
+   },
+   {
+    "w": "di",
+    "t": 4.88
+   },
+   {
+    "w": "Crotone.",
+    "t": 4.96
+   }
+  ]
+ },
+ "0389": {
+  "text": "Sono passati quasi sei mesi dall'ultimo video sul centro storico e continuiamo a parlare sempre degli stessi problemi.",
+  "words": [
+   {
+    "w": "Sono",
+    "t": 0.0
+   },
+   {
+    "w": "passati",
+    "t": 0.32
+   },
+   {
+    "w": "quasi",
+    "t": 0.64
+   },
+   {
+    "w": "sei",
+    "t": 0.88
+   },
+   {
+    "w": "mesi",
+    "t": 1.04
+   },
+   {
+    "w": "dall'ultimo",
+    "t": 1.28
+   },
+   {
+    "w": "video",
+    "t": 1.76
+   },
+   {
+    "w": "sul",
+    "t": 2.0
+   },
+   {
+    "w": "centro",
+    "t": 2.16
+   },
+   {
+    "w": "storico",
+    "t": 2.48
+   },
+   {
+    "w": "e",
+    "t": 2.8
+   },
+   {
+    "w": "continuiamo",
+    "t": 2.96
+   },
+   {
+    "w": "a",
+    "t": 3.36
+   },
+   {
+    "w": "parlare",
+    "t": 3.44
+   },
+   {
+    "w": "sempre",
+    "t": 3.68
+   },
+   {
+    "w": "degli",
+    "t": 3.92
+   },
+   {
+    "w": "stessi",
+    "t": 4.16
+   },
+   {
+    "w": "problemi.",
+    "t": 4.4
+   }
+  ]
+ },
+ "old": {
+  "text": "Serve un piano vero, recupero, riqualificazione, sostegno alle attività e ai giovani, accessibilità, zona traffico limitata e soprattutto decoro.",
+  "words": [
+   {
+    "w": "Serve",
+    "t": 0.08
+   },
+   {
+    "w": "un",
+    "t": 0.4
+   },
+   {
+    "w": "piano",
+    "t": 0.48
+   },
+   {
+    "w": "vero,",
+    "t": 0.72
+   },
+   {
+    "w": "recupero,",
+    "t": 1.04
+   },
+   {
+    "w": "riqualificazione,",
+    "t": 1.6
+   },
+   {
+    "w": "sostegno",
+    "t": 2.48
+   },
+   {
+    "w": "alle",
+    "t": 2.96
+   },
+   {
+    "w": "attività",
+    "t": 3.28
+   },
+   {
+    "w": "e",
+    "t": 3.68
+   },
+   {
+    "w": "ai",
+    "t": 3.84
+   },
+   {
+    "w": "giovani,",
+    "t": 4.0
+   },
+   {
+    "w": "accessibilità,",
+    "t": 4.56
+   },
+   {
+    "w": "zona",
+    "t": 5.36
+   },
+   {
+    "w": "traffico",
+    "t": 5.68
+   },
+   {
+    "w": "limitata",
+    "t": 6.16
+   },
+   {
+    "w": "e",
+    "t": 6.72
+   },
+   {
+    "w": "soprattutto",
+    "t": 6.8
+   },
+   {
+    "w": "decoro.",
+    "t": 7.28
+   }
+  ]
+ }
+}
