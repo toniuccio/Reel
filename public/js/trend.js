@@ -48,8 +48,9 @@
       <section class="card">
         <span class="card-label">Caption, zoom e transizioni di tendenza</span>
         <div class="trend-grid">
-          ${T.captions.map((c) => { const s = VRS.CAPTION_STYLES.find((x) => x.id === c.id); return `<div class="trend"><b>💬 ${s.name}</b><p>${A.esc(c.tip)}</p></div>`; }).join('')}
-          ${VRS.MOTION_MODES.map((m) => `<div class="trend"><b>⤢ ${m.name}</b><p>${A.esc(m.desc)}</p></div>`).join('')}
+          ${T.captions.map((c) => { const s = VRS.CAPTION_STYLES.find((x) => x.id === c.id); return `<div class="trend"><b>💬 ${s.name}</b><p>${A.esc(c.tip)}</p><div class="kws">${s.keywords.map(kwChip).join('')}</div></div>`; }).join('')}
+          ${VRS.MOTION_MODES.map((m) => `<div class="trend"><b>⤢ Zoom: ${m.name}</b><p>${A.esc(m.desc)}</p><div class="kws">${m.keywords.map(kwChip).join('')}</div></div>`).join('')}
+          ${VRS.TRANSITIONS.map((t) => `<div class="trend"><b>⇄ Transizione: ${t.name}</b><div class="kws">${t.keywords.map(kwChip).join('')}</div></div>`).join('')}
         </div>
         <h6 class="wh">Regole d’oro</h6>
         <ul class="rules">${T.rules.map((r) => `<li>${A.esc(r)}</li>`).join('')}</ul>
@@ -68,7 +69,7 @@
     $$('[data-libdel]').forEach((b) => (b.onclick = async () => { await A.api('/api/library?id=' + b.dataset.libdel, { method: 'DELETE' }); show(); }));
     $('#lib-cat').onchange = (e) => { filterCat = e.target.value; show(); };
     $('#kw-copy').onclick = async () => {
-      const txt = VRS.CATEGORIES.map((c) => `${c.title}: ${c.keywords.join(', ')}`).concat(VRS.TRENDS.broll.map((t) => `B-roll ${t.name}: ${t.keywords.join(', ')}`)).join('\n');
+      const txt = VRS.CATEGORIES.map((c) => `${c.title}: ${c.keywords.join(', ')}`).concat(VRS.TRENDS.broll.map((t) => `B-roll ${t.name}: ${t.keywords.join(', ')}`), VRS.CAPTION_STYLES.map((x) => `Caption ${x.name}: ${x.keywords.join(', ')}`), VRS.MOTION_MODES.map((x) => `Zoom ${x.name}: ${x.keywords.join(', ')}`), VRS.TRANSITIONS.map((x) => `Transizione ${x.name}: ${x.keywords.join(', ')}`)).join('\n');
       try { await navigator.clipboard.writeText(txt); A.toast('Parole chiave copiate ✓'); } catch { A.modal(`<h3>Parole chiave</h3><textarea class="input" style="min-height:300px">${A.esc(txt)}</textarea><div class="actions"><button class="btn btn-lime" onclick="document.getElementById('modal').classList.remove('open')">Chiudi</button></div>`); }
     };
   }

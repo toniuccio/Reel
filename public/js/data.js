@@ -3,7 +3,7 @@ window.VRS = window.VRS || {};
 
 VRS.CATEGORIES = [
   {
-    id: 'medico', keywords: ['medical aesthetic b roll', 'doctor office aesthetic', 'stethoscope close up', 'healthy lifestyle aesthetic', 'laboratory cinematic', 'studio medico estetica'], title: 'Camice & Verità', tag: 'Medico · Salute',
+    id: 'medico', keywords: ['doctor talking to camera reel', 'medical office aesthetic b roll', 'stethoscope close up cinematic', 'doctor writing prescription close up', 'healthy morning routine aesthetic', 'medical laboratory cinematic b roll'], title: 'Camice & Verità', tag: 'Medico · Salute',
     desc: 'Divulgazione chiara e autorevole: il dottore parla, i concetti chiave restano impressi.',
     gradient: 'linear-gradient(135deg,#5ee7c8 0%,#7cc6ff 100%)', accent: '#21d4a7', icon: '✚',
     defaults: {
@@ -23,7 +23,7 @@ VRS.CATEGORIES = [
     ],
   },
   {
-    id: 'politico', keywords: ['italian city drone', 'crowd rally cinematic', 'parliament italy', 'handshake cinematic', 'italian town square aesthetic', 'comizio piazza'], title: 'Il Palco', tag: 'Politico · Istituzionale',
+    id: 'politico', keywords: ['political campaign video cinematic', 'crowd rally slow motion', 'italian piazza drone shot', 'parliament building cinematic', 'handshake close up cinematic', 'politician speech podium b roll'], title: 'Il Palco', tag: 'Politico · Istituzionale',
     desc: 'Messaggi forti, numeri in evidenza, ritmo serrato per comizi, interviste e proposte.',
     gradient: 'linear-gradient(135deg,#7b8cff 0%,#ff6b8b 100%)', accent: '#ffd400', icon: '◆',
     defaults: {
@@ -43,7 +43,7 @@ VRS.CATEGORIES = [
     ],
   },
   {
-    id: 'food', keywords: ['food pouring slow motion', 'pasta making aesthetic', 'chef plating close up', 'pizza oven fire', 'restaurant ambience aesthetic', 'cibo estetica video'], title: 'Gusto in Movimento', tag: 'Ristoranti · Food',
+    id: 'food', keywords: ['food pouring slow motion', 'fresh pasta making aesthetic', 'chef plating close up', 'wood fired pizza oven fire', 'cheese pull close up', 'restaurant ambience cinematic b roll'], title: 'Gusto in Movimento', tag: 'Ristoranti · Food',
     desc: 'Slideshow e clip golose: tagli veloci, colori caldi e ritmo a tempo di musica.',
     gradient: 'linear-gradient(135deg,#ffd36e 0%,#ff8a5b 100%)', accent: '#ff7a45', icon: '◉',
     defaults: {
@@ -64,7 +64,7 @@ VRS.CATEGORIES = [
     ],
   },
   {
-    id: 'prodotti', keywords: ['perfume bottle aesthetic', 'luxury product shot', 'jewelry macro', 'water splash product', 'perfume commercial cinematic', 'profumo estetica'], title: 'Luxe Showcase', tag: 'Prodotti · Profumi · Oggetti',
+    id: 'prodotti', keywords: ['perfume bottle aesthetic video', 'perfume commercial cinematic', 'luxury product shot macro', 'water splash product shot', 'jewelry macro shot aesthetic', 'product on pedestal shadows aesthetic'], title: 'Luxe Showcase', tag: 'Prodotti · Profumi · Oggetti',
     desc: 'Estetica premium per profumi, gioielli e oggetti: movimenti lenti, luci morbide, dettagli.',
     gradient: 'linear-gradient(135deg,#c9a7ff 0%,#ff9ad5 100%)', accent: '#d9b46a', icon: '❖',
     defaults: {
@@ -85,7 +85,7 @@ VRS.CATEGORIES = [
     ],
   },
   {
-    id: 'slideshow', keywords: ['golden hour friends', 'film photo aesthetic', 'summer memories aesthetic', 'wedding details aesthetic', 'vintage camcorder aesthetic', 'ricordi estate'], title: 'Momenti in Reel', tag: 'Slideshow · Foto · Eventi',
+    id: 'slideshow', keywords: ['golden hour friends aesthetic', 'film photo dump aesthetic', 'summer memories video aesthetic', 'wedding details aesthetic video', 'vintage camcorder aesthetic', 'photo slideshow reel transitions'], title: 'Momenti in Reel', tag: 'Slideshow · Foto · Eventi',
     desc: 'Le tue foto diventano una storia: Ken Burns, dissolvenze e musica che emoziona.',
     gradient: 'linear-gradient(135deg,#d7f56a 0%,#6ee7b0 100%)', accent: '#b6f24a', icon: '▣',
     defaults: {
@@ -191,18 +191,18 @@ VRS.newProject = function (categoryId) {
 // ======================================================================
 VRS.TRENDS = {
   broll: [
-    { id: 'talking', name: 'Talking head + B-roll', desc: 'Parli in camera e tagli su immagini che illustrano ciò che dici. Il formato più usato per contenuti educativi e professionali.', use: ['medico', 'politico'], layout: 'title', motion: 'zoom-in', keywords: ['talking head b roll', 'b roll ideas reels', 'educational reel b roll'] },
-    { id: 'cinematic', name: 'Cinematic', desc: 'Clip brevi, movimenti morbidi e color grading marcato. Funziona in viaggi, food e lifestyle.', use: ['food', 'prodotti', 'slideshow'], layout: 'title', motion: 'pan-left', keywords: ['cinematic b roll', 'aesthetic b roll', 'b roll cinematografico', 'cinematic reel color grading'] },
-    { id: 'macro', name: 'Macro & texture', desc: 'Primissimi piani di materiali, gocce, cuciture, superfici. Perfetto per prodotti premium ed e-commerce.', use: ['prodotti', 'food'], layout: 'title', motion: 'zoom-out', keywords: ['macro product shot', 'texture close up aesthetic', 'product b roll', 'water drops macro aesthetic'] },
-    { id: 'hands', name: 'Mani & processo (POV)', desc: 'Mani che lavorano, preparano, impacchettano. Ideale anche per contenuti senza volto.', use: ['food', 'prodotti', 'medico'], layout: 'title', motion: 'float', keywords: ['hands b roll aesthetic', 'pov hands working', 'process video aesthetic', 'asmr hands'] },
-    { id: 'foodmotion', name: 'Food motion', desc: 'Versare, impiattare, tagliare, il vapore. Nel food conta il movimento.', use: ['food'], layout: 'title', motion: 'zoom-in', keywords: ['food pouring slow motion', 'plating aesthetic', 'cheese pull', 'steam food close up'] },
-    { id: 'mood', name: 'Mood & ambiente', desc: 'Luce dalla finestra, ombre, polvere nel raggio di sole, la location. Crea l’atmosfera e introduce il luogo.', use: ['slideshow', 'prodotti'], layout: 'quote', motion: 'float', keywords: ['window light shadows aesthetic', 'aesthetic morning light', 'cozy aesthetic video', 'golden hour aesthetic'] },
-    { id: 'bts', name: 'Dietro le quinte', desc: 'Lo studio, la cucina, il set, la timeline di montaggio: mostra il lavoro invece del volto.', use: ['food', 'politico', 'prodotti'], layout: 'title', motion: 'slide-up', keywords: ['behind the scenes aesthetic', 'studio setup aesthetic', 'bts content creator', 'dietro le quinte'] },
-    { id: 'smallwins', name: 'Piccole vittorie (daily)', desc: 'Montaggio di momenti quotidiani (caffè, ordini pronti, clienti) su un audio di tendenza.', use: ['food', 'prodotti', 'slideshow'], layout: 'list', motion: 'pop', keywords: ['day in my life aesthetic', 'coffee aesthetic video', 'packing orders small business', 'small wins'] },
-    { id: 'textpov', name: 'Testo su B-roll (POV)', desc: 'Una frase o una “chat finta” sopra una clip d’atmosfera. I trend di formato durano 3–4 settimane, quelli audio 7–10 giorni.', use: ['slideshow', 'food', 'prodotti'], layout: 'title', motion: 'zoom-in', keywords: ['pov text overlay video', 'text on video aesthetic', 'where are you trend', 'pov reel'] },
-    { id: 'unboxing', name: 'Unboxing / rotazione', desc: 'Apertura ASMR, prodotto che ruota, angolazioni multiple.', use: ['prodotti'], layout: 'title', motion: 'zoom-out', keywords: ['unboxing asmr aesthetic', 'product turntable video', 'perfume aesthetic video', 'packaging aesthetic'] },
-    { id: 'data', name: 'Dati & numeri animati', desc: 'Numeri che contano, statistiche, grafici: rendono concreta una tesi.', use: ['medico', 'politico'], layout: 'stat', motion: 'zoom-in', keywords: ['infographic animation', 'animated statistics reel', 'data visualization aesthetic'] },
-    { id: 'kinetic', name: 'Tipografia cinetica', desc: 'Card di solo testo animato: liste, citazioni, “3 errori da evitare”.', use: ['medico', 'politico', 'prodotti'], layout: 'list', motion: 'slide-up', keywords: ['kinetic typography reels', 'minimal text animation', 'typography motion design'] },
+    { id: 'talking', name: 'Talking head + B-roll', desc: 'Parli in camera e tagli su immagini che illustrano ciò che dici. Il formato più usato per contenuti educativi e professionali.', use: ['medico', 'politico'], layout: 'title', motion: 'zoom-in', keywords: ['talking head video with b roll', 'b roll ideas for talking head videos', 'educational reel b roll examples'] },
+    { id: 'cinematic', name: 'Cinematic', desc: 'Clip brevi, movimenti morbidi e color grading marcato. Funziona in viaggi, food e lifestyle.', use: ['food', 'prodotti', 'slideshow'], layout: 'title', motion: 'pan-left', keywords: ['cinematic b roll', 'aesthetic b roll', 'cinematic reel color grading', 'smooth cinematic transitions reel'] },
+    { id: 'macro', name: 'Macro & texture', desc: 'Primissimi piani di materiali, gocce, cuciture, superfici. Perfetto per prodotti premium ed e-commerce.', use: ['prodotti', 'food'], layout: 'title', motion: 'zoom-out', keywords: ['macro product shot', 'texture close up aesthetic', 'water drops macro aesthetic', 'fabric texture close up slow motion'] },
+    { id: 'hands', name: 'Mani & processo (POV)', desc: 'Mani che lavorano, preparano, impacchettano. Ideale anche per contenuti senza volto.', use: ['food', 'prodotti', 'medico'], layout: 'title', motion: 'float', keywords: ['hands b roll aesthetic', 'pov hands working', 'asmr hands process video', 'hands packing order aesthetic'] },
+    { id: 'foodmotion', name: 'Food motion', desc: 'Versare, impiattare, tagliare, il vapore. Nel food conta il movimento.', use: ['food'], layout: 'title', motion: 'zoom-in', keywords: ['food pouring slow motion', 'plating aesthetic close up', 'cheese pull slow motion', 'steam rising food close up'] },
+    { id: 'mood', name: 'Mood & ambiente', desc: 'Luce dalla finestra, ombre, polvere nel raggio di sole, la location. Crea l’atmosfera e introduce il luogo.', use: ['slideshow', 'prodotti'], layout: 'quote', motion: 'float', keywords: ['window light shadows aesthetic', 'sunlight through blinds aesthetic', 'cozy aesthetic video', 'golden hour light aesthetic'] },
+    { id: 'bts', name: 'Dietro le quinte', desc: 'Lo studio, la cucina, il set, la timeline di montaggio: mostra il lavoro invece del volto.', use: ['food', 'politico', 'prodotti'], layout: 'title', motion: 'slide-up', keywords: ['behind the scenes aesthetic', 'studio setup aesthetic', 'bts content creator', 'video editing setup aesthetic'] },
+    { id: 'smallwins', name: 'Piccole vittorie (daily)', desc: 'Montaggio di momenti quotidiani (caffè, ordini pronti, clienti) su un audio di tendenza.', use: ['food', 'prodotti', 'slideshow'], layout: 'list', motion: 'pop', keywords: ['day in my life aesthetic', 'coffee pouring aesthetic video', 'packing orders small business asmr', 'small wins trend reel'] },
+    { id: 'textpov', name: 'Testo su B-roll (POV)', desc: 'Una frase o una “chat finta” sopra una clip d’atmosfera. I trend di formato durano 3–4 settimane, quelli audio 7–10 giorni.', use: ['slideshow', 'food', 'prodotti'], layout: 'title', motion: 'zoom-in', keywords: ['pov text overlay video', 'text on video aesthetic', 'where are you trend reel', 'fake text message trend'] },
+    { id: 'unboxing', name: 'Unboxing / rotazione', desc: 'Apertura ASMR, prodotto che ruota, angolazioni multiple.', use: ['prodotti'], layout: 'title', motion: 'zoom-out', keywords: ['unboxing asmr aesthetic', 'product turntable video', '360 product rotation video', 'luxury packaging unboxing'] },
+    { id: 'data', name: 'Dati & numeri animati', desc: 'Numeri che contano, statistiche, grafici: rendono concreta una tesi.', use: ['medico', 'politico'], layout: 'stat', motion: 'zoom-in', keywords: ['animated statistics reel', 'infographic animation vertical', 'number counter animation', 'data visualization motion graphics'] },
+    { id: 'kinetic', name: 'Tipografia cinetica', desc: 'Card di solo testo animato: liste, citazioni, “3 errori da evitare”.', use: ['medico', 'politico', 'prodotti'], layout: 'list', motion: 'slide-up', keywords: ['kinetic typography reels', 'minimal text animation', 'typography motion design vertical', 'animated list text video'] },
   ],
   captions: [
     { id: 'ios', tip: 'Entrata a rimbalzo parola per parola (pop-on): fa colpo, adatto a food e lifestyle.' },
@@ -237,3 +237,37 @@ VRS.searchLinks = (q) => ({
   tiktok: 'https://www.tiktok.com/search?q=' + encodeURIComponent(q),
   pexels: 'https://www.pexels.com/search/videos/' + encodeURIComponent(q) + '/?orientation=portrait',
 });
+
+// parole chiave (in inglese) per trovare esempi di stili, zoom e transizioni
+(function () {
+  const KW = {
+    caption: {
+      ios: ['iphone style captions', 'bounce caption animation', 'pop up word captions'],
+      highlight: ['highlighted word captions', 'caption box highlight animation', 'educational reel captions'],
+      karaoke: ['karaoke captions reels', 'word by word color captions', 'lyric style captions'],
+      single: ['hormozi captions', 'one word at a time captions', 'alex hormozi caption style'],
+      clean: ['white captions with shadow', 'simple subtitles reels', 'clean caption style'],
+      typewriter: ['typewriter text effect video', 'typing text animation reel', 'typewriter captions'],
+      minimal: ['minimal captions aesthetic', 'lowercase captions aesthetic', 'elegant subtitles video'],
+    },
+    motion: {
+      semplice: ['static shot reel', 'hard cut editing'],
+      smooth: ['ken burns effect', 'slow zoom photo slideshow'],
+      push: ['slow push in shot', 'dolly in cinematic'],
+      dinamico: ['punch in zoom edit', 'jump cut zoom talking head'],
+      impact: ['zoom shake effect', 'camera shake transition', 'impact zoom edit'],
+    },
+    transition: {
+      cut: ['hard cut on beat', 'jump cut editing'],
+      fade: ['cross dissolve transition', 'fade to black transition'],
+      zoom: ['zoom transition capcut', 'zoom in zoom out transition'],
+      slide: ['slide transition reels', 'swipe transition video'],
+      whip: ['whip pan transition', 'motion blur transition'],
+      flash: ['flash transition', 'white flash transition'],
+      spin: ['spin transition', 'rotation zoom transition'],
+    },
+  };
+  VRS.CAPTION_STYLES.forEach((x) => (x.keywords = KW.caption[x.id] || []));
+  VRS.MOTION_MODES.forEach((x) => (x.keywords = KW.motion[x.id] || []));
+  VRS.TRANSITIONS.forEach((x) => (x.keywords = KW.transition[x.id] || []));
+})();
