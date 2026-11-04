@@ -29,3 +29,23 @@ Primo piano di Andrea nel centro storico. Titoli proposti:
 - Sottotitoli blu già stampati sul video, tra il 62% e il 72% dell'altezza, e logo PD in alto a sinistra.
 - Proposta: la card mostra solo la parte alta (0-55% dell'altezza, formato 4:5, centrata sul viso), così i vecchi sottotitoli restano fuori e sotto la card scorre la nostra lista che si spunta.
 - La parte finale del vecchio reel (fac-simile elettorale) non si usa.
+
+## Cosa ha registrato davvero (trascrizione delle clip, 4 novembre)
+Il parlato registrato è diverso dal testo scritto in alcuni punti. Il montaggio segue l'audio vero.
+
+| Clip | Durata | Parlato |
+|---|---|---|
+| (manca) | – | Hook «Sono passati quasi sei mesi… stessi problemi.»: clip non ancora ricevuta |
+| IMG_0370 | 2,8 s | «Eppure le proposte non mancano.» |
+| vecchio reel 20,0-27,7 | 7,7 s | «Serve un piano vero, recupero, riqualificazione, … e soprattutto decoro.» |
+| IMG_0374 | 0-10,3 | «Serve un piano vero di riqualificazione, decoro, accessibilità, sostegno ai giovani e alle imprese, ma soprattutto una zona a traffico limitato.» → **doppione del vecchio reel, da scartare** se si usa la card |
+| IMG_0374 | 10,6-18,0 | «Giustamente Confcommercio ha chiesto un intervento immediato al Comune di Crotone che non preveda soltanto degli interventi durante il periodo natalizio.» |
+| IMG_0380 | 11,3 s | «E allora partiamo da una proposta concreta: un tavolo permanente che preveda la presenza del Comune, associazioni, comitati di quartiere, residenti e commercianti.» → **5 nodi** nello schema, non 4 |
+| IMG_0381 | 15,6 s | «Affinché si possano inquadrare le problematiche, stabilire un programma di intervento, ma soprattutto le priorità che garantiscono al centro storico di risplendere per tutto l'anno e non soltanto durante il periodo natalizio, come sta cercando di fare questa amministrazione.» |
+| IMG_0383 | 6,6 s | «Proposte e idee ci sono. Adesso partiamo con una campagna concreta e seria per il centro storico di Crotone.» |
+
+Cambi al piano:
+- **Confcommercio**: "Confcommercio" acceso, "intervento immediato" piccolo, e "solo nel periodo natalizio" barrato in rosso.
+- **Tavolo permanente**: 5 nodi (Comune, associazioni, comitati di quartiere, residenti, commercianti).
+- **0381**: tre pillole (problematiche · programma · priorità), poi ***risplendere*** e **tutto l'anno** con le 12 tacche dei mesi, dove all'inizio è accesa solo dicembre e poi si accendono tutte.
+- **Chiusura**: spunta su "Proposte e idee ci sono.", poi "una campagna *concreta e seria*" e "per il centro storico di Crotone".
