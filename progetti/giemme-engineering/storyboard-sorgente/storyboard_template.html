@@ -8,7 +8,7 @@
    fotogramma 9:16 a sinistra, note di regia a destra. Pagina volutamente solo scura. */
 :root{
   --bg:#121315; --panel:#1a1b1e; --line:#2b2d32; --fg:#ECEBE7; --muted:#9a9ca3; --cut:#F2C14E;
-  --red:#E50210; --paper:#F4F4F2; --ink:#1A1A1E; --ok:#1F9D55;
+  --red:#E50210; --paper:#F4F4F2; --ink:#1A1A1E; --ok:#1F9D55; --gl:rgba(26,26,30,.07); --gl2:rgba(26,26,30,.035); --tagbg:rgba(255,255,255,.6); --lblbg:#fff; --mute2:#B9B9B4; --f1:#fff; --f2:#E9E9E6; --f3:#DADAD6;
   --f-ui:"Inter Tight",-apple-system,"Helvetica Neue",Arial,sans-serif;
   --f-serif:"Instrument Serif","Times New Roman",serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -59,18 +59,26 @@ code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius
 @media (max-width:420px){dl{grid-template-columns:1fr}dt{padding-top:6px}}
 
 /* fotogramma 9:16 */
-.frame{position:relative;width:100%;max-width:100%;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--paper);container-type:inline-size;box-shadow:0 0 0 1px var(--line)}
+.frame{color:var(--ink);position:relative;width:100%;max-width:100%;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--paper);container-type:inline-size;box-shadow:0 0 0 1px var(--line)}
 .frame img{max-width:none;max-height:none}
 .frame img.bg{position:absolute;object-fit:cover}
 .frame .safe{position:absolute;left:0;right:0;bottom:0;height:20%;border-top:1px dashed rgba(242,193,78,.55);pointer-events:none}
 .grid{position:absolute;inset:0;background-color:var(--paper);
-  background-image:linear-gradient(rgba(26,26,30,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(26,26,30,.07) 1px,transparent 1px),
-  linear-gradient(rgba(26,26,30,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(26,26,30,.035) 1px,transparent 1px);
+  background-image:linear-gradient(var(--gl) 1px,transparent 1px),linear-gradient(90deg,var(--gl) 1px,transparent 1px),
+  linear-gradient(var(--gl2) 1px,transparent 1px),linear-gradient(90deg,var(--gl2) 1px,transparent 1px);
   background-size:10cqw 10cqw,10cqw 10cqw,2cqw 2cqw,2cqw 2cqw}
 
 /* testi nello stile parola per parola */
 .words{position:absolute;left:6%;right:6%;text-align:center;font-weight:700;font-size:5.2cqw;line-height:1.15;color:#fff;text-shadow:0 .4cqw 2.2cqw rgba(0,0,0,.45);letter-spacing:-.01em}
 .words.dark{color:var(--ink);text-shadow:none}
+.words.big{font-size:6.6cqw;font-weight:800;letter-spacing:-.03em}
+body.graf{--paper:#16171A;--ink:#ECEBE7;--gl:rgba(255,255,255,.07);--gl2:rgba(255,255,255,.03);--tagbg:rgba(22,23,26,.7);--lblbg:#16171A;--mute2:#55575d;--f1:#26272c;--f2:#1e1f23;--f3:#2d2e34}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{background:transparent;color:var(--muted);border:0;padding:5px 12px;font-family:var(--f-mono);font-size:12px}
+.seg button[aria-pressed="true"]{background:var(--red);color:#fff}
+.cover{display:grid;grid-template-columns:270px 1fr;gap:28px;align-items:start}
+.cover img{width:100%;border-radius:14px;box-shadow:0 0 0 1px var(--line)}
+@media (max-width:640px){.cover{grid-template-columns:1fr}.cover img{max-width:300px}}
 .ser{font-family:var(--f-serif);font-weight:400;font-style:italic;font-size:1.25em;letter-spacing:0}
 .red{color:var(--red)}
 .kw{position:absolute;left:0;right:0;text-align:center;font-weight:800;font-size:19cqw;line-height:1;letter-spacing:-.04em;color:#FFF4F2;
@@ -88,12 +96,12 @@ code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius
 .circ{position:absolute;right:6%;top:15%;width:30%;aspect-ratio:1;border-radius:50%;overflow:hidden;outline:.5cqw dashed var(--ink);outline-offset:1.6cqw}
 
 /* etichette con le maniglie */
-.tag{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:2.2cqw;padding:1.8cqw 4cqw;border:.35cqw dashed var(--ink);font-family:var(--f-serif);font-style:italic;font-size:7.4cqw;line-height:1;color:var(--ink);background:rgba(255,255,255,.6);white-space:nowrap}
+.tag{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:2.2cqw;padding:1.8cqw 4cqw;border:.35cqw dashed var(--ink);font-family:var(--f-serif);font-style:italic;font-size:7.4cqw;line-height:1;color:var(--ink);background:var(--tagbg);white-space:nowrap}
 .tag b{position:absolute;width:1.6cqw;height:1.6cqw;background:var(--ink)}
 .tag b:nth-of-type(1){left:-1cqw;top:-1cqw}.tag b:nth-of-type(2){right:-1cqw;top:-1cqw}.tag b:nth-of-type(3){left:-1cqw;bottom:-1cqw}.tag b:nth-of-type(4){right:-1cqw;bottom:-1cqw}
 .sq{display:inline-block;width:2.4cqw;height:2.4cqw;background:var(--red);flex:none}
 .ck{width:5.4cqw;height:5.4cqw;flex:none}
-.lbl{position:absolute;font-family:var(--f-mono);font-size:3cqw;color:var(--ink);background:#fff;border:.3cqw solid var(--ink);padding:.6cqw 1.6cqw}
+.lbl{position:absolute;font-family:var(--f-mono);font-size:3cqw;color:var(--ink);background:var(--lblbg);border:.3cqw solid var(--ink);padding:.6cqw 1.6cqw}
 .lbl small{color:#8a8a86;font-size:.85em}
 
 /* timbro */
@@ -102,13 +110,13 @@ code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius
 
 /* lavagna 3 passi */
 .steps{position:absolute;left:6%;top:5%;display:grid;gap:1.6cqw;width:52%}
-.st{display:flex;align-items:center;gap:2.4cqw;font-weight:800;font-size:6cqw;letter-spacing:-.02em;color:#B9B9B4;border-radius:2cqw;padding:1.2cqw 2.6cqw}
+.st{display:flex;align-items:center;gap:2.4cqw;font-weight:800;font-size:6cqw;letter-spacing:-.02em;color:var(--mute2);border-radius:2cqw;padding:1.2cqw 2.6cqw}
 .st em{font-family:var(--f-mono);font-style:normal;font-weight:500;font-size:3.6cqw}
 .st.on{background:var(--red);color:#fff}
 .st.done{color:var(--ink)}
 .st.done::after{content:"✓";color:var(--ok);margin-left:auto}
 .node{position:absolute;left:6%;display:flex;align-items:center;gap:2cqw;font-weight:700;font-size:4.4cqw;color:var(--ink)}
-.node svg{width:12cqw;height:12cqw;border-radius:50%;background:#fff;outline:.35cqw dashed var(--ink);outline-offset:.8cqw;padding:1cqw;box-sizing:border-box}
+.node svg{width:12cqw;height:12cqw;border-radius:50%;background:var(--f1);outline:.35cqw dashed var(--ink);outline-offset:.8cqw;padding:1cqw;box-sizing:border-box}
 .node.r{left:auto;right:6%;flex-direction:row-reverse}
 .node.r svg{border-radius:0;outline:none;background:transparent;padding:0}
 .links{position:absolute;inset:0;width:100%;height:100%}
@@ -128,7 +136,7 @@ code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius
 
 <div class="wrap">
 <header>
-  <div class="kicker">Giemme Engineering · Reel 9:16 · storyboard v1 · 4 nov 2026</div>
+  <div class="kicker">Giemme Engineering · Reel 9:16 · storyboard v2 · 4 nov 2026</div>
   <h1>Il tuo DVR è in un <em>cassetto?</em></h1>
   <p class="lead">Piano frase per frase con i fotogrammi veri, già pareggiati nel colore e inquadrati come nel montaggio (zoom massimo 118%). Le grafiche su fondo chiaro sono bozze dei b-roll animati: in Remotion si muovono come nel video di riferimento. Il lettore qui sotto suona la voce già tagliata e accelerata a 1,06×.</p>
   <div class="facts">
@@ -139,6 +147,7 @@ code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius
 <div class="player">
   <audio id="au" controls preload="auto" src="%%AUDIO%%"></audio>
   <button class="hookbtn" data-a="0" data-b="5.33" type="button">▶ ascolta l'hook tagliato</button>
+  <span class="seg" role="group" aria-label="Fondo dei b-roll"><button type="button" id="th-l" aria-pressed="true">fondo chiaro</button><button type="button" id="th-d" aria-pressed="false">fondo grafite</button></span>
   <span class="now" id="now">voce montata · 0103a → 0110</span>
 </div>
 
@@ -160,12 +169,27 @@ code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius
 </section>
 
 <section>
-  <h2>Da decidere prima del montaggio</h2>
+  <h2>Copertina</h2>
+  <div class="cover">
+    <img alt="Copertina del reel: il soggetto guarda in camera, titolo «Il tuo DVR è in un cassetto?»" src="%%COVER%%">
+    <div class="meta">
+      <p class="quote">Il tuo DVR · è in un · <em style="font-family:var(--f-serif)">cassetto?</em></p>
+      <dl><dt>Foto</dt><dd>Fotogramma della 0110 a bocca chiusa e con lo sguardo in camera, nella pausa dopo «Fammelo sapere», con lo stesso colore del video.</dd>
+      <dt>Titolo</dt><dd>Stesso stile dei testi: riga piccola con il quadratino rosso, riga bold, parola chiave in serif corsivo che si accende. Riprende il titolo del primo frame.</dd>
+      <dt>Griglia</dt><dd>Viso e titolo stanno dentro la fascia centrale 1080×1350, quindi si leggono anche nella griglia 4:5 del profilo. File: <code>copertina-1080x1920.png</code> e <code>copertina-griglia-1080x1350.png</code>.</dd></dl>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Scelte fatte</h2>
   <div class="open">
-    <div class="q"><b>1 · L'hook tagliato suona naturale?</b><span>«Il DVR… non è solamente un documento…»: ho tolto l'inciso «documento di valutazione dei rischi». Ascoltalo con il pulsante rosso in alto.</span></div>
-    <div class="q"><b>2 · «D.Lgs. 81/08» nella scena 3</b><span>Etichetta piccola che dà autorevolezza. La tengo o la tolgo?</span></div>
-    <div class="q"><b>3 · Logo in chiusura</b><span>Il soggetto non nomina Giemme, quindi di regola niente logo. Se lo vuoi, entra piccolo nell'ultima mezza secondo.</span></div>
-    <div class="q"><b>4 · CTA</b><span>Resta «Fammelo sapere» nei commenti, oppure aggiungiamo un invito a Giemme («verifica il tuo DVR con noi»)?</span></div>
+    <div class="q"><b>Soggetto solo ogni tanto nelle scene con gli esempi</b><span>Compare nella card della scena 5 e piccolo nel cerchio all'inizio della lavagna (scena 7). Cassetto, lavoratori, rischi, misure e azienda sono solo grafica, mentre la voce continua.</span></div>
+    <div class="q"><b>Hook riordinato</b><span>«Il DVR… non è solamente un documento…» prima della domanda, senza l'inciso. Ascoltalo con il pulsante rosso in alto.</span></div>
+    <div class="q"><b>«D.Lgs. 81/08» tenuto</b><span>Etichetta piccola nella scena 3: dà autorevolezza ed è corretta.</span></div>
+    <div class="q"><b>Niente logo in chiusura</b><span>Il soggetto non nomina Giemme. Il marchio si riconosce dal rosso, dal quadratino e dall'isometria del monogramma.</span></div>
+    <div class="q"><b>CTA come detta</b><span>«Fammelo sapere», con il fumetto del commento.</span></div>
+    <div class="q"><b>Fondo dei b-roll: da scegliere</b><span>Non riesco ad aprire né il sito né il profilo Instagram da questa sessione. Il logo che mi hai mandato è in versione bianca, segno che il sito usa fondi scuri: per questo propongo anche il <b>fondo grafite</b>. Con il selettore in alto vedi tutte le scene nelle due versioni.</span></div>
   </div>
 </section>
 </div>
@@ -182,6 +206,10 @@ code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius
       var sc=btn.closest('.scene'); play(a,b, sc ? 'scena '+sc.querySelector('.tc span').textContent : 'hook · 0 → 5,3 s');
     });
   });
+  var tl=document.getElementById('th-l'), td=document.getElementById('th-d');
+  function th(d){ document.body.classList.toggle('graf',d); tl.setAttribute('aria-pressed',String(!d)); td.setAttribute('aria-pressed',String(d)); try{localStorage.setItem('fondo',d?'g':'c')}catch(e){} }
+  tl.addEventListener('click',function(){th(false)}); td.addEventListener('click',function(){th(true)});
+  try{ if(localStorage.getItem('fondo')==='g') th(true); }catch(e){}
   document.querySelectorAll('.frame').forEach(function(f){ var s=document.createElement('div'); s.className='safe'; f.appendChild(s); });
 })();
 </script>

@@ -33,7 +33,7 @@ def tag(text, check=False, style=""):
     return f'<div class="tag" style="{style}"><b></b><b></b><b></b><b></b>{SQ}<span>{text}</span>{c}</div>'
 
 # ---------- disegni SVG dei b-roll ----------
-DRAWER = f'''<svg viewBox="0 0 300 230" class="art" style="left:15%;top:40%;width:70%">
+DRAWER = f'''<svg viewBox="0 0 300 230" class="art" style="left:9%;top:25%;width:82%">
  <!-- mobile isometrico -->
  <polygon points="40,70 150,15 260,70 150,125" fill="#ffffff" stroke="#1A1A1E" stroke-width="2"/>
  <polygon points="40,70 150,125 150,225 40,170" fill="#E9E9E6" stroke="#1A1A1E" stroke-width="2"/>
@@ -50,7 +50,7 @@ DRAWER = f'''<svg viewBox="0 0 300 230" class="art" style="left:15%;top:40%;widt
  <defs><marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#1A1A1E"/></marker></defs>
 </svg>'''
 
-STAMP = f'''<div class="stamp" style="left:50%;top:72%">IN REGOLA<i></i></div>'''
+STAMP = f'''<div class="stamp" style="left:50%;top:66%">IN REGOLA<i></i></div>'''
 
 def icon(kind):
     ic = {
@@ -62,16 +62,17 @@ def icon(kind):
     return f'<svg viewBox="0 0 40 40">{ic}</svg>'
 
 def hazard(sym):
-    s = {"!": '<path d="M20 15v8" stroke="#1A1A1E" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="#1A1A1E"/>',
-         "el": '<path d="M22 12l-6 10h5l-3 9 7-11h-5z" fill="#1A1A1E"/>',
-         "ru": '<path d="M14 18h4l5-4v14l-5-4h-4z" fill="#1A1A1E"/><path d="M26 17c2 2 2 6 0 8" stroke="#1A1A1E" stroke-width="2" fill="none"/>',
-         "ca": '<path d="M20 12v12M15 20l5 6 5-6" stroke="#1A1A1E" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 30h14" stroke="#1A1A1E" stroke-width="2.8" stroke-linecap="round"/>'}[sym]
-    return f'<svg viewBox="0 0 40 40"><path d="M20 4L37 34H3z" fill="#FFC21A" stroke="#1A1A1E" stroke-width="2.2" stroke-linejoin="round"/>{s}</svg>'
+    INK="#111"
+    s = {"!": '<path d="M20 15v8" stroke="#111111" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="#111111"/>',
+         "el": '<path d="M22 12l-6 10h5l-3 9 7-11h-5z" fill="#111111"/>',
+         "ru": '<path d="M14 18h4l5-4v14l-5-4h-4z" fill="#111111"/><path d="M26 17c2 2 2 6 0 8" stroke="#111111" stroke-width="2" fill="none"/>',
+         "ca": '<path d="M20 12v12M15 20l5 6 5-6" stroke="#111111" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 30h14" stroke="#111111" stroke-width="2.8" stroke-linecap="round"/>'}[sym]
+    return f'<svg viewBox="0 0 40 40"><path d="M20 4L37 34H3z" fill="#FFC21A" stroke="#111111" stroke-width="2.2" stroke-linejoin="round"/>{s}</svg>'
 
 ACTS = [("ufficio", "Ufficio"), ("cantiere", "Cantiere"), ("magazzino", "Magazzino"), ("macchine", "Macchine")]
 HAZ = [("!", "Caduta"), ("el", "Elettrico"), ("ru", "Rumore"), ("ca", "Carichi")]
 
-def board(step, fid, show_risk=False, show_shield=False, base=33, gap=11):
+def board(step, fid, show_risk=False, show_shield=False, base=33, gap=11, show_circle=False):
     """Lavagna a 3 passi: attività → rischi → misure. Il soggetto resta nel cerchio tratteggiato."""
     steps = [("01", "Attività"), ("02", "Rischi"), ("03", "Misure")]
     head = "".join(
@@ -88,7 +89,7 @@ def board(step, fid, show_risk=False, show_shield=False, base=33, gap=11):
     if show_shield:
         shield = f'''<svg class="shield" viewBox="0 0 120 140"><path d="M60 6l48 18v40c0 34-22 58-48 70C34 122 12 98 12 64V24z" fill="{RED}" opacity=".08" stroke="{RED}" stroke-width="3"/>
         <path d="M40 70l14 14 28-32" stroke="{RED}" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'''
-    circle = card(fid, "circ")
+    circle = card(fid, "circ") if show_circle else ""
     return f'{GRID}<div class="steps">{head}</div>{circle}{acts}{risks}{shield}'
 
 def gauge():
@@ -99,7 +100,7 @@ def gauge():
     <path d="M100 105 L 155 60" stroke="#1A1A1E" stroke-width="2" stroke-dasharray="3 4" opacity=".35"/>
     <circle cx="100" cy="105" r="7" fill="#1A1A1E"/><text x="22" y="119" font-size="10" font-family="IBM Plex Mono" fill="#fff">BASSO</text><text x="150" y="119" font-size="10" font-family="IBM Plex Mono" fill="#fff">ALTO</text></svg>'''
 
-BUILDING = f'''<svg viewBox="0 0 300 260" class="art" style="left:12%;top:46%;width:76%">
+BUILDING = f'''<svg viewBox="0 0 300 260" class="art" style="left:5%;top:27%;width:90%">
  <defs><marker id="ar" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="{RED}"/></marker></defs>
  <ellipse cx="150" cy="150" rx="140" ry="70" fill="none" stroke="{RED}" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#ar)"/>
  <polygon points="70,120 150,80 230,120 150,160" fill="#fff" stroke="#1A1A1E" stroke-width="2"/>
@@ -120,7 +121,7 @@ def workers():
     for i in range(10):
         on = i < 7
         x = 8 + (i % 5) * 17.5
-        y = 68 + (i // 5) * 6.2
+        y = 47 + (i // 5) * 12
         out.append(f'<svg class="wk{" on" if on else ""}" viewBox="0 0 40 44" style="left:{x}%;top:{y}%"><path d="M8 18a12 12 0 0 1 24 0z" fill="{RED if on else "#C9C9C4"}"/><rect x="5" y="17" width="30" height="3.5" rx="1.5" fill="#1A1A1E"/><circle cx="20" cy="26" r="6" fill="#1A1A1E"/><path d="M8 44a12 10 0 0 1 24 0z" fill="#1A1A1E"/></svg>')
     return "".join(out)
 
@@ -142,11 +143,11 @@ scene(id="s2", t0=0.87, t1=3.43, title="Hook · il mito", frame=vid("F02", z=1.1
       trans="Punch-in sul taglio, niente stacco visibile.",
       sfx="<code>tick_rapido</code> sulle parole.")
 
-scene(id="s3", t0=3.43, t1=5.33, title="Hook · cassetto e timbro", frame=GRID + card("F03", "card", "left:26%;top:6%;width:48%;height:28%") + DRAWER + STAMP + '<div class="lbl" style="left:8%;top:36%">D.Lgs. 81/08 <small>(da confermare)</small></div>',
+scene(id="s3", t0=3.43, t1=5.33, title="Hook · cassetto e timbro", frame=GRID + '<div class="words dark big" style="top:8%"><span>nel</span> <span class="ser red">cassetto</span></div><div class="lbl" style="left:50%;top:19%;transform:translateX(-50%)">D.Lgs. 81/08</div>' + DRAWER + STAMP,
       quote="«…nel cassetto affinché possa essere in regola.»", clip="0103",
-      video="Su «cassetto» <b>zoom out</b>: il video diventa la card del soggetto su fondo bianco a griglia tecnica. Il DVR scivola nel cassetto isometrico, che si chiude. Su «in regola» cade il timbro <b>IN REGOLA</b>, che una linea rossa barra subito.",
-      testi="Nessun testo oltre al timbro: qui parla il disegno.",
-      trans="Zoom out in 6 frame con sfocatura di movimento.",
+      video="Su «cassetto» stacco sulla grafica a tutto schermo, <b>senza il soggetto</b> (la voce continua). Il DVR scivola nel cassetto isometrico, che si chiude. Su «in regola» cade il timbro <b>IN REGOLA</b>, che una linea rossa barra subito.",
+      testi="«nel <em>cassetto</em>» in alto, poi l'etichetta piccola «D.Lgs. 81/08» e il timbro.",
+      trans="Slide verso l'alto (6 frame) con sfocatura di movimento.",
       sfx="<code>short_whoosh</code> zoom · tonfo del cassetto · <code>boom_sub</code> sul timbro.")
 
 scene(id="s4", t0=5.33, t1=7.33, title="La domanda", frame=vid("F04") + '<div class="words" style="top:56%"><span>Sai che cos\'è</span> <span class="ser">realmente</span></div><div class="kw" style="top:62%">un DVR?</div>',
@@ -158,35 +159,35 @@ scene(id="s4", t0=5.33, t1=7.33, title="La domanda", frame=vid("F04") + '<div cl
 
 scene(id="s5", t0=7.33, t1=12.93, title="La verità · tre parole", frame=GRID + card("F05", "card", "left:22%;top:7%;width:56%;height:36%") + '<div class="words dark" style="top:46%;left:0;right:0"><span>Tale documento deve essere</span></div>' + tag("presente", True, "top:53%") + tag("attivo", True, "top:62%") + tag("visionabile", True, "top:71%"),
       quote="«Tale documento deve essere presente, attivo e visionabile da parte di tutta l'azienda…»", clip="0104 · 1,27–8,37 s",
-      video="Slide laterale verso l'insert bianco con la card del soggetto. Le tre parole entrano <b>nel frame in cui le dice</b> dentro i riquadri tratteggiati con le maniglie (stile selezione), con il quadratino rosso e la spunta verde.",
+      video="Unica scena di esempi con il soggetto: slide laterale verso l'insert con la card (il video continua dentro). Le tre parole entrano <b>nel frame in cui le dice</b> dentro i riquadri tratteggiati con le maniglie (stile selezione), con il quadratino rosso e la spunta verde.",
       testi="Testo nero sul bianco; spunte piccole verdi come segno di conferma.",
       trans="Slide veloce laterale (6 frame).",
       sfx="<code>short_whoosh</code> · <code>doppio_click</code> su ogni spunta.")
 
-scene(id="s6", t0=12.93, t1=14.03, title="…tutti i lavoratori", frame=GRID + card("F06", "card", "left:22%;top:7%;width:56%;height:36%") + '<div class="words dark" style="top:47%;left:0;right:0"><span>da parte di</span> <span class="ser red">tutti</span> <span>i lavoratori</span></div>' + tag("presente", True, "top:51.5%;transform:translateX(-50%) scale(.7)") + tag("attivo", True, "top:56.5%;transform:translateX(-50%) scale(.7)") + tag("visionabile", True, "top:61.5%;transform:translateX(-50%) scale(.7)") + workers(),
+scene(id="s6", t0=12.93, t1=14.03, title="…tutti i lavoratori", frame=GRID + '<div class="words dark big" style="top:8%;left:0;right:0"><span>da parte di</span> <span class="ser red">tutti</span> <span>i lavoratori</span></div>' + tag("presente", True, "top:21%;transform:translateX(-50%) scale(.8)") + tag("attivo", True, "top:28%;transform:translateX(-50%) scale(.8)") + tag("visionabile", True, "top:35%;transform:translateX(-50%) scale(.8)") + workers(),
       quote="«…da parte di tutti i lavoratori.»", clip="0104",
-      video="Le etichette salgono e si stringono; sotto compare una fila di lavoratori con il casco che si accendono di rosso uno dopo l'altro, a ritmo con le sillabe.",
+      video="La card del soggetto esce verso l'alto e restano solo le grafiche: le etichette salgono e si stringono; sotto compare una fila di lavoratori con il casco che si accendono di rosso uno dopo l'altro, a ritmo con le sillabe.",
       testi="«tutti» in serif corsivo nel rosso pieno (siamo sul bianco).",
       trans="—",
       sfx="<code>tick_rapido</code> in sequenza sui caschi.")
 
-scene(id="s7", t0=14.03, t1=19.87, title="Come si fa · 01 attività", frame=board(1, "F07"),
+scene(id="s7", t0=14.03, t1=19.87, title="Come si fa · 01 attività", frame=board(1, "F07", show_circle=True),
       quote="«All'interno del documento vengono analizzate le singole attività lavorative,»", clip="0109 · 1,67–22,27 s",
-      video="<b>Film burn leggero</b> ed entra la lavagna a 3 passi. Il soggetto resta nel <b>cerchio tratteggiato</b> che si disegna (come il cervello nel riferimento): il video continua lì dentro. Su «attività lavorative» le icone delle attività entrano una alla volta.",
+      video="<b>Film burn leggero</b> ed entra la lavagna a 3 passi. Il soggetto compare solo qui, piccolo nel <b>cerchio tratteggiato</b> che si disegna (come il cervello nel riferimento), e sparisce quando entrano le icone. Su «attività lavorative» le icone delle attività entrano una alla volta.",
       testi="Barra dei passi in alto: <b>01 Attività</b> acceso in rosso, 02 e 03 in grigio.",
       trans="Film burn rosso-arancio dai bordi, opacità 0,5, 12 frame.",
       sfx="<code>short_whoosh</code> · <code>tick_rapido</code> su ogni icona.")
 
 scene(id="s8", t0=19.87, t1=23.63, title="Come si fa · 02 rischi", frame=board(2, "F08", show_risk=True),
       quote="«vengono correlati i vari rischi a queste attività lavorative,»", clip="0109",
-      video="Da ogni attività parte una <b>linea tratteggiata</b> che si disegna verso i cartelli di pericolo (caduta, elettrico, rumore, carichi). Il passo 01 si spunta.",
+      video="Da ogni attività parte una <b>linea tratteggiata</b> che si disegna verso i cartelli di pericolo (caduta, elettrico, rumore, carichi). Il passo 01 si spunta. Solo grafica, niente soggetto.",
       testi="«correlati» resta implicito nelle linee: nessuna scritta in più.",
       trans="Nessuno stacco: la lavagna continua.",
       sfx="«swish» corto per ogni linea · <code>doppio_click</code> sulla spunta del passo 01.")
 
 scene(id="s9", t0=23.63, t1=30.11, title="Come si fa · 03 misure", frame=board(3, "F09", show_risk=True, show_shield=True, base=31, gap=9.5) + tag("prevenzione", False, "top:68%;left:29%;transform:translateX(-50%) scale(.72)") + tag("tecniche", False, "top:68%;left:73%;transform:translateX(-50%) scale(.72)") + tag("organizzative", False, "top:74%;transform:translateX(-50%) scale(.72)"),
       quote="«e infine si vanno a strutturare le misure di prevenzione, le tecniche organizzative,»", clip="0109",
-      video="Uno <b>scudo</b> rosso si chiude sopra rischi e attività. Sotto, le etichette delle misure nei riquadri con le maniglie.",
+      video="Uno <b>scudo</b> rosso si chiude sopra rischi e attività. Sotto, le etichette delle misure nei riquadri con le maniglie. Solo grafica.",
       testi="A schermo la forma corretta: <b>prevenzione · tecniche · organizzative</b> (cioè «misure tecniche e organizzative»).",
       trans="—",
       sfx="<code>boom_sub</code> morbido sullo scudo · <code>tick_rapido</code> sulle etichette.")
@@ -198,9 +199,9 @@ scene(id="s10", t0=30.11, t1=33.47, title="Ridurre il rischio", frame=vid("F10",
       trans="Zoom in (6 frame).",
       sfx="<code>riser_tonale</code> che chiude sul picco di «rischio».")
 
-scene(id="s11", t0=33.47, t1=39.31, title="Sintesi · l'azienda reale", frame=GRID + card("F11", "card", "left:26%;top:7%;width:48%;height:30%") + '<div class="words dark" style="top:38.5%;left:0;right:0"><span>deve rappresentare</span> <span class="ser red">realmente</span><br><span>l\'azienda</span></div>' + BUILDING,
+scene(id="s11", t0=33.47, t1=39.31, title="Sintesi · l'azienda reale", frame=GRID + '<div class="words dark big" style="top:8%;left:0;right:0"><span>deve rappresentare</span> <span class="ser red">realmente</span><br><span>l\'azienda</span></div>' + BUILDING,
       quote="«Il DVR quindi deve rappresentare realmente l'azienda e il suo ciclo lavorativo.»", clip="0110 · 2,22–11,62 s",
-      video="Parte a schermo intero su «Il DVR quindi»; su «l'azienda» zoom out verso l'insert. La sezione isometrica dell'azienda (stessa geometria del monogramma GM) si costruisce e la freccia rossa del <b>ciclo di lavoro</b> le gira intorno.",
+      video="Parte a schermo intero su «Il DVR quindi»; su «l'azienda» slide verso la grafica a tutto schermo, senza il soggetto. La sezione isometrica dell'azienda (stessa geometria del monogramma GM) si costruisce e la freccia rossa del <b>ciclo di lavoro</b> le gira intorno.",
       testi="«realmente» in serif corsivo, rosso pieno sul bianco.",
       trans="Film burn leggero all'ingresso (secondo dei 3).",
       sfx="<code>short_whoosh</code> · rotazione morbida sul ciclo.")
@@ -235,6 +236,13 @@ for i, s in enumerate(SC, 1):
 </article>''')
 
 html = open(f"{S}/storyboard_template.html").read()
-html = html.replace("%%SCENES%%", "\n".join(rows)).replace("%%AUDIO%%", AUDIO)
+import re
+COVER = "data:image/jpeg;base64," + b64(f"{S}/cov/cop_sb.jpg")
+body = "\n".join(rows)
+body = re.sub(r'(fill|stroke)="#1A1A1E"', r'\1="currentColor"', body)
+for col,var in (("#fff","f1"),("#ffffff","f1"),("#E9E9E6","f2"),("#DADAD6","f3"),("#D3D3CF","f3")):
+    body = body.replace(f'fill="{col}"', f'style="fill:var(--{var})"')
+html = html.replace("%%COVER%%", COVER)
+html = html.replace("%%SCENES%%", body).replace("%%AUDIO%%", AUDIO)
 open(OUT, "w").write(html)
 print("ok", len(html) // 1024, "KB")
