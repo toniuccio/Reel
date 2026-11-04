@@ -22,3 +22,10 @@ Primo piano di Andrea nel centro storico. Titoli proposti:
 1. "Centro storico: le proposte *ci sono.*"
 2. "Sei mesi dopo. *Stessi problemi.*"
 3. "Crotone, centro storico: servono *fatti.*"
+
+## Vecchio reel del 10 maggio (analisi)
+- File: 720x1280, 30 fps, SDR, 48 s, audio già a -14 LUFS.
+- **Pezzo da usare: 20,00 → 27,70 s** ("Serve un piano vero, recupero, riqualificazione, sostegno alle attività e ai giovani, accessibilità, zona traffico limitata e soprattutto decoro."). Dura 7,7 s, con l'audio originale a velocità normale.
+- Sottotitoli blu già stampati sul video, tra il 62% e il 72% dell'altezza, e logo PD in alto a sinistra.
+- Proposta: la card mostra solo la parte alta (0-55% dell'altezza, formato 4:5, centrata sul viso), così i vecchi sottotitoli restano fuori e sotto la card scorre la nostra lista che si spunta.
+- La parte finale del vecchio reel (fac-simile elettorale) non si usa.
