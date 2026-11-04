@@ -10,6 +10,7 @@ case $1 in
 9236) G="rr=1.00:gg=1.02:bb=1.06";E="1.04";;
 9239) G="rr=1.06:gg=0.97:bb=0.98";E="1.05";;
 9241) G="rr=1.08:gg=1.00:bb=1.00";E="1.07";;
+0109) G="rr=1.02:gg=1.01:bb=0.985";E="1.07";;  # Giemme: dopo la LUT di pareggio
 *) G="rr=1.00:gg=1.00:bb=1.00";E="1.00";;  # clip nuova: parti neutro e regola a occhio
 esac
 echo "colorchannelmixer=$G,eq=gamma=$E:saturation=0.88,curves=master='0/0.045 0.25/0.255 0.5/0.5 0.75/0.755 1/0.95'$X"
