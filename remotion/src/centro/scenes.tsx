@@ -83,7 +83,7 @@ const S0389: React.FC = () => {
   return (
     <AbsoluteFill>
       <FramedVideo id="0389" zoomMul={ramp(f, 0, br, 1, 1.03) * punch(f, L('mesi'), 0.05)} />
-      <Stack top={TEXT_TOP} until={br}>
+      <Stack top={TEXT_TOP} until={br} scrimFrom={L('quasi')}>
         <Word at={L('quasi')} text="quasi" style={{marginLeft: -360}} />
         <Word at={L('sei')} text="6 mesi" size="xl" px={230} glow />
         {f >= L('mesi') && (
@@ -95,7 +95,7 @@ const S0389: React.FC = () => {
       <Broll id="0366" from={br} to={br2} />
       <Broll id="0367" from={br2} to={end} startFrom={10} />
       <Sequence from={br} layout="none">
-        <Stack top={TEXT_TOP} gap={4}>
+        <Stack top={TEXT_TOP} gap={4} scrimFrom={0} scrimStrength={0.68}>
           <Word at={0} text="continuiamo a parlare" />
           <Word at={L('sempre') - br} text="sempre degli" />
           <Word at={L('stessi') - br} text="stessi" size="xl" px={200} glow />
@@ -117,7 +117,7 @@ const S0370: React.FC = () => {
       <AbsoluteFill style={{filter: b > 0 ? `blur(${b * 22}px) brightness(${1 - 0.38 * b})` : undefined, transform: `scale(${1 + 0.05 * b})`}}>
         <FramedVideo id="0370" zoomMul={ramp(f, 0, end, 1, 1.04)} />
       </AbsoluteFill>
-      <Stack top={TEXT_TOP} until={end}>
+      <Stack top={TEXT_TOP} until={end} scrimFrom={L('le')}>
         <Word at={L('le')} text="eppure le proposte" />
         <Word at={L('non')} text="non mancano." size="xl" serif px={170} glow />
       </Stack>
@@ -194,13 +194,13 @@ const S0374: React.FC = () => {
     <AbsoluteFill>
       <FramedVideo id="0374" zoomMul={ramp(f, br, clipById('0374').frames, 1, 1.05)} />
       <Broll id="0385" from={0} to={br} />
-      <Stack top={TEXT_TOP} until={br}>
+      <Stack top={TEXT_TOP} until={br} scrimFrom={L('giustamente')} scrimStrength={0.68}>
         <Word at={L('giustamente')} text="giustamente" />
         <Word at={L('confcommercio')} text="Confcommercio" size="xl" px={132} glow />
         <Word at={L('chiesto')} text="chiede un intervento" />
         <Word at={L('immediato')} text="immediato" size="m" px={96} />
       </Stack>
-      <Stack top={TEXT_TOP}>
+      <Stack top={TEXT_TOP} scrimFrom={L('soltanto')}>
         <Word at={L('soltanto')} text="non soltanto" />
         <Strike at={L('natalizio')} text="a Natale." px={130} />
       </Stack>
@@ -259,7 +259,7 @@ const S0380: React.FC = () => {
   return (
     <AbsoluteFill>
       <FramedVideo id="0380" zoomMul={ramp(f, 0, ins, 1, 1.04) * punch(f, L('concreta'), 0.04)} />
-      <Stack top={TEXT_TOP} until={ins + 2}>
+      <Stack top={TEXT_TOP} until={ins + 2} scrimFrom={L('partiamo')}>
         <Word at={L('partiamo')} text="e allora partiamo da una" />
         <Word at={L('proposta')} text="proposta" size="xl" px={170} glow />
         <Word at={L('concreta')} text="concreta." size="m" />
@@ -294,11 +294,11 @@ const S0381: React.FC = () => {
     <AbsoluteFill>
       <FramedVideo id="0381" zoomMul={ramp(f, andrea, br1, 1, 1.05) * punch(f, L('priorità'), 0.04)} />
       <Broll id="0388" from={0} to={andrea} />
-      <Stack top={TEXT_TOP} until={andrea}>
+      <Stack top={TEXT_TOP} until={andrea} scrimFrom={L('inquadrare')} scrimStrength={0.68}>
         <Word at={L('inquadrare')} text="per inquadrare" />
         <Word at={L('problematiche')} text="le problematiche" size="m" px={120} glow />
       </Stack>
-      <Stack top={TEXT_TOP} until={br1} gap={26}>
+      <Stack top={TEXT_TOP} until={br1} gap={26} scrimFrom={andrea}>
         <div style={{display: 'flex', gap: 18}}>
           <Pill at={andrea} text="problematiche" />
           <Pill at={L('programma')} text="programma" />
@@ -310,7 +310,7 @@ const S0381: React.FC = () => {
       <Broll id="0386" from={br1} to={br2} />
       <Broll id="0387" from={br2} to={end} />
       <Sequence from={br1} durationInFrames={br2 - br1} layout="none">
-        <Stack top={H * 0.5} gap={18}>
+        <Stack top={H * 0.5} gap={18} scrimFrom={0} scrimStrength={0.68}>
           <Word at={0} text="che garantiscono al centro storico di" px={44} />
           <Word at={L('risplendere') - br1} text="risplendere" size="xl" serif px={210} glow />
           <Word at={tutto - br1} text="tutto l'anno" size="m" px={110} />
@@ -320,7 +320,7 @@ const S0381: React.FC = () => {
         </Stack>
       </Sequence>
       <Sequence from={br2} layout="none">
-        <Stack top={H * 0.53} gap={22}>
+        <Stack top={H * 0.53} gap={22} scrimFrom={0} scrimStrength={0.7}>
           <Word at={non - br2} text="e non soltanto" />
           <Strike at={L('natalizio') - br2} text="a Natale" px={120} />
           <Months state={(fr, i) => (i === 11 ? 1 : fr < non - br2 ? 1 : fr < non - br2 + 12 ? (fr - (non - br2)) < (11 - i) ? 1 : 0 : 0)} />
@@ -342,7 +342,7 @@ const S0383: React.FC = () => {
   return (
     <AbsoluteFill>
       <FramedVideo id="0383" zoomMul={f < back ? 1 : ramp(f, back, end + 12, 1.05, 1.0)} />
-      <Stack top={TEXT_TOP} until={br} gap={14}>
+      <Stack top={TEXT_TOP} until={br} gap={14} scrimFrom={L('proposte')}>
         <div style={{opacity: pill, transform: `scale(${0.8 + 0.2 * pill})`, display: 'inline-flex', alignItems: 'center', gap: 16, background: RED, color: '#fff', borderRadius: 999, padding: '16px 36px', fontFamily: UI, fontWeight: 700, fontSize: 46}}>
           <span style={{display: 'grid', placeItems: 'center', width: 46, height: 46, borderRadius: '50%', background: GREEN}}>
             <CheckSvg size={30} />
@@ -352,11 +352,11 @@ const S0383: React.FC = () => {
         <Word at={L('ci')} text="ci sono." size="xl" px={170} glow />
       </Stack>
       <Broll id="0384" from={br} to={back} />
-      <Stack top={TEXT_TOP} until={back}>
+      <Stack top={TEXT_TOP} until={back} scrimFrom={L('adesso')} scrimStrength={0.68}>
         <Word at={L('adesso')} text="adesso partiamo con una" />
         <Word at={L('campagna')} text="campagna" size="m" px={120} />
       </Stack>
-      <Stack top={TEXT_TOP} gap={8}>
+      <Stack top={TEXT_TOP} gap={8} scrimFrom={L('concreta')}>
         <Word at={L('concreta')} text="concreta e seria" size="xl" serif px={158} glow />
         <Word at={L('per')} text="per il centro storico di Crotone" />
       </Stack>

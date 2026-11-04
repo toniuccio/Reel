@@ -7,7 +7,7 @@ export const RED = '#E20612';
 export const GREEN = '#009043';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-const SHADOW = '0 4px 24px rgba(0,0,0,.45)';
+const SHADOW = '0 2px 6px rgba(0,0,0,.35), 0 4px 24px rgba(0,0,0,.5)';
 
 type Size = 's' | 'm' | 'l' | 'xl';
 const SIZES: Record<Size, number> = {s: 50, m: 100, l: 92, xl: 184};
@@ -115,11 +115,15 @@ export const Stack: React.FC<{
   until?: number;
   gap?: number;
   align?: 'center' | 'left';
+  /** frame da cui compare l'ombreggiatura scura dietro al testo (leggibilità su sfondi chiari) */
+  scrimFrom?: number;
+  scrimStrength?: number;
   children: React.ReactNode;
-}> = ({top, until = Infinity, gap = 6, align = 'center', children}) => {
+}> = ({top, until = Infinity, gap = 6, align = 'center', scrimFrom, scrimStrength = 0.58, children}) => {
   const f = useCurrentFrame();
   const out = Number.isFinite(until) ? interpolate(f, [until - 5, until], [1, 0], clamp) : 1;
   if (out <= 0) return null;
+  const scrim = scrimFrom === undefined ? 0 : interpolate(f, [scrimFrom - 2, scrimFrom + 6], [0, 1], clamp);
   return (
     <div
       style={{
@@ -133,8 +137,23 @@ export const Stack: React.FC<{
         gap,
         opacity: out,
         filter: out < 1 ? `blur(${(1 - out) * 10}px)` : undefined,
+        isolation: 'isolate',
       }}
     >
+      {scrim > 0 && (
+        <div
+          style={{
+            position: 'absolute',
+            left: align === 'left' ? -220 : '-5%',
+            right: align === 'left' ? -260 : '-5%',
+            top: -170,
+            bottom: -190,
+            zIndex: -1,
+            opacity: scrim,
+            background: `radial-gradient(ellipse 62% 50% at 50% 50%, rgba(0,0,0,${scrimStrength}) 0%, rgba(0,0,0,${scrimStrength * 0.6}) 45%, transparent 100%)`,
+          }}
+        />
+      )}
       {children}
     </div>
   );

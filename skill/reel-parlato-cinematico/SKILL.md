@@ -26,6 +26,8 @@ Se il repository è disponibile, riparti da lì invece di riscrivere da zero.
 - **Colore del brand sulle scritte**: mai pieno sui toni scuri. La parola chiave nasce colorata e **si accende**: nucleo chiaro con il bagliore del colore intorno. Il colore pieno va bene solo sul bianco.
 - **Transizioni**: slide veloci, zoom e film burn **leggero**, mai esagerati. Niente speed ramp sul parlato, niente dissolvenze generiche.
 - **Logo**: piccolo, compare solo quando il soggetto nomina il partito o il brand. In chiusura niente nome e niente logo, salvo richiesta.
+- **Colore troppo pallido**: con la luce piatta aggiungi vividezza (saturazione ×1,24, contrasto 1,08, vibrance 0,15). Il video deve essere piacevole e ben visibile, non slavato.
+- **Testi bianchi su sfondi chiari**: metti sempre dietro al testo un'ombreggiatura scura leggera che compare e sparisce con il testo.
 - **Anteprime HTML**: sulle immagini dei fotogrammi metti `max-width:none`, altrimenti la pagina pubblicata le taglia e compare una fascia nera.
 
 ## Testi

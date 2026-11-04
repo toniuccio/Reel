@@ -15,6 +15,7 @@ Da usare come base per tutti i prossimi reel parlati in esterno. I valori tra pa
 - Si bilancia il bianco clip per clip **sulla pelle**: si toglie il freddo del nuvoloso, la dominante verde sotto gli alberi e il rosso del sole duro.
 - Le clip girate in ombra si schiariscono alzando ombre e medi, proteggendo le alte luci. Il viso deve finire a circa 90-110 di luminosità media su 255.
 - Vignettatura leggera (circa −25% ai bordi) **centrata sul viso**, che lo segue.
+- Con il cielo coperto o la luce piatta il look morbido diventa **pallido**. In quel caso aggiungi vividezza: saturazione ×1,24, contrasto 1,08, neri non sollevati, vibrance 0,15 (vedi `VIVO` in `progetti/centro-storico/prepara.sh`). È questa la versione approvata da Antonio.
 - I valori sono in `strumenti/grade.sh`: una riga per clip.
 
 ## 3. Inquadratura
@@ -31,7 +32,8 @@ Da usare come base per tutti i prossimi reel parlati in esterno. I valori tra pa
 - **Parola chiave sul video**: nasce nel colore del brand e in 0,3 s **si accende**. Il nucleo diventa chiaro (#FFF4F2) e il colore resta come bagliore intorno. Non va mai usato il colore pieno sui toni scuri, perché si legge poco.
 - **Liste "Titolo: riga"**: titolo bold con il bagliore, e la riga sotto che si scrive lettera per lettera con il cursore.
 - **Sugli sfondi bianchi**: testo nero, e la parola chiave nel colore pieno del brand.
-- Ombra morbida sotto il testo bianco: `0 4px 24px rgba(0,0,0,.45)`.
+- Ombra doppia sotto il testo bianco: `0 2px 6px rgba(0,0,0,.35), 0 4px 24px rgba(0,0,0,.5)`.
+- **Ombreggiatura dietro i testi** (`scrimFrom` in `Stack`): un alone scuro ellittico, leggero (opacità 0,55-0,7), che compare insieme al testo e sparisce con lui. Va sempre messo su b-roll e sfondi chiari, così il bianco non si perde.
 
 ## 5. Insert
 - **Fondo bianco** (#F4F4F2) con **card del soggetto**: il video continua dentro la card, ritagliato sul viso, con il luogo che si vede dietro. Non si mettono mai foto vuote di cielo o facciate.

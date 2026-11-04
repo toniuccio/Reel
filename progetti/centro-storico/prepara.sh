@@ -10,6 +10,8 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 OUT="$ROOT/remotion/public/centro"; mkdir -p "$OUT/clips" "$OUT/broll" "$OUT/old"
 GRADE="$ROOT/strumenti/grade.sh"
 SPEED=1.06
+# più vivido e meno pallido (richiesta di Antonio dopo la prima versione)
+VIVO="eq=saturation=1.24:contrast=1.08,curves=master='0/0 0.06/0.03 0.25/0.22 0.5/0.5 0.78/0.81 1/1',vibrance=intensity=0.15"
 TM="zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p"
 VOICE="highpass=f=80,afftdn=nf=-25,deesser=i=0.4,acompressor=threshold=-20dB:ratio=3:attack=8:release=120:makeup=2,equalizer=f=220:t=q:w=1:g=1.5,equalizer=f=3200:t=q:w=1.2:g=2,loudnorm=I=-16:TP=-2:LRA=7"
 
@@ -23,7 +25,7 @@ tonemap() { # stampa il tonemap solo per le clip HDR
 while read -r n a b; do
   f=$(src "$n"); d=$(echo "$b - $a" | bc -l)
   ffmpeg -nostdin -v error -y -ss "$a" -t "$d" -i "$f" \
-    -vf "$(tonemap "$f")$("$GRADE" "$n"),setpts=PTS/$SPEED,fps=30,scale=1080:1920:flags=lanczos" \
+    -vf "$(tonemap "$f")$("$GRADE" "$n"),$VIVO,setpts=PTS/$SPEED,fps=30,scale=1080:1920:flags=lanczos" \
     -an -c:v libx264 -preset slow -crf 15 -pix_fmt yuv420p -movflags +faststart "$OUT/clips/$n.mp4"
   ffmpeg -nostdin -v error -y -ss "$a" -t "$d" -i "$f" -vn -af "$VOICE,atempo=$SPEED" -ar 48000 -ac 2 "$OUT/clips/$n.wav"
   echo "parlato $n $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT/clips/$n.mp4")"
@@ -40,7 +42,7 @@ EOF
 while read -r n a b; do
   f=$(src "$n"); d=$(echo "$b - $a" | bc -l)
   ffmpeg -nostdin -v error -y -ss "$a" -t "$d" -i "$f" \
-    -vf "$(tonemap "$f")$("$GRADE" "$n"),fps=30,scale=1080:1920:flags=lanczos" \
+    -vf "$(tonemap "$f")$("$GRADE" "$n"),$VIVO,fps=30,scale=1080:1920:flags=lanczos" \
     -an -c:v libx264 -preset slow -crf 16 -pix_fmt yuv420p -movflags +faststart "$OUT/broll/$n.mp4"
   echo "b-roll $n $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT/broll/$n.mp4")"
 done <<'EOF'
