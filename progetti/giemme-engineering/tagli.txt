@@ -1,0 +1,6 @@
+# numero inizio fine (secondi, sul girato originale), nell'ordine del montaggio
+# 0103: la pausa 4,1-5,6 s dopo "DVR?" va tolta in montaggio (trim interno)
+0103 1.75 13.30
+0104 0.85 8.30
+0109 1.45 22.15
+0110 1.85 11.75

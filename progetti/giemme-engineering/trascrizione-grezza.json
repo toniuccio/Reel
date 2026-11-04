@@ -1,0 +1,614 @@
+{
+ "0103": {
+  "text": "Sai che cos'è realmente un DVR? Il DVR, documento votazione dei rischi, non è solamente un documento che un'azienda deve tenere nel cassetto affinché possa essere in regola. Tale documento.",
+  "words": [
+   {
+    "w": "Sai",
+    "t": 1.84
+   },
+   {
+    "w": "che",
+    "t": 2.32
+   },
+   {
+    "w": "cos'è",
+    "t": 2.48
+   },
+   {
+    "w": "realmente",
+    "t": 2.88
+   },
+   {
+    "w": "un",
+    "t": 3.28
+   },
+   {
+    "w": "DVR?",
+    "t": 3.44
+   },
+   {
+    "w": "Il",
+    "t": 5.6
+   },
+   {
+    "w": "DVR,",
+    "t": 5.84
+   },
+   {
+    "w": "documento",
+    "t": 6.8
+   },
+   {
+    "w": "votazione",
+    "t": 7.44
+   },
+   {
+    "w": "dei",
+    "t": 7.92
+   },
+   {
+    "w": "rischi,",
+    "t": 8.08
+   },
+   {
+    "w": "non",
+    "t": 8.64
+   },
+   {
+    "w": "è",
+    "t": 8.8
+   },
+   {
+    "w": "solamente",
+    "t": 8.96
+   },
+   {
+    "w": "un",
+    "t": 9.36
+   },
+   {
+    "w": "documento",
+    "t": 9.52
+   },
+   {
+    "w": "che",
+    "t": 9.92
+   },
+   {
+    "w": "un'azienda",
+    "t": 10.16
+   },
+   {
+    "w": "deve",
+    "t": 10.64
+   },
+   {
+    "w": "tenere",
+    "t": 10.88
+   },
+   {
+    "w": "nel",
+    "t": 11.2
+   },
+   {
+    "w": "cassetto",
+    "t": 11.36
+   },
+   {
+    "w": "affinché",
+    "t": 11.84
+   },
+   {
+    "w": "possa",
+    "t": 12.32
+   },
+   {
+    "w": "essere",
+    "t": 12.64
+   },
+   {
+    "w": "in",
+    "t": 12.88
+   },
+   {
+    "w": "regola.",
+    "t": 13.04
+   },
+   {
+    "w": "Tale",
+    "t": 14.24
+   },
+   {
+    "w": "documento.",
+    "t": 14.72
+   }
+  ]
+ },
+ "0104": {
+  "text": "Tale documento deve essere presente, attivo e visionabile da parte di tutta l'azienda, da parte di tutti i lavoratori. All'interno di esso vengono caratterizzate le singole attività lavorative inerenti all'azienda, e si vanno a correlare alle singole attività lavorative i vari rischi che si possono che si presentano e si possono presentare all'interno di un tutto.",
+  "words": [
+   {
+    "w": "Tale",
+    "t": 0.96
+   },
+   {
+    "w": "documento",
+    "t": 1.52
+   },
+   {
+    "w": "deve",
+    "t": 2.24
+   },
+   {
+    "w": "essere",
+    "t": 2.72
+   },
+   {
+    "w": "presente,",
+    "t": 3.04
+   },
+   {
+    "w": "attivo",
+    "t": 3.92
+   },
+   {
+    "w": "e",
+    "t": 4.48
+   },
+   {
+    "w": "visionabile",
+    "t": 4.72
+   },
+   {
+    "w": "da",
+    "t": 5.52
+   },
+   {
+    "w": "parte",
+    "t": 5.76
+   },
+   {
+    "w": "di",
+    "t": 6.08
+   },
+   {
+    "w": "tutta",
+    "t": 6.32
+   },
+   {
+    "w": "l'azienda,",
+    "t": 6.56
+   },
+   {
+    "w": "da",
+    "t": 7.12
+   },
+   {
+    "w": "parte",
+    "t": 7.28
+   },
+   {
+    "w": "di",
+    "t": 7.44
+   },
+   {
+    "w": "tutti",
+    "t": 7.52
+   },
+   {
+    "w": "i",
+    "t": 7.68
+   },
+   {
+    "w": "lavoratori.",
+    "t": 7.84
+   },
+   {
+    "w": "All'interno",
+    "t": 8.72
+   },
+   {
+    "w": "di",
+    "t": 9.36
+   },
+   {
+    "w": "esso",
+    "t": 9.52
+   },
+   {
+    "w": "vengono",
+    "t": 10.24
+   },
+   {
+    "w": "caratterizzate",
+    "t": 10.72
+   },
+   {
+    "w": "le",
+    "t": 11.6
+   },
+   {
+    "w": "singole",
+    "t": 11.76
+   },
+   {
+    "w": "attività",
+    "t": 12.16
+   },
+   {
+    "w": "lavorative",
+    "t": 12.72
+   },
+   {
+    "w": "inerenti",
+    "t": 13.68
+   },
+   {
+    "w": "all'azienda,",
+    "t": 15.12
+   },
+   {
+    "w": "e",
+    "t": 16.56
+   },
+   {
+    "w": "si",
+    "t": 16.8
+   },
+   {
+    "w": "vanno",
+    "t": 16.96
+   },
+   {
+    "w": "a",
+    "t": 17.36
+   },
+   {
+    "w": "correlare",
+    "t": 17.44
+   },
+   {
+    "w": "alle",
+    "t": 18.0
+   },
+   {
+    "w": "singole",
+    "t": 18.24
+   },
+   {
+    "w": "attività",
+    "t": 18.56
+   },
+   {
+    "w": "lavorative",
+    "t": 18.96
+   },
+   {
+    "w": "i",
+    "t": 19.6
+   },
+   {
+    "w": "vari",
+    "t": 19.76
+   },
+   {
+    "w": "rischi",
+    "t": 20.08
+   },
+   {
+    "w": "che",
+    "t": 21.52
+   },
+   {
+    "w": "si",
+    "t": 21.76
+   },
+   {
+    "w": "possono",
+    "t": 21.92
+   },
+   {
+    "w": "che",
+    "t": 22.4
+   },
+   {
+    "w": "si",
+    "t": 22.64
+   },
+   {
+    "w": "presentano",
+    "t": 22.72
+   },
+   {
+    "w": "e",
+    "t": 23.2
+   },
+   {
+    "w": "si",
+    "t": 23.28
+   },
+   {
+    "w": "possono",
+    "t": 23.44
+   },
+   {
+    "w": "presentare",
+    "t": 23.76
+   },
+   {
+    "w": "all'interno",
+    "t": 24.08
+   },
+   {
+    "w": "di",
+    "t": 24.56
+   },
+   {
+    "w": "un",
+    "t": 25.04
+   },
+   {
+    "w": "tutto.",
+    "t": 26.0
+   }
+  ]
+ },
+ "0109": {
+  "text": "All'interno del documento vengono analizzate le singole attività lavorative, vengono correlati i vari rischi a queste attività lavorative, e infine si vanno a strutturare quelle che sono le misure di prevenzione, le tecniche organizzative per mitigare e ridurre l'esposizione al rischio.",
+  "words": [
+   {
+    "w": "All'interno",
+    "t": 1.52
+   },
+   {
+    "w": "del",
+    "t": 2.56
+   },
+   {
+    "w": "documento",
+    "t": 2.8
+   },
+   {
+    "w": "vengono",
+    "t": 3.84
+   },
+   {
+    "w": "analizzate",
+    "t": 4.48
+   },
+   {
+    "w": "le",
+    "t": 5.28
+   },
+   {
+    "w": "singole",
+    "t": 5.52
+   },
+   {
+    "w": "attività",
+    "t": 6.08
+   },
+   {
+    "w": "lavorative,",
+    "t": 6.72
+   },
+   {
+    "w": "vengono",
+    "t": 7.84
+   },
+   {
+    "w": "correlati",
+    "t": 8.4
+   },
+   {
+    "w": "i",
+    "t": 9.12
+   },
+   {
+    "w": "vari",
+    "t": 9.28
+   },
+   {
+    "w": "rischi",
+    "t": 9.6
+   },
+   {
+    "w": "a",
+    "t": 10.0
+   },
+   {
+    "w": "queste",
+    "t": 10.16
+   },
+   {
+    "w": "attività",
+    "t": 10.4
+   },
+   {
+    "w": "lavorative,",
+    "t": 10.8
+   },
+   {
+    "w": "e",
+    "t": 11.84
+   },
+   {
+    "w": "infine",
+    "t": 12.08
+   },
+   {
+    "w": "si",
+    "t": 12.8
+   },
+   {
+    "w": "vanno",
+    "t": 12.96
+   },
+   {
+    "w": "a",
+    "t": 13.28
+   },
+   {
+    "w": "strutturare",
+    "t": 13.44
+   },
+   {
+    "w": "quelle",
+    "t": 14.16
+   },
+   {
+    "w": "che",
+    "t": 14.56
+   },
+   {
+    "w": "sono",
+    "t": 14.72
+   },
+   {
+    "w": "le",
+    "t": 15.04
+   },
+   {
+    "w": "misure",
+    "t": 15.2
+   },
+   {
+    "w": "di",
+    "t": 15.76
+   },
+   {
+    "w": "prevenzione,",
+    "t": 15.92
+   },
+   {
+    "w": "le",
+    "t": 16.72
+   },
+   {
+    "w": "tecniche",
+    "t": 16.88
+   },
+   {
+    "w": "organizzative",
+    "t": 17.52
+   },
+   {
+    "w": "per",
+    "t": 18.64
+   },
+   {
+    "w": "mitigare",
+    "t": 18.96
+   },
+   {
+    "w": "e",
+    "t": 19.68
+   },
+   {
+    "w": "ridurre",
+    "t": 20.0
+   },
+   {
+    "w": "l'esposizione",
+    "t": 20.8
+   },
+   {
+    "w": "al",
+    "t": 21.68
+   },
+   {
+    "w": "rischio.",
+    "t": 21.84
+   }
+  ]
+ },
+ "0110": {
+  "text": "Il DVR, quindi deve rappresentare realmente l'azienda e il suo ciclo lavorativo, e tu? Sapevi cosa fosse un DVR? Fammamelo sapere.",
+  "words": [
+   {
+    "w": "Il",
+    "t": 1.92
+   },
+   {
+    "w": "DVR,",
+    "t": 2.24
+   },
+   {
+    "w": "quindi",
+    "t": 3.04
+   },
+   {
+    "w": "deve",
+    "t": 3.44
+   },
+   {
+    "w": "rappresentare",
+    "t": 3.76
+   },
+   {
+    "w": "realmente",
+    "t": 4.8
+   },
+   {
+    "w": "l'azienda",
+    "t": 5.44
+   },
+   {
+    "w": "e",
+    "t": 6.24
+   },
+   {
+    "w": "il",
+    "t": 6.4
+   },
+   {
+    "w": "suo",
+    "t": 6.56
+   },
+   {
+    "w": "ciclo",
+    "t": 6.72
+   },
+   {
+    "w": "lavorativo,",
+    "t": 7.2
+   },
+   {
+    "w": "e",
+    "t": 8.4
+   },
+   {
+    "w": "tu?",
+    "t": 8.64
+   },
+   {
+    "w": "Sapevi",
+    "t": 9.04
+   },
+   {
+    "w": "cosa",
+    "t": 9.52
+   },
+   {
+    "w": "fosse",
+    "t": 9.68
+   },
+   {
+    "w": "un",
+    "t": 9.92
+   },
+   {
+    "w": "DVR?",
+    "t": 10.0
+   },
+   {
+    "w": "Fammamelo",
+    "t": 10.8
+   },
+   {
+    "w": "sapere.",
+    "t": 11.36
+   }
+  ]
+ }
+}
