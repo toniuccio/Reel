@@ -25,5 +25,13 @@ Da verificare con Antonio prima di usare numeri e frasi nel video.
 ## Contatti
 info@giemme-eng.it · areatecnica@giemme-eng.it
 
+## Brand
+- **Rosso Giemme #E50210** (misurato sul logo). Sui fondi scuri non si usa pieno: la parola nasce rossa e si accende (nucleo #FFF4F2, bagliore rosso).
+- **Bianco / grafite #1A1A1E** per la seconda metà del monogramma e per la scritta.
+- Logo: monogramma "GM" isometrico (metà bianca, metà rossa) e scritta GIEMME▪ENGINEERING con il quadratino rosso.
+  - `materiali/logo-giemme-bianco.png`: originale, per i fondi scuri e il video;
+  - `materiali/logo-giemme-scuro.png`: parti bianche in grafite, per i fondi chiari degli insert.
+- Spunto grafico dal logo: forme **isometriche** a spigoli netti e il **quadratino rosso** come elemento ricorrente (punto elenco, punto di quota, "pallina" che rimbalza sul box del titolo al posto di quella verde del riferimento).
+
 ## Mancano
-Colori del brand (HEX), logo, foto dei progetti.
+Foto dei progetti (facoltative: le immagini dei b-roll le ricreo io).
