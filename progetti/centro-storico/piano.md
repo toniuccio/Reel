@@ -35,7 +35,7 @@ Il parlato registrato è diverso dal testo scritto in alcuni punti. Il montaggio
 
 | Clip | Durata | Parlato |
 |---|---|---|
-| (manca) | – | Hook «Sono passati quasi sei mesi… stessi problemi.»: clip non ancora ricevuta |
+| IMG_0389 | 6,7 s (parlato 1,0-5,9) | «Sono passati quasi sei mesi dall'ultimo video sul centro storico e continuiamo a parlare sempre degli stessi…» (la parola "problemi" non si sente: la frase finisce su "stessi") |
 | IMG_0370 | 2,8 s | «Eppure le proposte non mancano.» |
 | vecchio reel 20,0-27,7 | 7,7 s | «Serve un piano vero, recupero, riqualificazione, … e soprattutto decoro.» |
 | IMG_0374 | 0-10,3 | «Serve un piano vero di riqualificazione, decoro, accessibilità, sostegno ai giovani e alle imprese, ma soprattutto una zona a traffico limitato.» → **doppione del vecchio reel, da scartare** se si usa la card |
