@@ -1,0 +1,11 @@
+{
+ "riferimento": {
+  "L": 54.2,
+  "saturazione": 5.5
+ },
+ "0383": {
+  "L_prima": 61.0,
+  "saturazione_prima": 6.5,
+  "guadagno_saturazione": 1.2
+ }
+}

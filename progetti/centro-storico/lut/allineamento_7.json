@@ -1,0 +1,41 @@
+{
+ "riferimento": {
+  "L": 54.2,
+  "saturazione": 5.5
+ },
+ "0380": {
+  "L_prima": 56.1,
+  "saturazione_prima": 3.6,
+  "guadagno_saturazione": 1.55
+ },
+ "0388": {
+  "L_prima": 68.4,
+  "saturazione_prima": 2.7,
+  "guadagno_saturazione": 1.6
+ },
+ "0381": {
+  "L_prima": 56.1,
+  "saturazione_prima": 4.8,
+  "guadagno_saturazione": 1.15
+ },
+ "0386": {
+  "L_prima": 68.2,
+  "saturazione_prima": 1.2,
+  "guadagno_saturazione": 1.6
+ },
+ "0387": {
+  "L_prima": 65.8,
+  "saturazione_prima": 4.2,
+  "guadagno_saturazione": 1.33
+ },
+ "0383": {
+  "L_prima": 61.0,
+  "saturazione_prima": 6.5,
+  "guadagno_saturazione": 0.9
+ },
+ "0384": {
+  "L_prima": 66.3,
+  "saturazione_prima": 2.4,
+  "guadagno_saturazione": 1.6
+ }
+}
