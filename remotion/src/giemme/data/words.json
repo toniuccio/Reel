@@ -1,0 +1,456 @@
+{
+ "0103a": {
+  "text": "Il D V R?",
+  "words": [
+   {
+    "w": "Il",
+    "t": 0.0
+   },
+   {
+    "w": "D",
+    "t": 0.16
+   },
+   {
+    "w": "V",
+    "t": 0.32
+   },
+   {
+    "w": "R?",
+    "t": 0.48
+   }
+  ]
+ },
+ "0103b": {
+  "text": "Non è solamente un documento che un'azienda deve tenere nel cassetto affinché possa essere in regola.",
+  "words": [
+   {
+    "w": "Non",
+    "t": 0.0
+   },
+   {
+    "w": "è",
+    "t": 0.24
+   },
+   {
+    "w": "solamente",
+    "t": 0.4
+   },
+   {
+    "w": "un",
+    "t": 0.72
+   },
+   {
+    "w": "documento",
+    "t": 0.8
+   },
+   {
+    "w": "che",
+    "t": 1.28
+   },
+   {
+    "w": "un'azienda",
+    "t": 1.44
+   },
+   {
+    "w": "deve",
+    "t": 1.92
+   },
+   {
+    "w": "tenere",
+    "t": 2.16
+   },
+   {
+    "w": "nel",
+    "t": 2.4
+   },
+   {
+    "w": "cassetto",
+    "t": 2.56
+   },
+   {
+    "w": "affinché",
+    "t": 3.04
+   },
+   {
+    "w": "possa",
+    "t": 3.44
+   },
+   {
+    "w": "essere",
+    "t": 3.76
+   },
+   {
+    "w": "in",
+    "t": 3.92
+   },
+   {
+    "w": "regola.",
+    "t": 4.08
+   }
+  ]
+ },
+ "0103c": {
+  "text": "Sai che cos'è realmente un DBR?",
+  "words": [
+   {
+    "w": "Sai",
+    "t": 0.0
+   },
+   {
+    "w": "che",
+    "t": 0.32
+   },
+   {
+    "w": "cos'è",
+    "t": 0.4
+   },
+   {
+    "w": "realmente",
+    "t": 0.72
+   },
+   {
+    "w": "un",
+    "t": 1.04
+   },
+   {
+    "w": "DBR?",
+    "t": 1.2
+   }
+  ]
+ },
+ "0104": {
+  "text": "Tale documento deve essere presente, attivo e visionabile da parte di tutta l'azienda, da parte di tutti i lavoratori.",
+  "words": [
+   {
+    "w": "Tale",
+    "t": 0.0
+   },
+   {
+    "w": "documento",
+    "t": 0.4
+   },
+   {
+    "w": "deve",
+    "t": 0.96
+   },
+   {
+    "w": "essere",
+    "t": 1.44
+   },
+   {
+    "w": "presente,",
+    "t": 1.76
+   },
+   {
+    "w": "attivo",
+    "t": 2.56
+   },
+   {
+    "w": "e",
+    "t": 3.12
+   },
+   {
+    "w": "visionabile",
+    "t": 3.28
+   },
+   {
+    "w": "da",
+    "t": 4.08
+   },
+   {
+    "w": "parte",
+    "t": 4.24
+   },
+   {
+    "w": "di",
+    "t": 4.56
+   },
+   {
+    "w": "tutta",
+    "t": 4.72
+   },
+   {
+    "w": "l'azienda,",
+    "t": 4.96
+   },
+   {
+    "w": "da",
+    "t": 5.6
+   },
+   {
+    "w": "parte",
+    "t": 5.68
+   },
+   {
+    "w": "di",
+    "t": 5.84
+   },
+   {
+    "w": "tutti",
+    "t": 5.92
+   },
+   {
+    "w": "i",
+    "t": 6.08
+   },
+   {
+    "w": "lavoratori.",
+    "t": 6.16
+   }
+  ]
+ },
+ "0109": {
+  "text": "All'interno del documento vengono analizzate le singole attività lavorative, vengono correlati i vari rischi a queste attivative, e infine si vanno a strutturare quelle che sono le misure di prevenzione, le tecniche organizzative, per mitigare e ridurre l'esposizione al rischio.",
+  "words": [
+   {
+    "w": "All'interno",
+    "t": 0.0
+   },
+   {
+    "w": "del",
+    "t": 0.96
+   },
+   {
+    "w": "documento",
+    "t": 1.12
+   },
+   {
+    "w": "vengono",
+    "t": 2.0
+   },
+   {
+    "w": "analizzate",
+    "t": 2.64
+   },
+   {
+    "w": "le",
+    "t": 3.44
+   },
+   {
+    "w": "singole",
+    "t": 3.68
+   },
+   {
+    "w": "attività",
+    "t": 4.24
+   },
+   {
+    "w": "lavorative,",
+    "t": 4.8
+   },
+   {
+    "w": "vengono",
+    "t": 5.84
+   },
+   {
+    "w": "correlati",
+    "t": 6.4
+   },
+   {
+    "w": "i",
+    "t": 7.12
+   },
+   {
+    "w": "vari",
+    "t": 7.2
+   },
+   {
+    "w": "rischi",
+    "t": 7.52
+   },
+   {
+    "w": "a",
+    "t": 7.92
+   },
+   {
+    "w": "queste",
+    "t": 8.0
+   },
+   {
+    "w": "attivative,",
+    "t": 8.32
+   },
+   {
+    "w": "e",
+    "t": 9.6
+   },
+   {
+    "w": "infine",
+    "t": 9.92
+   },
+   {
+    "w": "si",
+    "t": 10.56
+   },
+   {
+    "w": "vanno",
+    "t": 10.72
+   },
+   {
+    "w": "a",
+    "t": 11.04
+   },
+   {
+    "w": "strutturare",
+    "t": 11.12
+   },
+   {
+    "w": "quelle",
+    "t": 11.84
+   },
+   {
+    "w": "che",
+    "t": 12.16
+   },
+   {
+    "w": "sono",
+    "t": 12.4
+   },
+   {
+    "w": "le",
+    "t": 12.64
+   },
+   {
+    "w": "misure",
+    "t": 12.8
+   },
+   {
+    "w": "di",
+    "t": 13.36
+   },
+   {
+    "w": "prevenzione,",
+    "t": 13.44
+   },
+   {
+    "w": "le",
+    "t": 14.24
+   },
+   {
+    "w": "tecniche",
+    "t": 14.4
+   },
+   {
+    "w": "organizzative,",
+    "t": 14.96
+   },
+   {
+    "w": "per",
+    "t": 16.08
+   },
+   {
+    "w": "mitigare",
+    "t": 16.32
+   },
+   {
+    "w": "e",
+    "t": 17.04
+   },
+   {
+    "w": "ridurre",
+    "t": 17.28
+   },
+   {
+    "w": "l'esposizione",
+    "t": 18.08
+   },
+   {
+    "w": "al",
+    "t": 18.8
+   },
+   {
+    "w": "rischio.",
+    "t": 18.96
+   }
+  ]
+ },
+ "0110": {
+  "text": "Il DVR, quindi deve rappresentare realmente l'azienda e il suo ciclo lavorativo. E tu? Sapevi cosa fosse un DVR? Fammelo sapere.",
+  "words": [
+   {
+    "w": "Il",
+    "t": 0.0
+   },
+   {
+    "w": "DVR,",
+    "t": 0.16
+   },
+   {
+    "w": "quindi",
+    "t": 0.88
+   },
+   {
+    "w": "deve",
+    "t": 1.2
+   },
+   {
+    "w": "rappresentare",
+    "t": 1.52
+   },
+   {
+    "w": "realmente",
+    "t": 2.4
+   },
+   {
+    "w": "l'azienda",
+    "t": 3.04
+   },
+   {
+    "w": "e",
+    "t": 3.84
+   },
+   {
+    "w": "il",
+    "t": 4.0
+   },
+   {
+    "w": "suo",
+    "t": 4.08
+   },
+   {
+    "w": "ciclo",
+    "t": 4.24
+   },
+   {
+    "w": "lavorativo.",
+    "t": 4.72
+   },
+   {
+    "w": "E",
+    "t": 5.84
+   },
+   {
+    "w": "tu?",
+    "t": 6.08
+   },
+   {
+    "w": "Sapevi",
+    "t": 6.4
+   },
+   {
+    "w": "cosa",
+    "t": 6.88
+   },
+   {
+    "w": "fosse",
+    "t": 7.04
+   },
+   {
+    "w": "un",
+    "t": 7.28
+   },
+   {
+    "w": "DVR?",
+    "t": 7.36
+   },
+   {
+    "w": "Fammelo",
+    "t": 8.08
+   },
+   {
+    "w": "sapere.",
+    "t": 8.56
+   }
+  ]
+ }
+}
