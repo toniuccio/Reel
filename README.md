@@ -72,5 +72,17 @@ Infine scarica i due modelli che servono e mettili in `strumenti/modelli/` (ques
 ## Effetti sonori
 In `remotion/public/sfx/` ci sono effetti generati da `strumenti/genera_sfx.py`. Per usare quelli di `libreria_sfx_reel.zip`, copia i WAV in quella cartella con gli stessi nomi (`short_whoosh.wav`, `boom_sub.wav`, …) e renderizza di nuovo.
 
+Effetti estratti dal pacchetto "Cinematic Sound Effect" (Riser, Hit, Swoosh), nominati con i titoli del video:
+
+| File | Durata | Uso tipico |
+|---|---|---|
+| `suspense_riser.wav` | 1,8 s | tensione che sale prima di una rivelazione |
+| `slow_down.wav` | 2,3 s | rallentamento, nastro che si ferma |
+| `charge.wav` | 2,5 s | carica che cresce verso un colpo |
+| `snap.wav` | 0,3 s | schiocco secco su un taglio |
+| `radio_beep.wav` | 0,5 s | bip su un dato o un'etichetta |
+| `flash.wav` | 1,9 s | lampo, flash bianco di transizione |
+| `metallic_hit.wav` | 2,3 s | colpo metallico sulla parola chiave |
+
 ## Usarlo con Claude
 Per lavorare con Claude sul computer (Claude Code o l'app desktop) apri questa cartella: Claude legge `STILE-REEL.md` e il progetto e riparte da qui. La skill in `skill/reel-parlato-cinematico/` porta lo stesso stile in tutte le chat (vedi sotto).
