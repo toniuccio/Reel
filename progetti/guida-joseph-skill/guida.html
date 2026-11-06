@@ -214,6 +214,13 @@ ol.correzioni li{margin-bottom:5px}
 ol.correzioni li::marker{color:var(--blu);font-family:var(--mono);font-size:13px}
 .chiave .racconto{max-width:none}
 @media (max-width:480px){.r{grid-template-columns:minmax(0,1fr);gap:2px}ol.correzioni{margin-left:20px}}
+
+.trad-cap{margin-top:40px;font-size:26px}
+.trad-sub{margin:22px 0 4px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--testo-2);font-weight:600}
+.trad-sub.pub-h{color:var(--arancio)}
+.racconto.trad{gap:8px;margin:10px 0}
+.racconto.trad p{font-size:16px}
+.nota-trad{color:var(--testo-2);font-size:.9em}
 </style>
 
 <div class="pagina">
@@ -229,10 +236,10 @@ ol.correzioni li::marker{color:var(--blu);font-family:var(--mono);font-size:13px
 </header>
 
 <nav class="indice" aria-label="Indice">
-  <a href="#c-intro">0:00 Introduzione</a><a href="#c-stile">0:55 Lo stile</a><a href="#c-k1">1:28 Didascalie</a><a href="#c-k2">2:04 Capitoli</a><a href="#c-k3">2:32 Grafiche UI</a><a href="#c-k4">3:10 Hook</a><a href="#c-k5">3:46 Tutto schermo</a><a href="#c-allena">5:25 Allenare Claude</a><a href="#c-pacchetto">8:03 Il pacchetto</a><a href="#c-monta">10:16 Il montaggio</a><a href="#c-piano">11:08 Il piano</a><a href="#c-build">13:36 Costruzione e revisione</a><a href="#c-suono">15:12 Suono</a><a href="#c-finale">15:48 Il reel finale</a><a href="#c-ia">16:41 L'IA e il lavoro</a><a href="#confronto">Cosa ne ricaviamo</a>
+  <a href="#c-intro">0:00 Introduzione</a><a href="#c-stile">0:55 Lo stile</a><a href="#c-k1">1:28 Didascalie</a><a href="#c-k2">2:04 Capitoli</a><a href="#c-k3">2:32 Grafiche UI</a><a href="#c-k4">3:10 Hook</a><a href="#c-k5">3:46 Tutto schermo</a><a href="#c-allena">5:25 Allenare Claude</a><a href="#c-pacchetto">8:03 Il pacchetto</a><a href="#c-monta">10:16 Il montaggio</a><a href="#c-piano">11:08 Il piano</a><a href="#c-build">13:36 Costruzione e revisione</a><a href="#c-suono">15:12 Suono</a><a href="#c-finale">15:48 Il reel finale</a><a href="#c-ia">16:41 L'IA e il lavoro</a><a href="#traduzione">Traduzione integrale</a><a href="#confronto">Cosa ne ricaviamo</a>
 </nav>
 
-<p class="testo" style="color:var(--testo-2);font-size:15px;margin-top:18px">Come leggerla: ogni capitolo riporta in italiano tutto quello che Joseph dice, nell'ordine in cui lo dice. Il numero blu a sinistra è il minuto del video. In fondo a ogni capitolo, il riquadro "In pratica" dice cosa ce ne facciamo. La trascrizione originale in inglese, frase per frase con i tempi, è in <code>trascrizioni/frasi-con-tempi.txt</code>.</p>
+<p class="testo" style="color:var(--testo-2);font-size:15px;margin-top:18px">Come leggerla: ogni capitolo riporta in italiano tutto quello che Joseph dice, nell'ordine in cui lo dice. Il numero blu a sinistra è il minuto del video. In fondo a ogni capitolo, il riquadro "In pratica" dice cosa ce ne facciamo. Se vuoi leggere ogni singola frase alla lettera, c'è la <a href="#traduzione">traduzione integrale</a> verso la fine della pagina.</p>
 
 <!-- ===================== INTRO ===================== -->
 <section id="c-intro">
@@ -605,6 +612,302 @@ ol.correzioni li::marker{color:var(--blu);font-family:var(--mono);font-size:13px
     <div class="r pub"><span class="t">17:15</span><p><span class="tag">Pubblicità</span> Chiusura sul corso: fondamenti di design e di animazione, psicologia dei contenuti short-form, le cinque masterclass sugli stili, il corso base sugli strumenti IA (Claude, Remotion, Higgsfield), la masterclass con le sue skill e il gruppo sul personal brand. 299 $ a vita invece di 1.200 $ l'anno, fino al 15 novembre.</p></div>
   </div>
   <blockquote><p><b>Il messaggio di tutto il video, in una frase:</b> Claude esegue, ma il montaggio lo decide chi conosce il mestiere. Un piano scritto da te e una skill che conosce lo stile danno un reel professionale. Lasciare scegliere all'IA dà grafiche a caso.</p></blockquote>
+</section>
+
+<section id="traduzione">
+  <div class="capo"><span class="etichetta">Tutto il video</span></div>
+  <h2>Traduzione <em>integrale</em></h2>
+  <p class="testo">Ogni frase del video, nell'ordine e con il minuto, comprese le parti di pubblicità. Tra parentesi quadre le mie note. I nomi propri sbagliati dalla trascrizione automatica sono corretti (Creato Display, Apple Garamond, Opus 5.5, Higgsfield).</p>
+  <h3 class="trad-cap">Introduzione</h3>
+  <div class="racconto trad">
+    <div class="r"><span class="t">0:00</span><p>Nelle ultime tre settimane ho costruito questa skill di montaggio per video brevi e l&#x27;ho usata per creare gli ultimi 12 reel premium che ho pubblicato sul mio Instagram.</p></div>
+    <div class="r"><span class="t">0:07</span><p>E uno di questi ha superato le 90.000 visualizzazioni.</p></div>
+    <div class="r"><span class="t">0:10</span><p>Ora, in molti si chiedono se questi video siano montati con l&#x27;IA o da un montatore in carne e ossa.</p></div>
+    <div class="r"><span class="t">0:14</span><p>Quindi oggi vi mostro finalmente come ho allenato Claude a montare i miei video brevi per Instagram.</p></div>
+    <div class="r"><span class="t">0:19</span><p>Per prima cosa vi scompongo le cinque chiavi che formano il mio stile di montaggio virale per video brevi, così potete capirlo.</p></div>
+    <div class="r"><span class="t">0:24</span><p>Poi vi accompagno nel processo di allenamento: come creare una skill di montaggio virale per video brevi in qualsiasi stile, compreso il mio.</p></div>
+    <div class="r"><span class="t">0:31</span><p>E infine prenderò un video breve grezzo e lo monterò con questa skill insieme a voi, passo dopo passo.</p></div>
+    <div class="r"><span class="t">0:35</span><p>E alla fine del video saprete esattamente come allenare Claude su qualsiasi stile di montaggio vogliate, e come usarlo per montare video brevi virali come quelli che vi piacciono.</p></div>
+    <div class="r"><span class="t">0:44</span><p>Se volete accedere proprio a questa skill, ho appena pubblicato la Joseph AI Editing Masterclass, dove condivido le skill che montano sia i miei video brevi sia quelli lunghi.</p></div>
+    <div class="r"><span class="t">0:52</span><p>È tutto dentro Ultimate Editors, e il link è qui sotto.</p></div>
+  </div>
+  <h3 class="trad-cap">Capitolo 1: lo stile</h3>
+  <div class="racconto trad">
+    <div class="r"><span class="t">0:55</span><p>Ma senza ulteriori indugi: prima di imparare come creare la skill che monta i video brevi al posto nostro, capiamo lo stile su cui stiamo per allenarla.</p></div>
+    <div class="r"><span class="t">1:02</span><p>Vedete, pubblico da parecchio tempo, e al mio pubblico è piaciuto moltissimo lo stile dei video che facevamo.</p></div>
+    <div class="r"><span class="t">1:08</span><p>Era pulito, era premium, ed era davvero semplice.</p></div>
+    <div class="r"><span class="t">1:10</span><p>Quindi l&#x27;obiettivo della skill che stavo per costruire era molto semplice.</p></div>
+    <div class="r"><span class="t">1:13</span><p>Volevo insegnare a Claude a creare esattamente questi video.</p></div>
+    <div class="r"><span class="t">1:17</span><p>Quindi, prima di farlo, scomponiamo di cosa è fatto davvero il mio stile di montaggio.</p></div>
+    <div class="r"><span class="t">1:21</span><p>La skill di montaggio short-form di Joseph è composta da cinque chiavi.</p></div>
+    <div class="r"><span class="t">1:24</span><p>Se combinate queste cinque chiavi, ottenete montaggi premium e spettacolari come questo.</p></div>
+  </div>
+  <h4 class="trad-sub">Chiave 1: le didascalie</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">1:28</span><p>La prima chiave dello stile Joseph sono le didascalie.</p></div>
+    <div class="r"><span class="t">1:31</span><p>Partiamo dal girato principale <span class="nota-trad">[A-roll, lo speaker che parla]</span> e dividiamo la scena in terzi.</p></div>
+    <div class="r"><span class="t">1:34</span><p>Poi aggiungiamo uno scurimento e una sfocatura al terzo inferiore, e la nostra didascalia sta in questo riquadro.</p></div>
+    <div class="r"><span class="t">1:38</span><p>La didascalia è fatta di due font diversi: un font sans semplice per il testo normale, per cui usiamo Creato Display, e un font script speciale per il testo evidenziato, per cui usiamo Apple Garamond.</p></div>
+    <div class="r"><span class="t">1:47</span><p>Quando piazziamo il testo, cominciamo mettendo una o due parole in font script, quelle speciali, poi cerchiamo gli spazi intorno dove può stare il resto.</p></div>
+    <div class="r"><span class="t">1:53</span><p>E sistemiamo il resto della frase usando il font sans.</p></div>
+    <div class="r"><span class="t">1:56</span><p>Infine, per l&#x27;animazione del testo, è un semplice pop-up con blur e fade in: il testo salta su, entra in dissolvenza partendo da un&#x27;opacità bassa e all&#x27;inizio ha anche una sfocatura, come tocco in più.</p></div>
+  </div>
+  <h4 class="trad-sub">Chiave 2: i listicle UI</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">2:04</span><p>La prima chiave è fatta; passiamo alla seconda, i listicle UI a schermo.</p></div>
+    <div class="r"><span class="t">2:08</span><p>Molti dei nostri video sono divisi in capitoli: accompagniamo lo spettatore attraverso il capitolo uno, poi il due, poi il tre.</p></div>
+    <div class="r"><span class="t">2:13</span><p>Quindi usiamo questi listicle UI per mostrare allo spettatore i tre capitoli già all&#x27;inizio del video.</p></div>
+    <div class="r"><span class="t">2:17</span><p>Come design, è un rombo con un leggero gradiente e un contorno sottile all&#x27;esterno, con un numero al centro.</p></div>
+    <div class="r"><span class="t">2:23</span><p>Per l&#x27;animazione dei capitoli, li introduciamo semplicemente uno per uno con un pop-up fade.</p></div>
+    <div class="r"><span class="t">2:27</span><p>Poi, ogni volta che nominiamo il capitolo nel corso del video, lo riusiamo con un testo accanto che dà il nome al capitolo.</p></div>
+  </div>
+  <h4 class="trad-sub">Chiave 3: pop-up UI e contatori</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">2:32</span><p>La chiave tre sono i nostri pop-up UI a schermo e i contatori numerici.</p></div>
+    <div class="r"><span class="t">2:35</span><p>Ce ne sono di tanti tipi diversi, e cambiano tutti in base a ciò che si dice nel copione.</p></div>
+    <div class="r"><span class="t">2:39</span><p>Per esempio, quando parliamo di due elementi o confrontiamo due cose, usiamo un layout prima e dopo come questo.</p></div>
+    <div class="r"><span class="t">2:44</span><p>Oggetto a sinistra, oggetto a destra, collegati da una freccia pulita e semplice.</p></div>
+    <div class="r"><span class="t">2:48</span><p>Quando nominiamo un certo software o un evento, possiamo usare un&#x27;animazione pop-up UI come questa, con uno sfondo sfocato, il logo del software e un testo che rappresenta la notifica.</p></div>
+    <div class="r"><span class="t">2:55</span><p>Se nominiamo dei timer o dei contatori, usiamo un&#x27;animazione circolare come questa.</p></div>
+    <div class="r"><span class="t">2:59</span><p>Ha uno sfondo con una traccia grigia, una parte colorata in primo piano e un numero al centro che rappresenta la quantità.</p></div>
+    <div class="r"><span class="t">3:04</span><p>E se dobbiamo elencare più cose, facciamo comparire un riquadro sfocato proprio come questo ed elenchiamo ogni elemento in sequenza, così.</p></div>
+  </div>
+  <h4 class="trad-sub">Chiave 4: gli hook</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">3:10</span><p>La chiave quattro è come creiamo hook coinvolgenti.</p></div>
+    <div class="r"><span class="t">3:13</span><p>Per i nostri hook usiamo una formula semplice in tre pezzi: speaker, testo e visual.</p></div>
+    <div class="r"><span class="t">3:17</span><p>La prima cosa che facciamo è assicurarci che lo speaker sia visibile: allineando gli occhi dello speaker ai terzi superiori del video, ci assicuriamo che lo spettatore veda subito lo speaker e si colleghi con lui.</p></div>
+    <div class="r"><span class="t">3:24</span><p>Poi, per il testo, tutto comincia guardando il copione e chiedendoci: cosa c&#x27;è qui che fa venire voglia allo spettatore di guardare il video?</p></div>
+    <div class="r"><span class="t">3:30</span><p>Una volta che l&#x27;avete trovato, dovete metterlo in risalto con il testo.</p></div>
+    <div class="r"><span class="t">3:33</span><p>Infine, per i visual, ci chiediamo semplicemente: cosa possiamo mostrare sullo schermo che aiuti il testo ad agganciare lo spettatore?</p></div>
+    <div class="r"><span class="t">3:39</span><p>Potrebbe essere far comparire gli stili di montaggio di cui stiamo parlando, oppure mostrare un timer se il video parla di quanto poco tempo ci vorrà per insegnare una certa cosa allo spettatore.</p></div>
+  </div>
+  <h4 class="trad-sub">Chiave 5: le animazioni a tutto schermo</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">3:46</span><p>Infine, la chiave cinque sono le animazioni a tutto schermo.</p></div>
+    <div class="r"><span class="t">3:49</span><p>Sono il pane quotidiano del video.</p></div>
+    <div class="r"><span class="t">3:51</span><p>Occupano metà del montaggio, ma hanno l&#x27;impatto maggiore.</p></div>
+    <div class="r"><span class="t">3:54</span><p>Dipendono completamente da ciò che dice il copione, ma per esempio usiamo animazioni di listicle per accompagnare lo spettatore</p></div>
+    <div class="r"><span class="t">4:00</span><p>da un punto all&#x27;altro.</p></div>
+    <div class="r"><span class="t">4:01</span><p>Sono composte da una timeline, card UI dei capitoli, e testi ed elementi che scorrono accanto.</p></div>
+    <div class="r"><span class="t">4:05</span><p>Altre volte usiamo semplici scene a tutto schermo, dove un elemento occupa l&#x27;intera scena e mostra uno schermo o un esempio di ciò che vogliamo far vedere.</p></div>
+    <div class="r"><span class="t">4:12</span><p>Usiamo anche animazioni di testo a tutto schermo, in cui sfondo e testo sono in contrasto, per aiutare lo spettatore a leggere il punto che stiamo esponendo.</p></div>
+    <div class="r"><span class="t">4:17</span><p>E infine usiamo gli zoom fuori dallo schermo se vogliamo portare lo spettatore fuori dal girato principale e introdurre elementi nuovi, come altri montaggi e altri esempi.</p></div>
+    <div class="r"><span class="t">4:24</span><p>Ora, tutte e cinque queste chiavi si uniscono per formare lo stile di montaggio che conoscete e amate sul mio Instagram.</p></div>
+  </div>
+  <h4 class="trad-sub pub-h">Pubblicità</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">4:30</span><p>Ora, ecco il punto.</p></div>
+    <div class="r"><span class="t">4:31</span><p>Avete cliccato su questo video per imparare a montare video premium con l&#x27;IA.</p></div>
+    <div class="r"><span class="t">4:34</span><p>Ma se vi dicessi che ho costruito un pacchetto completo di skill che crea video premium e spettacolari come questi, chiamato Joseph AI Short-Form Editing Skill?</p></div>
+    <div class="r"><span class="t">4:41</span><p>E ho anche creato un pacchetto di skill che monta proprio i video di YouTube che state guardando su questo canale, e si chiama Joseph Long-Form Editing Skill.</p></div>
+    <div class="r"><span class="t">4:49</span><p>E ho persino registrato corsi passo passo che vi mostrano come li ho allenati entrambi e come uso entrambe queste skill per montare i miei video brevi e i miei video lunghi per YouTube.</p></div>
+    <div class="r"><span class="t">4:57</span><p>È tutto dentro la Joseph AI Editing Masterclass, che abbiamo appena pubblicato su Ultimate Editors 2.0.</p></div>
+    <div class="r"><span class="t">5:03</span><p>È solo una delle 12 masterclass a cui potete accedere, tra cui i cinque stili di montaggio virali che potete imparare a ricreare, e un corso di fondamenti di montaggio con l&#x27;IA che vi insegna le basi del video editing con l&#x27;IA.</p></div>
+    <div class="r"><span class="t">5:14</span><p>Il programma chiude tra circa 10 giorni, il 15 novembre.</p></div>
+    <div class="r"><span class="t">5:17</span><p>Quindi, se volete creare montaggi spettacolari come questi con l&#x27;IA, cliccate sul link qui sotto, perché abbiamo uno sconto speciale prima che il programma chiuda per sempre.</p></div>
+  </div>
+  <h3 class="trad-cap">Capitolo 2: allenare Claude sullo stile</h3>
+  <div class="racconto trad">
+    <div class="r"><span class="t">5:25</span><p>Ma ora che avete capito tutte e cinque le chiavi, è il momento di capire come allenare Claude su questo stile di montaggio.</p></div>
+    <div class="r"><span class="t">5:30</span><p>Potreste pensare che allenare Claude su uno stile così complesso sia molto difficile.</p></div>
+    <div class="r"><span class="t">5:34</span><p>Ma la verità è che, quando si allena Claude su qualsiasi stile di montaggio, servono solo due cose semplici.</p></div>
+    <div class="r"><span class="t">5:38</span><p>La prima è una grande cartella di riferimento, una cartella che contiene tutti i video che vogliamo replicare.</p></div>
+    <div class="r"><span class="t">5:44</span><p>Come la raccolgo?</p></div>
+    <div class="r"><span class="t">5:45</span><p>Vado sul mio personal brand <span class="nota-trad">[il suo profilo]</span>, guardo i montaggi e scelgo quelli che mi piacciono di più.</p></div>
+    <div class="r"><span class="t">5:49</span><p>Alla fine ho scaricato 14 montaggi.</p></div>
+    <div class="r"><span class="t">5:51</span><p>Li metto in una cartella di riferimento, e la prima parte è fatta.</p></div>
+    <div class="r"><span class="t">5:55</span><p>La seconda cosa che mi serve è una scomposizione completa dello stile di montaggio.</p></div>
+    <div class="r"><span class="t">5:58</span><p>Ed è questa la parte che fa davvero la differenza.</p></div>
+    <div class="r"><span class="t">6:00</span><p>Guardate.</p></div>
+    <div class="r"><span class="t">6:00</span><p>Per prima cosa si apre un programma come Figma, poi si divide lo schermo in due, con Figma a destra, e si caricano i video di riferimento a sinistra per guardarli tutti.</p></div>
+    <div class="r"><span class="t">6:08</span><p>Quello che dobbiamo fare è semplice.</p></div>
+    <div class="r"><span class="t">6:10</span><p>Ogni volta che vediamo una scena con un buon design, facciamo uno screenshot e lo mettiamo sulla tavola.</p></div>
+    <div class="r"><span class="t">6:14</span><p>Lo facciamo per le scene di testo, le animazioni a schermo, le animazioni a tutto schermo e tutto ciò che sembra di alta qualità.</p></div>
+    <div class="r"><span class="t">6:19</span><p>Finché non abbiamo una grande tavola di ispirazione con più di 120 immagini.</p></div>
+    <div class="r"><span class="t">6:24</span><p>Questo è molto importante, perché abbiamo appena trasformato i video che vogliamo creare in immagini che possiamo vedere sullo schermo.</p></div>
+    <div class="r"><span class="t">6:29</span><p>Il passo successivo è scomporre lo stile.</p></div>
+    <div class="r"><span class="t">6:31</span><p>Vi ricordate le cinque chiavi di cui abbiamo parlato?</p></div>
+    <div class="r"><span class="t">6:34</span><p>Bene, ora le scomponiamo una per una usando la tavola di ispirazione che abbiamo appena costruito.</p></div>
+    <div class="r"><span class="t">6:37</span><p>Si comincia dalla chiave numero uno: si raccolgono tutte le ispirazioni che mostrano il design dei testi a schermo e si raggruppano qui.</p></div>
+    <div class="r"><span class="t">6:42</span><p>Poi se ne prende una, la si mette di lato e si scompone di cosa è fatta: i font, la posizione e tutto quello che c&#x27;è in mezzo.</p></div>
+    <div class="r"><span class="t">6:47</span><p>Poi lo facciamo per ogni singola chiave.</p></div>
+    <div class="r"><span class="t">6:49</span><p>Trascino qui tutte le ispirazioni dei listicle e le scompongo così.</p></div>
+    <div class="r"><span class="t">6:52</span><p>Poi trascino qui le animazioni a schermo e le scompongo in una tabella con ogni design e ogni tipo di animazione.</p></div>
+    <div class="r"><span class="t">6:57</span><p>Poi ho una sezione che parla della chiave 4, come impostiamo gli hook: personaggio, testo e visual. E infine prendo tutte le ispirazioni delle animazioni a tutto schermo e le costruisco qui, dove le divido in tabelle e ne scompongo design e animazioni.</p></div>
+    <div class="r"><span class="t">7:09</span><p>Ora, se facciamo zoom indietro, questa tavola Figma ha 120 immagini di com&#x27;è il nostro stile e ne scompone ogni elemento e come si fa da zero.</p></div>
+    <div class="r"><span class="t">7:17</span><p>I design, le animazioni e anche i riferimenti.</p></div>
+    <div class="r"><span class="t">7:19</span><p>Ora che abbiamo sia una cartella di riferimento sia una tavola Figma completa, come creiamo una skill di montaggio short-form?</p></div>
+    <div class="r"><span class="t">7:24</span><p>È qui che le cose si fanno interessanti.</p></div>
+    <div class="r"><span class="t">7:25</span><p>Per prima cosa andiamo in Claude e cominciamo caricando i 14 video di riferimento e la scomposizione Figma completa che abbiamo appena creato.</p></div>
+    <div class="r"><span class="t">7:30</span><p>Poi gli diamo questo prompt.</p></div>
+    <div class="r"><span class="t">7:32</span><p>&quot;Per prima cosa scomponi i 14 video di riferimento in una trascrizione parola per parola e in un&#x27;analisi fotogramma per fotogramma.</p></div>
+    <div class="r"><span class="t">7:37</span><p>Poi studierai tre cose principali: i principi di design di ogni scena, cioè i colori, il layout, gli effetti e tutto il resto; la logica delle animazioni, cioè che animazione ha ogni elemento, un pop-up fade in, un blur reveal e così via; e la posizione delle animazioni e il loro tempo rispetto al copione del video.</p></div>
+    <div class="r"><span class="t">7:51</span><p>Poi userai le scomposizioni di Figma come analisi approfondita dei principi di design di questo stile di montaggio.</p></div>
+    <div class="r"><span class="t">7:57</span><p>Quindi studiale e analizza come è fatto lo stile.</p></div>
+    <div class="r"><span class="t">7:59</span><p>Impara tutto quello che c&#x27;è da sapere</p></div>
+    <div class="r"><span class="t">8:00</span><p>su questo stile di montaggio, così da poterlo ricreare, e trasforma tutto in una skill.&quot;</p></div>
+    <div class="r"><span class="t">8:03</span><p>Claude comincia prendendo tutti e 14 i video e scomponendoli in tutti i fotogrammi che formano le animazioni.</p></div>
+    <div class="r"><span class="t">8:09</span><p>E in trascrizioni parola per parola di ogni video.</p></div>
+    <div class="r"><span class="t">8:11</span><p>Infine guarda il file Figma e studia tutto dall&#x27;inizio alla fine, ogni design, come è fatto e come è animato, e formula le regole dello stile video.</p></div>
+    <div class="r"><span class="t">8:19</span><p>Poi combina tutto questo nel pacchetto della skill, la skill di montaggio short-form.</p></div>
+    <div class="r"><span class="t">8:23</span><p>Dentro il pacchetto, per prima cosa c&#x27;è un regolamento.</p></div>
+    <div class="r"><span class="t">8:26</span><p>Il regolamento stabilisce tutti i dettagli minuti della skill, come le dimensioni dei font, le spaziature, il layout dei design, le curve di animazione e la velocità del movimento.</p></div>
+    <div class="r"><span class="t">8:33</span><p>Poi crea quello che si chiama un lookbook, un libro che mostra com&#x27;è il mio stile di montaggio: le forme, i colori, i gradienti, lo stile delle icone, gli asset usati e tutto quello che c&#x27;è in mezzo. E infine crea una cartella di riferimento, dove salva ogni singola animazione dei 14 video di riferimento in questi file.</p></div>
+    <div class="r"><span class="t">8:48</span><p>In ognuno c&#x27;è uno screenshot del design, un foglio dei fotogrammi chiave dell&#x27;animazione e una scomposizione di come funziona l&#x27;animazione.</p></div>
+    <div class="r"><span class="t">8:54</span><p>E lo fa per quasi 200 animazioni.</p></div>
+    <div class="r"><span class="t">8:57</span><p>Tutto questo si unisce per formare la skill di montaggio short-form che crea questi video brevi spettacolari e virali.</p></div>
+  </div>
+  <h4 class="trad-sub pub-h">Pubblicità</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">9:03</span><p>E come ho detto prima, se volete saltare l&#x27;allenamento, ho caricato nella Joseph AI Editing Masterclass la skill short-form che crea montaggi spettacolari per il mio brand e la skill long-form che ha montato i video lunghi di YouTube che state guardando adesso.</p></div>
+    <div class="r"><span class="t">9:16</span><p>Ho persino registrato corsi passo passo su come le ho allenate entrambe, così potete usare la stessa logica per allenare Claude su qualsiasi stile di montaggio vi piaccia.</p></div>
+    <div class="r"><span class="t">9:23</span><p>E questo è solo uno dei tanti corsi a cui accedete dentro Ultimate Editors 2.0, dove potete letteralmente imparare a montare video spettacolari come questi nel 2026 e guadagnare come video editor.</p></div>
+    <div class="r"><span class="t">9:34</span><p>I montatori che entrano in Ultimate Editors ci entrano da principianti assoluti, e in pochi mesi padroneggiano il montaggio virale grazie a quanto sono facili i corsi.</p></div>
+    <div class="r"><span class="t">9:41</span><p>Abbiamo aiutato i montatori a guadagnare 282.000 dollari negli ultimi 9 mesi di Ultimate Editors 2.0.</p></div>
+    <div class="r"><span class="t">9:47</span><p>Ci siamo riusciti solo grazie al nostro &quot;editor blueprint da 2.000 dollari al mese&quot;, che insegna ai montatori a costruire un personal brand premium e a trovare clienti che pagano bene.</p></div>
+    <div class="r"><span class="t">9:54</span><p>Tutto questo chiuderà per sempre il 15 novembre, ed è per questo che il prezzo del programma è appena sceso da 1.200 dollari l&#x27;anno a soli 299 dollari per l&#x27;accesso a vita.</p></div>
+    <div class="r"><span class="t">10:06</span><p>Se volete imparare a montare video premium come questi con l&#x27;IA e guadagnare 2.000 al mese come video editor, cliccate sul link qui sotto ed entrate in Ultimate Editors 2.0 prima che chiuda per sempre.</p></div>
+  </div>
+  <h3 class="trad-cap">Capitolo 3: il montaggio con la skill</h3>
+  <div class="racconto trad">
+    <div class="r"><span class="t">10:16</span><p>Ma ora che abbiamo allenato Claude sul nostro stile di montaggio, lo capisce in tutto e per tutto e può ricrearlo da zero.</p></div>
+    <div class="r"><span class="t">10:22</span><p>Quindi vediamo come possiamo usare questa skill per creare i montaggi spettacolari che conoscete e amate.</p></div>
+    <div class="r"><span class="t">10:26</span><p>Questo è il video grezzo che monterò.</p></div>
+    <div class="r"><span class="t">10:28</span><p>Comincio aprendo Claude ed entrando in Claude Code, impostando il modello su Opus 5.5 e lo sforzo su extra.</p></div>
+    <div class="r"><span class="t">10:34</span><p>Poi comincio chiedendo a Claude di caricare le mie skill di montaggio short-form, così posso montare un video breve nel mio stile.</p></div>
+  </div>
+  <h4 class="trad-sub">Il taglio grezzo</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">10:40</span><p>La prima cosa che voglio fare è trasformare il mio girato grezzo, con silenzi e prese sbagliate, in un taglio grezzo pronto per essere montato.</p></div>
+    <div class="r"><span class="t">10:45</span><p>Per farlo carico il video grezzo in Claude e gli chiedo di fare una trascrizione del video parola per parola, trovare tutti i silenzi e tutte le prese sbagliate e tagliarli tutti con tagli netti.</p></div>
+    <div class="r"><span class="t">10:55</span><p>Poi premo invio.</p></div>
+    <div class="r"><span class="t">10:56</span><p>Claude comincia prendendo il video e trascrivendolo parola per parola in una trascrizione completa, poi analizza la trascrizione, cerca silenzi, prese sbagliate o qualsiasi cosa vada tolta, la toglie e restituisce il video tagliato.</p></div>
+    <div class="r"><span class="t">11:08</span><p>Perfetto!</p></div>
+  </div>
+  <h4 class="trad-sub">La pianificazione</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">11:08</span><p>Ora che abbiamo un taglio grezzo, la prossima cosa da fare è pianificare come andrà il montaggio.</p></div>
+    <div class="r"><span class="t">11:13</span><p>Non vogliamo assolutamente che sia l&#x27;IA a pianificare cosa mostrare nel montaggio, perché se lo facciamo finirà per creare montaggi da IA scadenti, che fanno proprio brutta figura.</p></div>
+    <div class="r"><span class="t">11:20</span><p>Il vero segreto per ottenere buoni risultati con il montaggio con l&#x27;IA è pianificare il montaggio da soli e far fare il lavoro all&#x27;IA.</p></div>
+    <div class="r"><span class="t">11:25</span><p>Quindi chiedo a Claude di usare la trascrizione del video per creare un documento di pianificazione, dove posso pianificare come voglio che sia ogni scena.</p></div>
+    <div class="r"><span class="t">11:31</span><p>A destra ci sarà ogni riga del copione, e a sinistra una casella di testo vuota dove posso pianificare il mio montaggio.</p></div>
+    <div class="r"><span class="t">11:37</span><p>Potete anche chiedergli questo:</p></div>
+    <div class="r"><span class="t">11:38</span><p>&quot;In base allo studio che hai fatto sui miei contenuti short-form, consigliami quattro possibili design per ogni scena tra cui scegliere.&quot;</p></div>
+    <div class="r"><span class="t">11:43</span><p>Siccome Claude ha studiato i miei video brevi, sa che tipo di animazioni uso.</p></div>
+    <div class="r"><span class="t">11:47</span><p>Quindi può davvero consigliare buone scene in base a quello che dico.</p></div>
+    <div class="r"><span class="t">11:49</span><p>Ora Claude passerà qualche minuto a costruire il documento, e quando ha finito me lo manda.</p></div>
+    <div class="r"><span class="t">11:54</span><p>Potete cliccarci sopra e aprirlo.</p></div>
+    <div class="r"><span class="t">11:56</span><p>Questo documento completo vi permette di vedere le scene a destra e pianificare il montaggio a sinistra.</p></div>
+    <div class="r"><span class="t">12:00</span><p>E questo è il vero trucco.</p></div>
+    <div class="r"><span class="t">12:01</span><p>È qui che passerei circa 15 minuti a ragionare dal punto di vista dello spettatore e a pianificare il montaggio di conseguenza.</p></div>
+    <div class="r"><span class="t">12:06</span><p>Vi faccio vedere come l&#x27;ho fatto per il nostro video.</p></div>
+    <div class="r"><span class="t">12:08</span><p>Per primo, l&#x27;hook.</p></div>
+    <div class="r"><span class="t">12:09</span><p>Il video comincia con me che dico questo come hook:</p></div>
+    <div class="r"><span class="t">12:11</span><p>&quot;Trovare lavoro come video editor nel 2026 si riduce a tre semplici step.&quot;</p></div>
+    <div class="r"><span class="t">12:15</span><p>L&#x27;hook di questo video ruota attorno al guadagnare come video editor.</p></div>
+    <div class="r"><span class="t">12:18</span><p>Quindi pianifico un pop-up di notifica di Stripe che mostra un montatore che guadagna.</p></div>
+    <div class="r"><span class="t">12:22</span><p>Poi pianifico un&#x27;animazione di listicle a tre capitoli che compare appena nomino i tre step.</p></div>
+    <div class="r"><span class="t">12:27</span><p>Poi continuo a ragionare dal punto di vista dello spettatore.</p></div>
+    <div class="r"><span class="t">12:29</span><p>Il segmento successivo dice questo:</p></div>
+    <div class="r"><span class="t">12:30</span><p>&quot;Il problema è che il 90% dei montatori molla dopo il secondo step.&quot;</p></div>
+    <div class="r"><span class="t">12:34</span><p>Siccome rompe un po&#x27; lo schema, ho scelto di chiedere a Claude di tracciarmi e tenere la punta del naso al centro dello schermo, desaturare l&#x27;immagine e aggiungere una vignettatura.</p></div>
+    <div class="r"><span class="t">12:41</span><p>È lì che cominciamo il capitolo, vedendo questo:</p></div>
+    <div class="r"><span class="t">12:44</span><p>&quot;Step uno: diventa un montatore virale.&quot;</p></div>
+    <div class="r"><span class="t">12:46</span><p>Qui chiedo a Claude di creare il listicle del capitolo uno con un testo che descrive il capitolo.</p></div>
+    <div class="r"><span class="t">12:50</span><p>Ora, il primo punto che faccio è questo:</p></div>
+    <div class="r"><span class="t">12:52</span><p>&quot;I titolari di aziende non vogliono più assumere montatori nella media.</p></div>
+    <div class="r"><span class="t">12:55</span><p>Vogliono assumere il montatore che sa trasformare il girato grezzo e noioso in montaggi virali che funzionano davvero.</p></div>
+    <div class="r"><span class="t">13:01</span><p>Per questo oggi è più importante che mai padroneggiare gli stili di montaggio virali del 2026.&quot;</p></div>
+    <div class="r"><span class="t">13:05</span><p>Quindi comincio con uno zoom fuori dallo schermo dove scorriamo su montaggi di bassa qualità per mostrarli.</p></div>
+    <div class="r"><span class="t">13:10</span><p>Poi facciamo una panoramica verso una scena in cui lo spettatore vede i video grezzi, mentre la camera continua a scorrere fino alla vetrina dei montaggi finiti.</p></div>
+    <div class="r"><span class="t">13:16</span><p>Questo fa arrivare il mio punto e aiuta lo spettatore a capire esattamente cosa sto dicendo.</p></div>
+    <div class="r"><span class="t">13:19</span><p>Ora continuo semplicemente a lavorare su questo documento, scegliendo i design e compilando le animazioni che voglio, ragionando dal punto di vista dello spettatore, finché non arriviamo a questo.</p></div>
+    <div class="r"><span class="t">13:26</span><p>Il piano completo del montaggio.</p></div>
+    <div class="r"><span class="t">13:28</span><p>Esattamente come voglio che venga.</p></div>
+    <div class="r"><span class="t">13:29</span><p>Di nuovo, questo passaggio è fondamentale perché l&#x27;obiettivo non è lasciare che l&#x27;IA si inventi il montaggio.</p></div>
+    <div class="r"><span class="t">13:33</span><p>È guidare l&#x27;IA a costruire il montaggio che abbiamo in testa.</p></div>
+  </div>
+  <h4 class="trad-sub">La costruzione</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">13:36</span><p>E fatto tutto questo, ora basta dare a Claude il piano completo e chiedergli di creare il montaggio usando il piano come guida su cosa deve creare.</p></div>
+    <div class="r"><span class="t">13:43</span><p>E di usare la skill come guida su come deve apparire.</p></div>
+    <div class="r"><span class="t">13:46</span><p>Ed è questa la vera magia.</p></div>
+    <div class="r"><span class="t">13:47</span><p>Ora Claude guarda il piano e vede: ok, l&#x27;utente vuole questo qui.</p></div>
+    <div class="r"><span class="t">13:51</span><p>Poi Claude guarda la skill e vede: ok, ecco come lo stile mostra questo tipo di animazione.</p></div>
+    <div class="r"><span class="t">13:55</span><p>Poi usa questa logica per costruire queste animazioni dentro Remotion per noi.</p></div>
+    <div class="r"><span class="t">13:59</span><p>E lo farà per ogni singola scena che abbiamo appena pianificato.</p></div>
+    <div class="r"><span class="t">14:02</span><p>Guarda il piano, stabilisce come può costruirlo con la skill, raccoglie gli asset e lo costruisce.</p></div>
+    <div class="r"><span class="t">14:07</span><p>Questo è il passaggio che richiede più tempo, ma dopo circa 40 minuti dovrebbe avere il video completo pronto da farvi vedere.</p></div>
+  </div>
+  <h4 class="trad-sub">La revisione</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">14:14</span><p>E quando la prima bozza è pronta, non esaltatevi troppo: probabilmente resterete a bocca aperta per quanto è bella, ma dovete rivederla almeno una o due volte prima che sia davvero buona.</p></div>
+    <div class="r"><span class="t">14:21</span><p>Ho guardato tutto il montaggio e ho notato che era bellissimo, ma c&#x27;erano molte cose che si potevano cambiare per farlo venire meglio.</p></div>
+    <div class="r"><span class="t">14:27</span><p>Quindi ho chiesto a Claude di velocizzare l&#x27;animazione di Stripe che scende,</p></div>
+    <div class="r"><span class="t">14:30</span><p>di ingrandire il listicle del capitolo 3, di togliere queste animazioni nella scena col tracciamento, di mostrare un montaggio virale in questa scena, di ammorbidire questo zoom out e di cambiare completamente questo design, in modo che la camera scatti sul personal brand a sinistra e su un montaggio a destra.</p></div>
+    <div class="r"><span class="t">14:42</span><p>Poi gli ho detto di ridurre le icone degli utenti in questa scena, di cambiare il design dei grafici qui con uno che ha una griglia blueprint sullo sfondo, e di trasformare questa scena in una scena di testo su una riga sola, perché in realtà aveva fatto un errore nel costruirla.</p></div>
+    <div class="r"><span class="t">14:52</span><p>Poi ho premuto invio.</p></div>
+    <div class="r"><span class="t">14:54</span><p>Ora sarà un processo molto più veloce, perché Claude ha già il file del progetto: ci metterà circa 10 minuti, farà tutte le modifiche necessarie e vi rimanderà il montaggio finale.</p></div>
+    <div class="r"><span class="t">15:02</span><p>Questo dovrebbe essere molto meglio.</p></div>
+    <div class="r"><span class="t">15:03</span><p>Quindi guardatelo tutto e confermate che va bene.</p></div>
+    <div class="r"><span class="t">15:06</span><p>E poi dite a Claude che ha fatto un ottimo lavoro, così se un giorno l&#x27;IA diventa davvero cosciente, non vi darà la caccia per vendicarsi di averla maltrattata.</p></div>
+  </div>
+  <h4 class="trad-sub">Suono e musica</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">15:12</span><p>Ma ora che abbiamo il video finale pronto, potete semplicemente chiedere a Claude di fare il sound design e la musica del montaggio.</p></div>
+    <div class="r"><span class="t">15:18</span><p>È qui che Claude crea prima una cue sheet completa del vostro montaggio <span class="nota-trad">[una scheda dei suoni]</span>, che mostra ogni animazione, tutto ciò che succede sullo schermo, esattamente quando succede e quale effetto sonoro va usato di conseguenza.</p></div>
+    <div class="r"><span class="t">15:27</span><p>Poi aggiunge gli effetti sonori, ricontrolla il volume e chiude con la musica.</p></div>
+    <div class="r"><span class="t">15:31</span><p>Quando vi manda questo, il file master, vuol dire che il video è completo e pronto da guardare.</p></div>
+    <div class="r"><span class="t">15:36</span><p>A questo punto avrete caricato un video completo in Claude, lui ha fatto i tagli, voi avete pianificato il video, lui l&#x27;ha animato, ha fatto il sound design, ha aggiunto la musica e vi ha mandato la versione finale montata.</p></div>
+    <div class="r"><span class="t">15:45</span><p>Mi ci è voluta solo un&#x27;ora e mezza circa per fare questo montaggio con Claude.</p></div>
+  </div>
+  <h3 class="trad-cap">Il reel finale</h3>
+  <div class="racconto trad">
+    <div class="r"><span class="t">15:48</span><p>E se volete vedere il risultato finale, eccolo.</p></div>
+    <div class="r"><span class="t">15:50</span><p>&quot;Trovare lavoro come video editor nel 2026 si riduce a tre semplici step.</p></div>
+    <div class="r"><span class="t">15:54</span><p>Il problema è che il 90% dei montatori molla dopo il secondo step.</p></div>
+    <div class="r"><span class="t">15:58</span><p>Step uno: diventa un montatore virale.</p></div>
+    <div class="r"><span class="t">16:00</span><p>I titolari di aziende non vogliono più assumere montatori nella media.</p></div>
+    <div class="r"><span class="t">16:03</span><p>Vogliono assumere il montatore che sa trasformare il girato grezzo e noioso in montaggi virali che funzionano davvero.</p></div>
+    <div class="r"><span class="t">16:08</span><p>Per questo oggi è più importante che mai padroneggiare gli stili di montaggio virali del 2026.</p></div>
+    <div class="r"><span class="t">16:13</span><p>Step numero due: costruisci il tuo brand.</p></div>
+    <div class="r"><span class="t">16:15</span><p>Russell Brunson ha detto: non puoi costruire qualcosa di straordinario e aspettarti che la gente lo trovi.</p></div>
+    <div class="r"><span class="t">16:19</span><p>Devi promuovere le tue capacità di montaggio.</p></div>
+    <div class="r"><span class="t">16:21</span><p>Per farlo, devi costruire una pagina social e pubblicare i tuoi lavori migliori per attirare i clienti di qualità più alta.</p></div>
+    <div class="r"><span class="t">16:27</span><p>Infine, step numero tre: tratta i tuoi clienti come dei re.</p></div>
+    <div class="r"><span class="t">16:30</span><p>I soldi veri stanno nei clienti che non vogliono mai andarsene.</p></div>
+    <div class="r"><span class="t">16:32</span><p>Consegna più di quanto promesso e finisci prima delle scadenze.</p></div>
+    <div class="r"><span class="t">16:34</span><p>E fai di tutto, e anche di più, perché i tuoi clienti ti adorino davvero.</p></div>
+    <div class="r"><span class="t">16:38</span><p>E se fai solo queste tre cose, non dovrai mai più cercare clienti.&quot;</p></div>
+  </div>
+  <h3 class="trad-cap">Conclusione: l&#x27;IA e il lavoro del montatore</h3>
+  <div class="racconto trad">
+    <div class="r"><span class="t">16:41</span><p>Ora, dopo aver visto il montaggio di oggi creato dall&#x27;IA, potreste temere che il video editing stia morendo o che il montaggio con l&#x27;IA stia per prendersi tutti i lavori.</p></div>
+    <div class="r"><span class="t">16:48</span><p>La verità è che il montaggio di oggi non sarebbe venuto così bene senza i miei otto anni di esperienza nel video editing.</p></div>
+    <div class="r"><span class="t">16:54</span><p>Dovete comunque capire come si fa un buon video per guidare l&#x27;IA a fare buoni video per voi.</p></div>
+    <div class="r"><span class="t">16:58</span><p>Quindi, come video editor nel 2027, ci sono due capacità che dovete avere.</p></div>
+    <div class="r"><span class="t">17:01</span><p>Dovete capire la psicologia del contenuto, cioè sapere cosa deve stare dove nel video perché funzioni, e dovete imparare a metterlo in pratica usando l&#x27;IA.</p></div>
+    <div class="r"><span class="t">17:08</span><p>E se avete paura che l&#x27;IA prenda il sopravvento, probabilmente non sapete creare video spettacolari e non avete idea di come farlo con l&#x27;IA.</p></div>
+  </div>
+  <h4 class="trad-sub pub-h">Pubblicità finale</h4>
+  <div class="racconto trad">
+    <div class="r"><span class="t">17:15</span><p>Per questo, con meno di 10 giorni rimasti, questo è il momento migliore per entrare in Ultimate Editors 2.0.</p></div>
+    <div class="r"><span class="t">17:20</span><p>È il posto più facile per imparare passo passo le capacità di psicologia del contenuto.</p></div>
+    <div class="r"><span class="t">17:23</span><p>Vi insegniamo i fondamenti del design, i fondamenti per impostare le animazioni e la psicologia dei contenuti short-form, in corsi passo passo.</p></div>
+    <div class="r"><span class="t">17:29</span><p>Poi, con la nostra masterclass sui cinque stili di montaggio, i nostri studenti imparano a montare video premium come questi.</p></div>
+    <div class="r"><span class="t">17:34</span><p>Poi la nostra masterclass di fondamenti del montaggio con l&#x27;IA parte da zero e vi insegna le basi degli strumenti IA: Claude, Remotion e Higgsfield.</p></div>
+    <div class="r"><span class="t">17:41</span><p>E la Joseph AI Editing Masterclass vi dà le skill short-form che montano i miei reel e le skill long-form che hanno montato il video che state guardando adesso.</p></div>
+    <div class="r"><span class="t">17:48</span><p>E infine il nostro editor blueprint da 2.000 dollari al mese vi insegna a costruire un personal brand premium e a trovare clienti che pagano bene.</p></div>
+    <div class="r"><span class="t">17:54</span><p>È così che abbiamo aiutato i montatori a guadagnare 282.000 dollari negli ultimi nove mesi.</p></div>
+    <div class="r"><span class="t">17:58</span><p>Mancano meno di 10 giorni prima che il programma chiuda per sempre.</p></div>
+    <div class="r"><span class="t">18:02</span><p>E invece di 1.200 dollari l&#x27;anno, ora potete avere l&#x27;accesso a vita per soli 299 dollari.</p></div>
+    <div class="r"><span class="t">18:07</span><p>Include tutti i moduli sull&#x27;IA e tutte le skill di cui avrete mai bisogno.</p></div>
+    <div class="r"><span class="t">18:10</span><p>Dopo il 15 novembre non c&#x27;è nessun altro posto che insegni gli stili di montaggio virali del 2026 e come farli con l&#x27;IA.</p></div>
+    <div class="r"><span class="t">18:16</span><p>Questa sarà la vostra ultima occasione.</p></div>
+    <div class="r"><span class="t">18:18</span><p>Quindi coglietela finché potete.</p></div>
+    <div class="r"><span class="t">18:19</span><p>Cliccate sul link qui sotto e ci vediamo dentro.</p></div>
+  </div>
 </section>
 
 <section id="confronto">
