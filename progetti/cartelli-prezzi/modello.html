@@ -1,0 +1,91 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,900&display=block" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#fff}
+  #c{position:relative;width:1240px;height:3508px;overflow:hidden;background:#d9c7b0}
+  #bg{position:absolute;inset:0;background-size:cover;background-position:center}
+  svg{position:absolute;inset:0}
+  .t{font-family:'Archivo';font-style:italic;font-weight:900}
+</style></head>
+<body><div id="c"><div id="bg"></div>
+<svg id="s" width="1240" height="3508" viewBox="0 0 1240 3508"></svg></div>
+<script>
+// d = {nome:[righe], variante, qta, euro, cent, foto}
+const d = JSON.parse(decodeURIComponent(location.hash.slice(1)));
+const RED='#E41D25', DARKRED='#A80F17', ORANGE='#F14624', GOLD='#F9B056', GREY='#434444';
+if (d.foto) document.getElementById('bg').style.backgroundImage = `url(${d.foto})`;
+
+function burst(cx, cy, rx, ry, n, seed, inner){
+  let r = seed; const rnd = () => (r = (r*9301+49297)%233280)/233280;
+  const pts = [];
+  for(let i=0;i<n;i++){
+    const a = (i/n)*Math.PI*2 - Math.PI/2 + (rnd()-.5)*0.18;
+    const k = 1 + (rnd()-.5)*0.22;
+    pts.push([cx+Math.cos(a)*rx*k, cy+Math.sin(a)*ry*k]);
+  }
+  let p = `M${pts[0][0]},${pts[0][1]}`;
+  for(let i=0;i<n;i++){
+    const a=pts[i], b=pts[(i+1)%n];
+    const qx = cx+((a[0]+b[0])/2-cx)*inner, qy = cy+((a[1]+b[1])/2-cy)*inner;
+    p += ` Q${qx},${qy} ${b[0]},${b[1]}`;
+  }
+  return p+'Z';
+}
+const NS='http://www.w3.org/2000/svg', s=document.getElementById('s');
+function el(tag, attrs, parent=s){ const e=document.createElementNS(NS,tag); for(const k in attrs) e.setAttribute(k,attrs[k]); parent.appendChild(e); return e; }
+function fit(g, node, maxW, cx, cy){
+  const w = node.getBBox().width;
+  if (w > maxW) g.setAttribute('transform', `translate(${cx} ${cy}) scale(${maxW/w}) translate(${-cx} ${-cy})`);
+}
+// nome: rosso, contorno bianco, ombra grigia (stile "5 PEZZI")
+function titolo(txt, y, size, maxW, parent){
+  const g = el('g',{class:'t','text-anchor':'middle','font-size':size,'letter-spacing':-2}, parent);
+  const off = size*0.055;
+  const sh = el('text',{x:620+off,y:y+off,fill:GREY,stroke:GREY,'stroke-width':size*0.1,'stroke-linejoin':'round'},g);
+  const tx = el('text',{x:620,y,fill:RED,stroke:'#fff','stroke-width':size*0.07,'stroke-linejoin':'round','paint-order':'stroke'},g);
+  sh.textContent = tx.textContent = txt;
+  fit(g, tx, maxW, 620, y - size*0.35);
+  return g;
+}
+// fascetta rossa inclinata con testo bianco
+function fascia(txt, cy, size, rot, maxW){
+  const g = el('g',{transform:`rotate(${rot} 620 ${cy})`});
+  const t = el('text',{x:620,y:cy+size*0.36,fill:'#fff','text-anchor':'middle','font-size':size,class:'t','letter-spacing':1},g);
+  t.textContent = txt;
+  let w = t.getBBox().width, sc = 1;
+  if (w > maxW) { sc = maxW/w; t.setAttribute('font-size', size*sc); w = maxW; }
+  const hgt = size*sc*1.35, pad = size*sc*0.55;
+  const r1 = el('path',{d:`M${620-w/2-pad+18},${cy-hgt/2+12} h${w+2*pad} l-26,${hgt} h${-(w+2*pad)} Z`, fill:DARKRED});
+  const r2 = el('path',{d:`M${620-w/2-pad+18},${cy-hgt/2} h${w+2*pad} l-26,${hgt} h${-(w+2*pad)} Z`, fill:RED, stroke:'#fff','stroke-width':8,'stroke-linejoin':'round'});
+  g.insertBefore(r1, t); g.insertBefore(r2, t);
+}
+
+Promise.all([document.fonts.load('italic 900 100px Archivo','€0123456789,ABCDEFGHIJKLMNOPQRSTUVWXYZ\''), document.fonts.ready]).then(()=>{
+  const top = el('g',{});
+  const nl = d.nome.length;
+  const NS_ = nl === 1 ? 270 : 215;           // corpo del nome
+  const step = NS_ * 0.92;
+  let y = 60 + NS_*0.78;
+  const bottomText = 60 + NS_*0.78 + (nl-1)*step + (d.variante ? 150 : 0);
+  const topBottom = bottomText + 110;
+  // nuvola alta: copre dall'alto fino sotto il testo
+  el('path',{d:burst(620, topBottom/2 - 40, 960, topBottom*0.66, 9, 7, 0.68), fill:'#fff', stroke:ORANGE,'stroke-width':10}, top);
+  d.nome.forEach(r => { titolo(r, y, NS_, 1110, top); y += step; });
+  if (d.variante) fascia(d.variante, y - step + 165 - 25, 78, -3, 900);
+
+  // nuvola del prezzo, attaccata alla prima
+  const pcy = topBottom + 430;
+  el('path',{d:burst(620, pcy, 650, 520, 11, 3, 0.66), fill:'#fff', stroke:ORANGE,'stroke-width':10});
+  const g = el('g',{class:'t'});
+  const mk = (fill, dx, extra={}) => {
+    const t = el('text',{x:620+dx, y:pcy+215+dx, fill, 'text-anchor':'middle','letter-spacing':-4, ...extra},g);
+    t.innerHTML = `<tspan font-size="300">€</tspan><tspan font-size="560">${d.euro}</tspan><tspan font-size="300">,${d.cent}</tspan>`;
+    return t;
+  };
+  mk(GOLD, 16); const pr = mk(RED, 0);
+  fit(g, pr, 1000, 620, pcy+30);
+  if (d.qta) fascia(d.qta, pcy - 300, 110, -4, 640);
+  document.body.dataset.ready = 1;
+});
+</script></body></html>

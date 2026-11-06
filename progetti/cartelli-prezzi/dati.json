@@ -1,0 +1,134 @@
+[
+ {
+  "file": "01-salsiccia-calabrese",
+  "nome": [
+   "SALSICCIA",
+   "CALABRESE"
+  ],
+  "variante": "DOLCE O PICCANTE",
+  "qta": "1 PEZZO",
+  "euro": "3",
+  "cent": "90",
+  "foto": "sfondi/salsiccia-multi.jpg"
+ },
+ {
+  "file": "02-soppressata-calabrese",
+  "nome": [
+   "SOPPRESSATA",
+   "CALABRESE"
+  ],
+  "variante": "DOLCE O PICCANTE",
+  "qta": "1 PEZZO",
+  "euro": "3",
+  "cent": "90",
+  "foto": "sfondi/soppressata-multi.jpg"
+ },
+ {
+  "file": "03-nduja-calabrese",
+  "nome": [
+   "'NDUJA",
+   "CALABRESE"
+  ],
+  "qta": "AL PEZZO",
+  "euro": "3",
+  "cent": "99",
+  "foto": "sfondi/nduja-multi.jpg"
+ },
+ {
+  "file": "04-salsiccia-san-vincenzo",
+  "nome": [
+   "SALSICCIA",
+   "SAN VINCENZO"
+  ],
+  "qta": "3 PEZZI",
+  "euro": "5",
+  "cent": "90",
+  "foto": "sfondi/sanvincenzo-multi.jpg"
+ },
+ {
+  "file": "05-pancetta-calabrese-590",
+  "nome": [
+   "PANCETTA",
+   "CALABRESE"
+  ],
+  "variante": "DOLCE O PICCANTE",
+  "euro": "5",
+  "cent": "90",
+  "foto": "sfondi/pancetta-multi.jpg"
+ },
+ {
+  "file": "06-pancetta-calabrese-490",
+  "nome": [
+   "PANCETTA",
+   "CALABRESE"
+  ],
+  "variante": "DOLCE O PICCANTE",
+  "euro": "4",
+  "cent": "90",
+  "foto": "sfondi/pancetta-multi.jpg"
+ },
+ {
+  "file": "07-spianata-calabrese",
+  "nome": [
+   "SPIANATA",
+   "CALABRESE"
+  ],
+  "variante": "DOLCE O PICCANTE",
+  "euro": "5",
+  "cent": "90",
+  "foto": "sfondi/spianata-multi.jpg"
+ },
+ {
+  "file": "08-provole-3-pezzi",
+  "nome": [
+   "PROVOLA"
+  ],
+  "variante": "BIANCA O AFFUMICATA",
+  "qta": "3 PEZZI",
+  "euro": "10",
+  "cent": "00",
+  "foto": "sfondi/provola-multi.jpg"
+ },
+ {
+  "file": "09-provola-1kg",
+  "nome": [
+   "PROVOLA"
+  ],
+  "variante": "BIANCA O AFFUMICATA",
+  "qta": "1 KG",
+  "euro": "5",
+  "cent": "99",
+  "foto": "sfondi/provola-multi.jpg"
+ },
+ {
+  "file": "10-provola-1-8kg",
+  "nome": [
+   "PROVOLA"
+  ],
+  "variante": "BIANCA O AFFUMICATA",
+  "qta": "1,8 KG",
+  "euro": "12",
+  "cent": "90",
+  "foto": "sfondi/provola-multi.jpg"
+ },
+ {
+  "file": "11-pecorino",
+  "nome": [
+   "PECORINO"
+  ],
+  "qta": "PEZZO INTERO",
+  "euro": "14",
+  "cent": "90",
+  "foto": "sfondi/pecorino-multi.jpg"
+ },
+ {
+  "file": "12-formaggio",
+  "nome": [
+   "FORMAGGIO"
+  ],
+  "qta": "PEZZO INTERO",
+  "euro": "10",
+  "cent": "00",
+  "foto": "sfondi/formaggio-multi.jpg"
+ }
+]
