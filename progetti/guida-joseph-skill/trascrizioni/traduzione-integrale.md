@@ -1,6 +1,6 @@
 # Traduzione integrale: "How to Edit Premium Instagram Reels Using ONLY Claude (Full Breakdown)"
 
-Tutto quello che dice Joseph, frase per frase, con il minuto del video. Tra parentesi quadre le note del traduttore. La trascrizione automatica aveva alcuni errori sui nomi propri: sono stati corretti (Creato Display, Apple Garamond, Opus 5.5, Higgsfield, cue sheet).
+Tutto quello che dice Joseph, frase per frase (senza le parti di pubblicità del suo corso), con il minuto del video. Tra parentesi quadre le note del traduttore. La trascrizione automatica aveva alcuni errori sui nomi propri: sono stati corretti (Creato Display, Apple Garamond, Opus 5.5, cue sheet).
 
 ## Introduzione
 - 0:00 Nelle ultime tre settimane ho costruito questa skill di montaggio per video brevi e l'ho usata per creare gli ultimi 12 reel premium che ho pubblicato sul mio Instagram.
@@ -11,8 +11,6 @@ Tutto quello che dice Joseph, frase per frase, con il minuto del video. Tra pare
 - 0:24 Poi vi accompagno nel processo di allenamento: come creare una skill di montaggio virale per video brevi in qualsiasi stile, compreso il mio.
 - 0:31 E infine prenderò un video breve grezzo e lo monterò con questa skill insieme a voi, passo dopo passo.
 - 0:35 E alla fine del video saprete esattamente come allenare Claude su qualsiasi stile di montaggio vogliate, e come usarlo per montare video brevi virali come quelli che vi piacciono.
-- 0:44 Se volete accedere proprio a questa skill, ho appena pubblicato la Joseph AI Editing Masterclass, dove condivido le skill che montano sia i miei video brevi sia quelli lunghi.
-- 0:52 È tutto dentro Ultimate Editors, e il link è qui sotto.
 
 ## Capitolo 1: lo stile
 - 0:55 Ma senza ulteriori indugi: prima di imparare come creare la skill che monta i video brevi al posto nostro, capiamo lo stile su cui stiamo per allenarla.
@@ -72,17 +70,6 @@ Tutto quello che dice Joseph, frase per frase, con il minuto del video. Tra pare
 - 4:17 E infine usiamo gli zoom fuori dallo schermo se vogliamo portare lo spettatore fuori dal girato principale e introdurre elementi nuovi, come altri montaggi e altri esempi.
 - 4:24 Ora, tutte e cinque queste chiavi si uniscono per formare lo stile di montaggio che conoscete e amate sul mio Instagram.
 
-### Pubblicità
-- 4:30 Ora, ecco il punto.
-- 4:31 Avete cliccato su questo video per imparare a montare video premium con l'IA.
-- 4:34 Ma se vi dicessi che ho costruito un pacchetto completo di skill che crea video premium e spettacolari come questi, chiamato Joseph AI Short-Form Editing Skill?
-- 4:41 E ho anche creato un pacchetto di skill che monta proprio i video di YouTube che state guardando su questo canale, e si chiama Joseph Long-Form Editing Skill.
-- 4:49 E ho persino registrato corsi passo passo che vi mostrano come li ho allenati entrambi e come uso entrambe queste skill per montare i miei video brevi e i miei video lunghi per YouTube.
-- 4:57 È tutto dentro la Joseph AI Editing Masterclass, che abbiamo appena pubblicato su Ultimate Editors 2.0.
-- 5:03 È solo una delle 12 masterclass a cui potete accedere, tra cui i cinque stili di montaggio virali che potete imparare a ricreare, e un corso di fondamenti di montaggio con l'IA che vi insegna le basi del video editing con l'IA.
-- 5:14 Il programma chiude tra circa 10 giorni, il 15 novembre.
-- 5:17 Quindi, se volete creare montaggi spettacolari come questi con l'IA, cliccate sul link qui sotto, perché abbiamo uno sconto speciale prima che il programma chiuda per sempre.
-
 ## Capitolo 2: allenare Claude sullo stile
 - 5:25 Ma ora che avete capito tutte e cinque le chiavi, è il momento di capire come allenare Claude su questo stile di montaggio.
 - 5:30 Potreste pensare che allenare Claude su uno stile così complesso sia molto difficile.
@@ -132,16 +119,6 @@ Tutto quello che dice Joseph, frase per frase, con il minuto del video. Tra pare
 - 8:48 In ognuno c'è uno screenshot del design, un foglio dei fotogrammi chiave dell'animazione e una scomposizione di come funziona l'animazione.
 - 8:54 E lo fa per quasi 200 animazioni.
 - 8:57 Tutto questo si unisce per formare la skill di montaggio short-form che crea questi video brevi spettacolari e virali.
-
-### Pubblicità
-- 9:03 E come ho detto prima, se volete saltare l'allenamento, ho caricato nella Joseph AI Editing Masterclass la skill short-form che crea montaggi spettacolari per il mio brand e la skill long-form che ha montato i video lunghi di YouTube che state guardando adesso.
-- 9:16 Ho persino registrato corsi passo passo su come le ho allenate entrambe, così potete usare la stessa logica per allenare Claude su qualsiasi stile di montaggio vi piaccia.
-- 9:23 E questo è solo uno dei tanti corsi a cui accedete dentro Ultimate Editors 2.0, dove potete letteralmente imparare a montare video spettacolari come questi nel 2026 e guadagnare come video editor.
-- 9:34 I montatori che entrano in Ultimate Editors ci entrano da principianti assoluti, e in pochi mesi padroneggiano il montaggio virale grazie a quanto sono facili i corsi.
-- 9:41 Abbiamo aiutato i montatori a guadagnare 282.000 dollari negli ultimi 9 mesi di Ultimate Editors 2.0.
-- 9:47 Ci siamo riusciti solo grazie al nostro "editor blueprint da 2.000 dollari al mese", che insegna ai montatori a costruire un personal brand premium e a trovare clienti che pagano bene.
-- 9:54 Tutto questo chiuderà per sempre il 15 novembre, ed è per questo che il prezzo del programma è appena sceso da 1.200 dollari l'anno a soli 299 dollari per l'accesso a vita.
-- 10:06 Se volete imparare a montare video premium come questi con l'IA e guadagnare 2.000 al mese come video editor, cliccate sul link qui sotto ed entrate in Ultimate Editors 2.0 prima che chiuda per sempre.
 
 ## Capitolo 3: il montaggio con la skill
 - 10:16 Ma ora che abbiamo allenato Claude sul nostro stile di montaggio, lo capisce in tutto e per tutto e può ricrearlo da zero.
@@ -256,19 +233,3 @@ Tutto quello che dice Joseph, frase per frase, con il minuto del video. Tra pare
 - 17:01 Dovete capire la psicologia del contenuto, cioè sapere cosa deve stare dove nel video perché funzioni, e dovete imparare a metterlo in pratica usando l'IA.
 - 17:08 E se avete paura che l'IA prenda il sopravvento, probabilmente non sapete creare video spettacolari e non avete idea di come farlo con l'IA.
 
-### Pubblicità finale
-- 17:15 Per questo, con meno di 10 giorni rimasti, questo è il momento migliore per entrare in Ultimate Editors 2.0.
-- 17:20 È il posto più facile per imparare passo passo le capacità di psicologia del contenuto.
-- 17:23 Vi insegniamo i fondamenti del design, i fondamenti per impostare le animazioni e la psicologia dei contenuti short-form, in corsi passo passo.
-- 17:29 Poi, con la nostra masterclass sui cinque stili di montaggio, i nostri studenti imparano a montare video premium come questi.
-- 17:34 Poi la nostra masterclass di fondamenti del montaggio con l'IA parte da zero e vi insegna le basi degli strumenti IA: Claude, Remotion e Higgsfield.
-- 17:41 E la Joseph AI Editing Masterclass vi dà le skill short-form che montano i miei reel e le skill long-form che hanno montato il video che state guardando adesso.
-- 17:48 E infine il nostro editor blueprint da 2.000 dollari al mese vi insegna a costruire un personal brand premium e a trovare clienti che pagano bene.
-- 17:54 È così che abbiamo aiutato i montatori a guadagnare 282.000 dollari negli ultimi nove mesi.
-- 17:58 Mancano meno di 10 giorni prima che il programma chiuda per sempre.
-- 18:02 E invece di 1.200 dollari l'anno, ora potete avere l'accesso a vita per soli 299 dollari.
-- 18:07 Include tutti i moduli sull'IA e tutte le skill di cui avrete mai bisogno.
-- 18:10 Dopo il 15 novembre non c'è nessun altro posto che insegni gli stili di montaggio virali del 2026 e come farli con l'IA.
-- 18:16 Questa sarà la vostra ultima occasione.
-- 18:18 Quindi coglietela finché potete.
-- 18:19 Cliccate sul link qui sotto e ci vediamo dentro.
