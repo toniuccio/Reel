@@ -199,6 +199,21 @@ footer{margin-top:90px;padding-top:24px;border-top:1px solid var(--bordo);font-s
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition:none!important}
 }
+
+/* racconto frase per frase */
+.racconto{display:grid;gap:12px;margin:18px 0;max-width:78ch}
+.r{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px;align-items:baseline}
+.r .t{font-family:var(--mono);font-size:13px;color:var(--blu);font-variant-numeric:tabular-nums}
+.r p{margin:0}
+.r.pub p{color:var(--testo-2);font-size:15px;padding:12px 16px;border:1px dashed var(--bordo);border-radius:12px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--arancio);margin-right:8px}
+.pratica{margin-top:18px;padding:14px 18px;border-radius:14px;background:rgba(60,207,142,.08);border:1px solid rgba(60,207,142,.28);font-size:15.5px}
+.pratica b{color:var(--verde)}
+ol.correzioni{margin:4px 0 18px 66px;padding:0;max-width:72ch}
+ol.correzioni li{margin-bottom:5px}
+ol.correzioni li::marker{color:var(--blu);font-family:var(--mono);font-size:13px}
+.chiave .racconto{max-width:none}
+@media (max-width:480px){.r{grid-template-columns:minmax(0,1fr);gap:2px}ol.correzioni{margin-left:20px}}
 </style>
 
 <div class="pagina">
@@ -207,49 +222,61 @@ footer{margin-top:90px;padding-top:24px;border-top:1px solid var(--bordo);font-s
   <div>
     <div class="etichetta">Studio di un video · <b>18:22</b></div>
     <h1 style="margin-top:14px">Reel <em>premium</em> montati con Claude</h1>
-    <p class="lead">Cosa insegna il video di Joseph, scomposto in parti, con i fotogrammi veri, gli esempi ricostruiti e quello che ne ho ricavato per la tua skill.</p>
-    <div class="dati"><span><b>3</b> parti: lo stile, l'allenamento, il montaggio</span><span><b>5</b> chiavi dello stile</span><span><b>1 h 30</b> per un reel di 51 s</span></div>
+    <p class="lead">Tutto quello che dice Joseph, dall'inizio alla fine, tradotto in italiano con il minuto di ogni passaggio, i fotogrammi veri e gli esempi animati. In fondo, cosa ne ricaviamo per i tuoi reel.</p>
+    <div class="dati"><span><b>233</b> frasi, tutte riportate</span><span><b>5</b> chiavi dello stile</span><span><b>1 h 30</b> per un reel di 51 s</span></div>
   </div>
   <figure><img src="fotogrammi/video/t0952.jpg" alt="Il reel finale di Joseph dentro un telefono, su fondo blu notte con barre di luce"></figure>
 </header>
 
 <nav class="indice" aria-label="Indice">
-  <a href="#in-breve">In breve</a><a href="#chiavi">Le 5 chiavi</a><a href="#allenamento">Come si allena la skill</a><a href="#flusso">Il montaggio in 7 passi</a><a href="#suono">Suono</a><a href="#confronto">Confronto col tuo stile</a><a href="#skill">La skill creata</a>
+  <a href="#c-intro">0:00 Introduzione</a><a href="#c-stile">0:55 Lo stile</a><a href="#c-k1">1:28 Didascalie</a><a href="#c-k2">2:04 Capitoli</a><a href="#c-k3">2:32 Grafiche UI</a><a href="#c-k4">3:10 Hook</a><a href="#c-k5">3:46 Tutto schermo</a><a href="#c-allena">5:25 Allenare Claude</a><a href="#c-pacchetto">8:03 Il pacchetto</a><a href="#c-monta">10:16 Il montaggio</a><a href="#c-piano">11:08 Il piano</a><a href="#c-build">13:36 Costruzione e revisione</a><a href="#c-suono">15:12 Suono</a><a href="#c-finale">15:48 Il reel finale</a><a href="#c-ia">16:41 L'IA e il lavoro</a><a href="#confronto">Cosa ne ricaviamo</a>
 </nav>
 
-<section id="in-breve">
-  <div class="testo">
-    <h2>In breve</h2>
-    <p>Joseph è un montatore che pubblica reel educativi dalla sua scrivania, con il microfono RØDE, la luce bassa e molte grafiche pulite. Racconta di aver insegnato a Claude il suo stile, di averlo usato per gli ultimi 12 reel e che uno di questi ha superato le 90.000 visualizzazioni.</p>
-    <p>Il video ha tre parti. Prima scompone lo stile in <b>5 chiavi</b>. Poi mostra come si <b>allena Claude</b> su uno stile qualsiasi: servono una cartella di video di riferimento e una scomposizione completa dello stile. Infine <b>monta dal vivo</b> un reel con la skill: taglio, pianificazione, animazione in Remotion, revisione, suono.</p>
-    <p>Il messaggio centrale è uno: <b>il montaggio lo decide la persona, il lavoro lo fa l'IA</b>. Se lasci scegliere all'IA cosa mostrare, escono grafiche "da IA" senza senso. Se pianifichi tu ogni scena, e l'IA sa com'è fatto lo stile, esce un reel professionale.</p>
-    <p style="color:var(--testo-2);font-size:15px">Circa 5 dei 18 minuti sono pubblicità del suo corso a pagamento (Ultimate Editors 2.0), dove vende la sua skill già pronta. Qui sotto c'è solo il metodo, che abbiamo ricostruito da zero.</p>
+<p class="testo" style="color:var(--testo-2);font-size:15px;margin-top:18px">Come leggerla: ogni capitolo riporta in italiano tutto quello che Joseph dice, nell'ordine in cui lo dice. Il numero blu a sinistra è il minuto del video. In fondo a ogni capitolo, il riquadro "In pratica" dice cosa ce ne facciamo. La trascrizione originale in inglese, frase per frase con i tempi, è in <code>trascrizioni/frasi-con-tempi.txt</code>.</p>
+
+<!-- ===================== INTRO ===================== -->
+<section id="c-intro">
+  <div class="capo"><span class="etichetta"><b>0:00</b> · Introduzione</span></div>
+  <h2>Cosa promette il <em>video</em></h2>
+  <div class="racconto">
+    <div class="r"><span class="t">0:00</span><p>Nelle ultime tre settimane ho costruito questa skill di montaggio short-form e l'ho usata per creare gli ultimi 12 reel premium pubblicati sul mio Instagram. Uno di questi ha superato le 90.000 visualizzazioni.</p></div>
+    <div class="r"><span class="t">0:10</span><p>Molti si chiedono se questi video sono montati con l'IA o da un montatore vero. Oggi vi faccio vedere come ho allenato Claude a montare i miei video short-form per Instagram.</p></div>
+    <div class="r"><span class="t">0:19</span><p><b>Primo</b>, scompongo le cinque chiavi che formano il mio stile di montaggio virale, così lo capite. <b>Secondo</b>, vi mostro il processo di allenamento: come creare una skill di montaggio short-form per qualsiasi stile, compreso il mio. <b>Infine</b> prendo un video grezzo e lo monto con questa skill, passo per passo, insieme a voi.</p></div>
+    <div class="r"><span class="t">0:35</span><p>Alla fine del video saprete come allenare Claude su qualsiasi stile vi piaccia e come usarlo per montare video short-form virali come quelli che amate.</p></div>
+    <div class="r pub"><span class="t">0:44</span><p><span class="tag">Pubblicità</span> La skill completa è nella sua "Joseph AI editing masterclass", dentro il corso Ultimate Editors. Link sotto il video.</p></div>
   </div>
   <div class="foto d2">
-    <figure class="f"><img src="fotogrammi/video/t0012.jpg" alt="Joseph parla in camera con dei commenti che chiedono se i video sono fatti con l'IA"><figcaption><span class="mono">0:12</span> L'aggancio: i commenti chiedono "è IA o hai un montatore?"</figcaption></figure>
-    <figure class="f"><img src="fotogrammi/video/t0936.jpg" alt="Cinque icone del flusso: taglio, pianificazione, animazione, sound design, musica"><figcaption><span class="mono">15:36</span> Il flusso completo: taglio, pianificazione, animazione, sound design, musica.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0012.jpg" alt="Joseph parla in camera con dei commenti che chiedono se i video sono fatti con l'IA"><figcaption><span class="mono">0:12</span> I commenti: "è IA o hai un montatore?"</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0936.jpg" alt="Cinque icone del flusso: taglio, pianificazione, animazione, sound design, musica"><figcaption><span class="mono">15:36</span> Dove si arriva: taglio, pianificazione, animazione, sound design, musica.</figcaption></figure>
   </div>
 </section>
 
-<section id="chiavi">
-  <div class="capo"><span class="etichetta">Parte <b>1</b></span></div>
-  <h2>Le 5 chiavi dello <em>stile</em></h2>
-  <p class="testo">Ogni chiave è una famiglia di elementi che si ripete in tutti i suoi reel. Accanto a ciascuna c'è un esempio animato che ho ricostruito con i tuoi font (Inter Tight e Instrument Serif). Il riquadro tratteggiato è la tua safe zone Reels/TikTok.</p>
+<!-- ===================== STILE ===================== -->
+<section id="c-stile">
+  <div class="capo"><span class="etichetta"><b>0:55</b> · Capitolo 1</span></div>
+  <h2>Lo stile da <em>insegnare</em></h2>
+  <div class="racconto">
+    <div class="r"><span class="t">0:55</span><p>Prima di imparare a creare la skill, bisogna capire lo stile su cui la alleniamo.</p></div>
+    <div class="r"><span class="t">1:02</span><p>Pubblico da parecchio tempo, e al pubblico piaceva molto lo stile dei nostri video: era <b>pulito, premium e molto semplice</b>. Quindi l'obiettivo della skill era semplice: insegnare a Claude a creare esattamente questi video.</p></div>
+    <div class="r"><span class="t">1:17</span><p>Prima vediamo di cosa è fatto il mio stile. La skill è composta da <b>cinque chiavi</b>. Se le combini, ottieni montaggi premium come questi.</p></div>
+  </div>
+</section>
 
-  <!-- chiave 1 -->
+<section id="c-k1">
   <article class="chiave">
     <div>
-      <div class="capo"><span class="num">1</span><h3>Le didascalie</h3></div>
-      <ul class="punti">
-        <li>L'inquadratura si divide in terzi. Il <b>terzo inferiore</b> viene scurito e sfocato, e la didascalia vive lì.</li>
-        <li><b>Due font</b>: un sans pulito (Creato Display) per il testo normale e un serif corsivo (Apple Garamond) per le parole speciali.</li>
-        <li>L'ordine conta: prima si piazzano 1-2 parole in corsivo, poi si cercano gli spazi intorno e si riempiono col sans.</li>
-        <li>Animazione: <b>pop + fade + blur</b>. La parola salta su, sale da trasparente e parte sfocata.</li>
-      </ul>
+      <div class="capo"><span class="num">1</span><h3>Le didascalie <span class="mono" style="color:var(--blu);font-size:14px;font-weight:400">1:28</span></h3></div>
+      <div class="racconto">
+        <div class="r"><span class="t">1:28</span><p>La prima chiave sono le didascalie. Partiamo dal girato dello speaker e dividiamo la scena <b>in terzi</b>. Poi aggiungiamo <b>scurimento e sfocatura al terzo inferiore</b>, e la didascalia sta in quel riquadro.</p></div>
+        <div class="r"><span class="t">1:38</span><p>La didascalia usa <b>due font diversi</b>: un sans semplice per il testo normale (Creato Display) e un font "script" speciale per il testo evidenziato (Apple Garamond).</p></div>
+        <div class="r"><span class="t">1:47</span><p>Quando piazziamo il testo, cominciamo mettendo <b>una o due parole in script</b>, quelle speciali. Poi cerchiamo gli spazi intorno dove può stare il resto, e lo riempiamo con il sans.</p></div>
+        <div class="r"><span class="t">1:56</span><p>Per l'animazione del testo è un semplice <b>pop-up con blur e fade in</b>: il testo salta su, sale da un'opacità bassa e all'inizio ha anche una sfocatura, come tocco in più.</p></div>
+      </div>
       <div class="foto d2">
         <figure class="f"><img src="fotogrammi/video/t0106.jpg" alt="Schema dei due font della didascalia"><figcaption><span class="mono">1:46</span> Script font per "Viral", sans font per il resto.</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0111.jpg" alt="Didascalia con la parola kings evidenziata in corsivo"><figcaption><span class="mono">1:51</span> La parola corsiva si piazza per prima.</figcaption></figure>
+        <figure class="f"><img src="fotogrammi/video/t0111.jpg" alt="Didascalia con la parola kings evidenziata in corsivo"><figcaption><span class="mono">1:51</span> La parola in corsivo si piazza per prima.</figcaption></figure>
       </div>
+      <div class="pratica"><b>In pratica:</b> lo facciamo già con Inter Tight e Instrument Serif. L'unica differenza è la posizione: il suo terzo inferiore su Reels finisce sotto l'interfaccia, quindi la nostra fascia resta sopra y = 1440.</div>
     </div>
     <div class="esempio-col">
       <div class="tel es" data-ciclo="4200" aria-label="Esempio animato di didascalia">
@@ -260,20 +287,22 @@ footer{margin-top:90px;padding-top:24px;border-top:1px solid var(--bordo);font-s
       <p class="nota-es">Le parole entrano una per volta in 10 frame. Nella tua versione la fascia sta sopra y = 1440.</p>
     </div>
   </article>
+</section>
 
-  <!-- chiave 2 -->
+<section id="c-k2">
   <article class="chiave">
     <div>
-      <div class="capo"><span class="num">2</span><h3>I rombi dei capitoli</h3></div>
-      <ul class="punti">
-        <li>Molti suoi video sono a capitoli: uno, due, tre. All'inizio si presentano <b>tutti i capitoli</b> con dei rombi numerati.</li>
-        <li>Design: <b>rombo</b> con un gradiente leggero blu o viola, un <b>contorno sottile</b> esterno e il numero al centro.</li>
-        <li>Entrano con pop + fade. Ogni volta che si arriva a un capitolo, il rombo torna con il nome accanto.</li>
-      </ul>
+      <div class="capo"><span class="num">2</span><h3>I rombi dei capitoli <span class="mono" style="color:var(--blu);font-size:14px;font-weight:400">2:04</span></h3></div>
+      <div class="racconto">
+        <div class="r"><span class="t">2:04</span><p>La seconda chiave sono i listicle in grafica UI. Molti nostri video sono a capitoli: accompagniamo lo spettatore dal capitolo uno al due e al tre. Usiamo questi elementi per <b>mostrare i tre capitoli presto</b>, all'inizio del video.</p></div>
+        <div class="r"><span class="t">2:17</span><p>Il design è un <b>rombo con un leggero gradiente</b> e un <b>contorno sottile all'esterno</b>, con un numero in mezzo.</p></div>
+        <div class="r"><span class="t">2:23</span><p>Come animazione, introduciamo ogni capitolo con un semplice <b>pop-up fade</b>. Poi, ogni volta che nel video nominiamo il capitolo, lo riusiamo con il <b>testo accanto</b> che dà il nome al capitolo.</p></div>
+      </div>
       <div class="foto d2">
         <figure class="f"><img src="fotogrammi/video/t0136.jpg" alt="Tre rombi numerati sotto la didascalia three simple steps"><figcaption><span class="mono">2:16</span> "Comes down to three simple steps" con i tre rombi.</figcaption></figure>
         <figure class="f"><img src="fotogrammi/video/t0141.jpg" alt="Anatomia del rombo: forma, gradiente blu, contorno"><figcaption><span class="mono">2:21</span> Anatomia: rombo, gradiente blu, contorno sottile.</figcaption></figure>
       </div>
+      <div class="pratica"><b>In pratica:</b> è una cosa nuova per noi. Funziona per ogni reel "in 3 punti". Va costruita come componente Remotion.</div>
     </div>
     <div class="esempio-col">
       <div class="tel es" data-ciclo="4000" aria-label="Esempio animato dei rombi dei capitoli">
@@ -285,26 +314,26 @@ footer{margin-top:90px;padding-top:24px;border-top:1px solid var(--bordo);font-s
       <p class="nota-es">I tre rombi entrano sfalsati di 5 frame, quando lo speaker dice "tre".</p>
     </div>
   </article>
+</section>
 
-  <!-- chiave 3 -->
+<section id="c-k3">
   <article class="chiave">
     <div>
-      <div class="capo"><span class="num">3</span><h3>Grafiche UI e contatori</h3></div>
-      <p>Ce ne sono di vari tipi, e <b>il tipo lo decide il copione</b>:</p>
-      <div class="tabella" style="margin-top:8px"><table>
-        <thead><tr><th>Quando lo speaker…</th><th>Si usa</th><th>Com'è fatto</th></tr></thead>
-        <tbody>
-          <tr><td>confronta due cose</td><td>Prima e dopo</td><td>Oggetto a sinistra e a destra, collegati da una freccia pulita</td></tr>
-          <tr><td>nomina un software o un evento</td><td>Notifica UI</td><td>Fondo sfocato, logo del software, testo da notifica</td></tr>
-          <tr><td>parla di tempi o numeri</td><td>Cerchio contatore</td><td>Traccia grigia, arco colorato, numero al centro</td></tr>
-          <tr><td>elenca più cose</td><td>Elenco in riquadro</td><td>Riquadro sfocato, voci che entrano in sequenza</td></tr>
-        </tbody></table></div>
+      <div class="capo"><span class="num">3</span><h3>Pop-up UI e contatori <span class="mono" style="color:var(--blu);font-size:14px;font-weight:400">2:32</span></h3></div>
+      <div class="racconto">
+        <div class="r"><span class="t">2:32</span><p>La terza chiave sono i pop-up UI a schermo e i contatori numerici. Ce ne sono di molti tipi e <b>cambiano in base a cosa dice il copione</b>.</p></div>
+        <div class="r"><span class="t">2:39</span><p>Per esempio, quando parliamo di due elementi o confrontiamo due cose, usiamo un layout <b>prima e dopo</b>: oggetto a sinistra, oggetto a destra, collegati da una freccia pulita e semplice.</p></div>
+        <div class="r"><span class="t">2:48</span><p>Quando nominiamo un software o un evento, possiamo usare un'animazione di <b>pop-up UI</b> come questa: sfondo sfocato, il logo del software e un testo che fa da notifica.</p></div>
+        <div class="r"><span class="t">2:55</span><p>Se nominiamo tempi o contatori, usiamo un'animazione <b>circolare</b>: ha una traccia grigia di sfondo, una parte colorata in primo piano e un numero al centro che rappresenta la quantità.</p></div>
+        <div class="r"><span class="t">3:04</span><p>E se dobbiamo <b>elencare più cose</b>, facciamo comparire un riquadro sfocato come questo ed elenchiamo ogni elemento in sequenza.</p></div>
+      </div>
       <div class="foto d2">
         <figure class="f"><img src="fotogrammi/video/t0166.jpg" alt="Layout prima e dopo"><figcaption><span class="mono">2:46</span> Prima e dopo.</figcaption></figure>
         <figure class="f"><img src="fotogrammi/video/t0172.jpg" alt="Notifica UI sotto la didascalia"><figcaption><span class="mono">2:52</span> Notifica UI.</figcaption></figure>
         <figure class="f"><img src="fotogrammi/video/t0181.jpg" alt="Cerchio contatore al 50 per cento"><figcaption><span class="mono">3:01</span> Cerchio contatore.</figcaption></figure>
         <figure class="f"><img src="fotogrammi/video/t0186.jpg" alt="Elenco in un riquadro sfocato"><figcaption><span class="mono">3:06</span> Elenco in riquadro.</figcaption></figure>
       </div>
+      <div class="pratica"><b>In pratica:</b> la regola utile è che la grafica la sceglie il copione. Due cose: prima e dopo. Un nome di software o un evento: notifica. Un numero: cerchio. Un elenco: riquadro.</div>
     </div>
     <div class="esempio-col">
       <div class="tel es" data-ciclo="4600" id="tel-ui" aria-label="Esempi animati di grafiche UI">
@@ -322,21 +351,24 @@ footer{margin-top:90px;padding-top:24px;border-top:1px solid var(--bordo);font-s
       <p class="nota-es">Tocca un tipo per vederlo. L'arco sale con la curva lento-veloce-lento in 40 frame.</p>
     </div>
   </article>
+</section>
 
-  <!-- chiave 4 -->
+<section id="c-k4">
   <article class="chiave">
     <div>
-      <div class="capo"><span class="num">4</span><h3>L'hook in tre pezzi</h3></div>
-      <ul class="punti">
-        <li><b>Speaker</b>: gli occhi stanno sulla linea del <b>terzo superiore</b>. Così chi scorre vede subito una persona e ci si collega.</li>
-        <li><b>Testo</b>: si guarda il copione e ci si chiede <i>cosa fa venire voglia di guardare questo video?</i> Quella cosa va scritta a schermo.</li>
-        <li><b>Visual</b>: ci si chiede <i>cosa posso mostrare che sostenga il testo?</i> Ad esempio gli stili di cui si parla, o un timer se il video promette di essere breve.</li>
-      </ul>
-      <div class="foto d3">
-        <figure class="f"><img src="fotogrammi/video/t0201.jpg" alt="Linee dei terzi sullo speaker"><figcaption><span class="mono">3:21</span> Speaker: occhi sul terzo alto.</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0211.jpg" alt="Il copione con la parola hired evidenziata"><figcaption><span class="mono">3:31</span> Testo: "hired" dal copione.</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0221.jpg" alt="Visual che sostiene l'hook"><figcaption><span class="mono">3:41</span> Visual: cosa mostrare.</figcaption></figure>
+      <div class="capo"><span class="num">4</span><h3>L'hook <span class="mono" style="color:var(--blu);font-size:14px;font-weight:400">3:10</span></h3></div>
+      <div class="racconto">
+        <div class="r"><span class="t">3:10</span><p>La quarta chiave è come creiamo hook che coinvolgono. Usiamo una formula semplice in tre pezzi: <b>speaker, testo e visual</b>.</p></div>
+        <div class="r"><span class="t">3:17</span><p>Prima di tutto ci assicuriamo che lo speaker si veda: allineando <b>gli occhi al terzo superiore</b> del video, lo spettatore vede subito lo speaker e ci si collega.</p></div>
+        <div class="r"><span class="t">3:24</span><p>Per il testo, tutto parte dal copione e da una domanda: <b>cosa di questo fa venire voglia di guardare il video?</b> Quando l'hai trovato, lo metti in risalto con il testo.</p></div>
+        <div class="r"><span class="t">3:33</span><p>Per il visual ci chiediamo: <b>cosa possiamo mostrare a schermo che aiuti il testo ad agganciare lo spettatore?</b> Possono comparire gli stili di montaggio di cui parliamo, o un timer se il video promette di insegnare una cosa in poco tempo.</p></div>
       </div>
+      <div class="foto d3">
+        <figure class="f"><img src="fotogrammi/video/t0201.jpg" alt="Linee dei terzi sullo speaker"><figcaption><span class="mono">3:21</span> Occhi sul terzo alto.</figcaption></figure>
+        <figure class="f"><img src="fotogrammi/video/t0211.jpg" alt="Il copione con la parola hired evidenziata"><figcaption><span class="mono">3:31</span> Il testo nasce dal copione.</figcaption></figure>
+        <figure class="f"><img src="fotogrammi/video/t0221.jpg" alt="Visual che sostiene l'hook"><figcaption><span class="mono">3:41</span> Il visual lo sostiene.</figcaption></figure>
+      </div>
+      <div class="pratica"><b>In pratica:</b> nel piano frase per frase, la prima riga ha sempre tre caselle: dove stanno gli occhi, quale frase va a schermo, cosa la dimostra.</div>
     </div>
     <div class="esempio-col">
       <div class="tel es" data-ciclo="4200" aria-label="Esempio di hook con le linee dei terzi">
@@ -349,24 +381,27 @@ footer{margin-top:90px;padding-top:24px;border-top:1px solid var(--bordo);font-s
       <p class="nota-es">Speaker, promessa e visual compaiono tutti entro il primo mezzo secondo.</p>
     </div>
   </article>
+</section>
 
-  <!-- chiave 5 -->
+<section id="c-k5">
   <article class="chiave">
     <div>
-      <div class="capo"><span class="num">5</span><h3>Le scene a tutto schermo</h3></div>
-      <p>Sono "il pane" del montaggio: occupano <b>metà del video</b> e hanno il massimo impatto. Dipendono da cosa si dice:</p>
-      <ul class="punti">
-        <li><b>Timeline dei capitoli</b>: card con la timeline, il rombo dello step e gli elementi che scorrono accanto.</li>
-        <li><b>Scena singola</b>: un solo elemento occupa tutta la scena (uno schermo, un esempio).</li>
-        <li><b>Testo a tutto schermo</b>: fondo e testo in contrasto, per far leggere il punto senza distrazioni.</li>
-        <li><b>Zoom fuori dallo schermo</b>: si esce dallo speaker per mostrare altri video o altri lavori.</li>
-      </ul>
+      <div class="capo"><span class="num">5</span><h3>Le animazioni a tutto schermo <span class="mono" style="color:var(--blu);font-size:14px;font-weight:400">3:46</span></h3></div>
+      <div class="racconto">
+        <div class="r"><span class="t">3:46</span><p>La quinta chiave sono le animazioni a tutto schermo. Sono <b>il pane quotidiano</b> del video: occupano <b>metà del montaggio</b> ma hanno il massimo impatto.</p></div>
+        <div class="r"><span class="t">3:54</span><p>Dipendono del tutto da cosa dice il copione, ma per esempio usiamo i <b>listicle animati</b> per accompagnare lo spettatore da un punto all'altro. Sono fatti di una timeline, card UI dei capitoli e testi ed elementi che scorrono accanto.</p></div>
+        <div class="r"><span class="t">4:05</span><p>Altre volte usiamo <b>scene semplici a tutto schermo</b>, dove un solo elemento occupa tutta la scena e mostra uno schermo o un esempio di quello che vogliamo far vedere.</p></div>
+        <div class="r"><span class="t">4:12</span><p>Usiamo anche <b>animazioni di testo a tutto schermo</b>, dove sfondo e testo sono in contrasto, per aiutare lo spettatore a leggere il punto che stiamo spiegando.</p></div>
+        <div class="r"><span class="t">4:17</span><p>Infine usiamo gli <b>zoom fuori dallo schermo</b> quando vogliamo portare lo spettatore fuori dal girato dello speaker e introdurre elementi nuovi, come altri montaggi o altri esempi.</p></div>
+        <div class="r"><span class="t">4:24</span><p>Tutte e cinque le chiavi insieme formano lo stile che conoscete dal mio Instagram.</p></div>
+      </div>
       <div class="foto d2">
-        <figure class="f"><img src="fotogrammi/video/t0241.jpg" alt="Timeline dei capitoli"><figcaption><span class="mono">4:01</span> Timeline dei capitoli.</figcaption></figure>
+        <figure class="f"><img src="fotogrammi/video/t0241.jpg" alt="Timeline dei capitoli"><figcaption><span class="mono">4:01</span> Listicle con timeline.</figcaption></figure>
         <figure class="f"><img src="fotogrammi/video/t0246.jpg" alt="Scena a tutto schermo con una griglia di video"><figcaption><span class="mono">4:06</span> Scena singola.</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0256.jpg" alt="Testo a tutto schermo: fondo bianco e parola blu"><figcaption><span class="mono">4:16</span> Testo a tutto schermo, fondo e testo opposti.</figcaption></figure>
+        <figure class="f"><img src="fotogrammi/video/t0256.jpg" alt="Testo a tutto schermo: fondo bianco e parola blu"><figcaption><span class="mono">4:16</span> Testo pieno: fondo e testo opposti.</figcaption></figure>
         <figure class="f"><img src="fotogrammi/video/t0261.jpg" alt="Zoom fuori dallo schermo"><figcaption><span class="mono">4:21</span> Zoom fuori dallo schermo.</figcaption></figure>
       </div>
+      <div class="pratica"><b>In pratica:</b> somigliano ai nostri insert su fondo bianco con la card del soggetto. La novità è la quantità: per lui sono metà del video.</div>
     </div>
     <div class="esempio-col">
       <div class="tel es" data-ciclo="5200" id="tel-fs" aria-label="Esempi animati di scene a tutto schermo">
@@ -381,125 +416,200 @@ footer{margin-top:90px;padding-top:24px;border-top:1px solid var(--bordo);font-s
   </article>
 </section>
 
-<section id="allenamento">
-  <div class="capo"><span class="etichetta">Parte <b>2</b></span></div>
-  <h2>Come si <em>allena</em> Claude su uno stile</h2>
-  <p class="testo">Sembra difficile, ma servono solo due cose: una cartella di video di riferimento e una scomposizione completa dello stile.</p>
-
-  <div class="passi">
-    <div class="passo"><div>
-      <h3>La cartella di riferimento</h3>
-      <p>Joseph riguarda i reel del suo profilo, sceglie quelli che gli piacciono di più e ne scarica <b>14</b>. Li mette tutti in una cartella.</p>
-      <div class="foto d2"><figure class="f"><img src="fotogrammi/video/t0341.jpg" alt="Cartella dei video di riferimento"><figcaption><span class="mono">5:41</span> La Reference Folder.</figcaption></figure></div>
-    </div></div>
-    <div class="passo"><div>
-      <h3>La tavola di ispirazione</h3>
-      <p>Apre Figma a destra e i video a sinistra. Ogni volta che vede una scena di design buono fa uno <b>screenshot</b> e lo mette sulla tavola: testi, animazioni, scene a tutto schermo. Arriva a <b>più di 120 immagini</b>. È il passaggio chiave, perché trasforma i video in immagini che si possono studiare.</p>
-      <div class="foto d2">
-        <figure class="f"><img src="fotogrammi/video/t0381.jpg" alt="Tavola di ispirazione in Figma con molti screenshot"><figcaption><span class="mono">6:21</span> La tavola completa.</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0411.jpg" alt="Scomposizione dei rombi in Figma"><figcaption><span class="mono">6:51</span> Ogni chiave ha la sua sezione: scomposizione, animazione, riferimenti.</figcaption></figure>
-      </div>
-    </div></div>
-    <div class="passo"><div>
-      <h3>La scomposizione chiave per chiave</h3>
-      <p>Per ogni chiave raccoglie le immagini che la riguardano, ne prende una e la scompone: <b>font, posizione e tutto il resto</b>. Le grafiche UI le scompone in una tabella con ogni design e ogni tipo di animazione.</p>
-    </div></div>
-    <div class="passo"><div>
-      <h3>Il prompt a Claude</h3>
-      <p>Carica i 14 video e la tavola Figma in Claude, poi scrive questo (tradotto):</p>
-      <blockquote>
-        <p>Scomponi i 14 video di riferimento in una trascrizione parola per parola e un'analisi fotogramma per fotogramma. Poi studia tre cose:<br>
-        1. i <b>principi di design</b> di ogni scena: colori, layout, effetti e tutto il resto;<br>
-        2. la <b>logica delle animazioni</b>: che animazione ha ogni elemento (pop-up, fade-in, blur reveal…);<br>
-        3. la <b>posizione e il tempo</b> delle animazioni rispetto al copione.<br>
-        Poi usa la scomposizione di Figma come analisi profonda dei principi di design. Studia come è fatto lo stile, impara tutto per poterlo ricreare e trasformalo in una skill.</p>
-      </blockquote>
-      <div class="foto d2"><figure class="f"><img src="fotogrammi/video/t0461.jpg" alt="Il prompt scritto in Claude"><figcaption><span class="mono">7:41</span> Il prompt originale.</figcaption></figure></div>
-    </div></div>
-    <div class="passo"><div>
-      <h3>Il risultato: un pacchetto in tre parti</h3>
-      <div class="colonne">
-        <div class="box"><h3>Regolamento</h3><p>Tutti i dettagli: dimensioni dei font, spaziature, layout, curve di animazione, velocità.</p></div>
-        <div class="box"><h3>Lookbook</h3><p>Com'è fatto lo stile a vederlo: forme, colori, gradienti, icone, asset.</p></div>
-        <div class="box"><h3>Cartella di riferimento</h3><p>Circa 200 animazioni, ognuna con screenshot, foglio dei fotogrammi chiave e scheda.</p></div>
-      </div>
-      <div class="foto d2">
-        <figure class="f"><img src="fotogrammi/video/t0511.jpg" alt="Il regolamento joseph-rules.md con dimensioni dei font, spaziature e curve"><figcaption><span class="mono">8:31</span> Il regolamento. Si leggono i valori: testo ≈ 48 px, grassetto 66-73 px, curva <code>bezier(0.7, 0, 0.3, 1)</code> in 45 frame.</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0531.jpg" alt="Una cartella di riferimento con screenshot, foglio dei fotogrammi chiave e scheda"><figcaption><span class="mono">8:51</span> Un riferimento: <code>R03-NUM-01</code>, il cerchio viola che conta.</figcaption></figure>
-      </div>
-    </div></div>
+<section>
+  <div class="racconto">
+    <div class="r pub"><span class="t">4:30</span><p><span class="tag">Pubblicità</span> "Avete cliccato per imparare a montare video premium con l'IA, ma se vi dicessi che ho costruito un pacchetto completo di skill che lo fa?" Presenta la sua skill short-form e una skill per i video lunghi di YouTube, con i corsi che spiegano come le ha allenate. Sono nella "Joseph AI editing masterclass", una delle 12 masterclass di Ultimate Editors 2.0, insieme a cinque stili di montaggio virali e un corso base sul montaggio con l'IA. Il corso chiude il 15 novembre, con uno sconto prima della chiusura.</p></div>
   </div>
 </section>
 
-<section id="flusso">
-  <div class="capo"><span class="etichetta">Parte <b>3</b></span></div>
-  <h2>Il montaggio in <em>7 passi</em></h2>
-  <p class="testo">Un video grezzo di 1:20 diventa un reel di 51 secondi. Joseph usa Claude Code con il modello più potente e lo sforzo al massimo.</p>
-  <div class="passi">
-    <div class="passo"><div><h3>Caricare la skill</h3><p>"Carica la mia skill di montaggio short-form."</p></div></div>
-    <div class="passo"><div>
-      <h3>Taglio grezzo <span class="durata">pochi minuti</span></h3>
-      <p>Carica il video e chiede: trascrizione parola per parola, trova tutti i silenzi e le prese sbagliate, tagliali con tagli netti. Claude restituisce il taglio grezzo, da 1:20 a 0:51.</p>
-      <div class="foto d2"><figure class="f"><img src="fotogrammi/video/t0661.jpg" alt="Trascrizione con i silenzi segnati"><figcaption><span class="mono">11:01</span> Trascrizione con i silenzi segnati.</figcaption></figure></div>
-    </div></div>
-    <div class="passo"><div>
-      <h3>Documento di pianificazione <span class="durata">15 minuti, lo fa lui</span></h3>
-      <p>Questo è "il vero trucco". Claude crea una pagina con ogni frase del copione a destra e, a sinistra, una casella vuota: <i>"cosa animo o creo su questa riga?"</i>. Sotto ci sono <b>4 design consigliati</b>, presi dallo studio dei suoi reel, da spuntare.</p>
-      <p>Lui ragiona dal punto di vista dello spettatore e scrive il piano. Esempi dal video:</p>
-      <ul class="punti">
-        <li>"Trovare lavoro come montatore nel 2026 si riduce a tre step": notifica di pagamento Stripe, poi i tre rombi quando dice "tre step".</li>
-        <li>"Il 90% dei montatori molla dopo il secondo step": rompe lo schema. Tracciamento del viso con la punta del naso al centro, bianco e nero, vignetta.</li>
-        <li>"Step uno: diventa un montatore virale": rombo del capitolo uno con il titolo.</li>
-        <li>"I titolari non vogliono montatori medi": zoom fuori dallo schermo con edit scadenti, poi panoramica dai video grezzi agli edit finiti.</li>
-      </ul>
-      <div class="foto d2">
-        <figure class="f"><img src="fotogrammi/video/t0742.jpg" alt="Documento di pianificazione con le note e i 4 design consigliati"><figcaption><span class="mono">12:22</span> Note a sinistra, 4 design (A consigliato, B, C, D).</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0755.jpg" alt="Nota: track my face as I speak"><figcaption><span class="mono">12:35</span> "Primo piano: traccia il viso mentre parlo."</figcaption></figure>
-      </div>
-    </div></div>
-    <div class="passo"><div>
-      <h3>Costruzione in Remotion <span class="durata">circa 40 minuti</span></h3>
-      <p>Gli dà il piano e dice: "Crea il montaggio usando il piano come guida a <b>cosa</b> creare e la skill come guida a <b>come</b> deve apparire." Per ogni scena Claude legge il piano, cerca nella skill come lo stile mostra quel tipo di animazione, raccoglie gli asset e la costruisce.</p>
-      <div class="foto d2"><figure class="f"><img src="fotogrammi/video/t0836.jpg" alt="Il piano e la skill che entrano in Claude"><figcaption><span class="mono">13:56</span> Piano + skill = montaggio.</figcaption></figure></div>
-    </div></div>
-    <div class="passo"><div>
-      <h3>Revisione <span class="durata">circa 10 minuti</span></h3>
-      <p>La prima versione "ti lascerà a bocca aperta", ma va rivista almeno una o due volte. Lui manda <b>9 correzioni</b> in un solo messaggio: velocizza la notifica Stripe, ingrandisci il rombo 3, togli animazioni dalla scena tracciata, ammorbidisci lo zoom out, griglia blueprint dietro i grafici, scena di testo su una riga…</p>
-      <div class="foto d2"><figure class="f"><img src="fotogrammi/video/t0886.jpg" alt="Lista delle correzioni accanto al video"><figcaption><span class="mono">14:46</span> Le correzioni scritte accanto all'anteprima.</figcaption></figure></div>
-    </div></div>
-    <div class="passo" id="suono"><div>
-      <h3>Suono e musica</h3>
-      <p>"Ora fai il sound design e la musica." Claude prepara prima una <b>scheda dei suoni</b> con ogni animazione, il momento esatto e l'effetto da usare. Poi inserisce gli effetti, controlla i volumi e chiude con la musica.</p>
-      <div class="tabella"><table>
-        <thead><tr><th>Tempo</th><th>A schermo</th><th>Effetto</th><th>Livello</th></tr></thead>
-        <tbody>
-          <tr><td class="num">0:00.0</td><td>Didascalia hook "Getting"</td><td>Pop sordo</td><td class="num">−6 dB</td></tr>
-          <tr><td class="num">0:00.6</td><td>Arriva la notifica Stripe</td><td>Notifica UI</td><td class="num">−9 dB</td></tr>
-          <tr><td class="num">0:01.0</td><td>Compare 1.500 $</td><td>Cassa, kaching</td><td class="num">−6 dB</td></tr>
-          <tr><td class="num">0:09.8</td><td>Parte lo zoom out</td><td>Whoosh lungo, attacco rapido</td><td class="num">−9 dB</td></tr>
-          <tr><td class="num">0:14.2</td><td>Il pan arriva sul video grezzo</td><td>Vento forte</td><td class="num">−10 dB</td></tr>
-        </tbody></table></div>
-      <p>In totale <b>164 effetti</b> in 51 secondi, tutti abbassati di altri 2 dB. Musica 17-22 dB sotto la voce, con il drop sul primo step a 0:07.7. Mix a −18,3 LUFS, picco −1,4 dB.</p>
-      <div class="foto d2">
-        <figure class="f"><img src="fotogrammi/video/t0922.jpg" alt="Scheda dei suoni"><figcaption><span class="mono">15:22</span> La scheda dei suoni.</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0931.jpg" alt="Tracce di voce, effetti e musica con i valori di loudness"><figcaption><span class="mono">15:31</span> Voce, effetti, musica e misure finali.</figcaption></figure>
-      </div>
-    </div></div>
-    <div class="passo"><div>
-      <h3>Master</h3>
-      <p>Il file finale, 1080×1920. In tutto <b>circa un'ora e mezza</b> per un reel di 51 secondi.</p>
-      <div class="foto d3">
-        <figure class="f"><img src="fotogrammi/video/t0956.jpg" alt="Primo piano in bianco e nero con 90%"><figcaption><span class="mono">0:04</span> "Il 90% molla": viso tracciato, bianco e nero.</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0976.jpg" alt="Citazione di Russell Brunson su card blu"><figcaption><span class="mono">0:26</span> Citazione su card blu.</figcaption></figure>
-        <figure class="f"><img src="fotogrammi/video/t0991.jpg" alt="Card blu con icone di clienti intorno"><figcaption><span class="mono">0:41</span> "Clienti": scena singola.</figcaption></figure>
-      </div>
-    </div></div>
+<!-- ===================== ALLENAMENTO ===================== -->
+<section id="c-allena">
+  <div class="capo"><span class="etichetta"><b>5:25</b> · Capitolo 2</span></div>
+  <h2>Come si <em>allena</em> Claude su uno stile</h2>
+  <div class="racconto">
+    <div class="r"><span class="t">5:25</span><p>Ora che conoscete le cinque chiavi, vediamo come allenare Claude su questo stile. Potreste pensare che sia difficile con uno stile così complesso. La verità è che, per allenare Claude su <b>qualsiasi</b> stile, servono solo <b>due cose semplici</b>.</p></div>
+    <div class="r"><span class="t">5:38</span><p><b>La prima è una grande cartella di riferimento</b>, con tutti i video che vogliamo replicare. Come la raccolgo? Vado sul mio profilo, guardo i montaggi e scelgo quelli che mi piacciono di più. Alla fine ne ho scaricati <b>14</b>. Li metto in una cartella di riferimento, e la prima parte è fatta.</p></div>
+    <div class="r"><span class="t">5:55</span><p><b>La seconda è una scomposizione completa dello stile.</b> È la parte che fa davvero la differenza.</p></div>
+    <div class="r"><span class="t">6:00</span><p>Si apre un programma come <b>Figma</b> e si divide lo schermo in due: Figma a destra, i video di riferimento a sinistra, da guardare uno per uno. Ogni volta che vediamo una scena di design buono, facciamo <b>uno screenshot</b> e lo mettiamo sulla tavola. Lo facciamo per le scene di testo, le animazioni a schermo, quelle a tutto schermo e tutto ciò che sembra di qualità. Alla fine abbiamo una grande tavola di ispirazione con <b>più di 120 immagini</b>.</p></div>
+    <div class="r"><span class="t">6:24</span><p>È molto importante, perché abbiamo appena trasformato i video che vogliamo creare in <b>immagini che si possono vedere sullo schermo</b>.</p></div>
+    <div class="r"><span class="t">6:29</span><p>Il passo successivo è scomporre lo stile. Ricordate le cinque chiavi? Ora le scomponiamo una per una usando la tavola. Si parte dalla chiave uno: si raccolgono tutte le ispirazioni sul design dei testi e si mettono insieme. Poi se ne prende una, la si mette di lato e si scompone di cosa è fatta: <b>i font, la posizione e tutto il resto</b>.</p></div>
+    <div class="r"><span class="t">6:47</span><p>Lo facciamo per ogni chiave. Trascino le ispirazioni dei listicle e le scompongo così. Poi le animazioni a schermo, che scompongo <b>in una tabella con ogni design e ogni tipo di animazione</b>. Poi c'è la parte sulla chiave 4, come si costruisce l'hook: personaggio, testo e visual. Infine prendo le ispirazioni delle animazioni a tutto schermo, le divido in tabelle e ne scompongo design e animazioni.</p></div>
+    <div class="r"><span class="t">7:09</span><p>Se ora facciamo zoom indietro, questa tavola ha 120 immagini di com'è il nostro stile e ne scompone ogni elemento e come si fa da zero: <b>i design, le animazioni e anche i riferimenti</b>.</p></div>
   </div>
-  <blockquote><p><b>La sua conclusione:</b> il risultato è buono grazie a 8 anni di esperienza. Per guidare l'IA bisogna sapere cosa va messo dove in un video (la "psicologia del contenuto") e saperlo far eseguire all'IA.</p></blockquote>
+  <div class="foto d3">
+    <figure class="f"><img src="fotogrammi/video/t0341.jpg" alt="Cartella dei video di riferimento"><figcaption><span class="mono">5:41</span> La cartella di riferimento.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0381.jpg" alt="Tavola di ispirazione in Figma con molti screenshot"><figcaption><span class="mono">6:21</span> La tavola di ispirazione.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0411.jpg" alt="Scomposizione dei rombi in Figma"><figcaption><span class="mono">6:51</span> Scomposizione, animazione, riferimenti.</figcaption></figure>
+  </div>
+
+  <h3 style="margin-top:40px">Il prompt <span class="mono" style="color:var(--blu);font-size:14px;font-weight:400">7:19</span></h3>
+  <div class="racconto">
+    <div class="r"><span class="t">7:19</span><p>Ora che abbiamo la cartella e la tavola completa, come creiamo la skill? Qui si fa interessante. Andiamo in Claude e carichiamo <b>i 14 video di riferimento e la scomposizione di Figma</b>. Poi scriviamo questo:</p></div>
+  </div>
+  <blockquote>
+    <p>Per prima cosa scomponi i 14 video di riferimento in una <b>trascrizione parola per parola</b> e un'<b>analisi fotogramma per fotogramma</b>. Poi studia tre cose principali:<br>
+    1. i <b>principi di design</b> di ogni scena: colori, layout, effetti e tutto il resto;<br>
+    2. la <b>logica delle animazioni</b>: che animazione ha ogni elemento, un pop-up fade in, un blur reveal e così via;<br>
+    3. la <b>posizione delle animazioni e il loro tempo rispetto al copione</b> del video.<br>
+    Poi usa le scomposizioni di Figma come analisi approfondita dei principi di design di questo stile. Studiale e analizza come è fatto lo stile. Impara tutto quello che c'è da sapere su questo stile, così da poterlo ricreare, e trasforma tutto in una skill.</p>
+  </blockquote>
+  <div class="foto d2"><figure class="f"><img src="fotogrammi/video/t0461.jpg" alt="Il prompt scritto in Claude"><figcaption><span class="mono">7:41</span> Il prompt originale, in inglese.</figcaption></figure></div>
+</section>
+
+<section id="c-pacchetto">
+  <h2>Cosa fa Claude e cosa <em>produce</em></h2>
+  <div class="racconto">
+    <div class="r"><span class="t">8:03</span><p>Claude prende i 14 video e li scompone in <b>tutti i fotogrammi che formano le animazioni</b>, più una trascrizione parola per parola di ogni video. Poi guarda il file Figma e lo studia dall'inizio alla fine: ogni design, come è fatto, come è animato. Ne ricava le regole dello stile e mette tutto insieme nel pacchetto della skill.</p></div>
+    <div class="r"><span class="t">8:23</span><p>Dentro il pacchetto, per prima cosa c'è un <b>regolamento</b> (rule book). Stabilisce tutti i dettagli: <b>dimensioni dei font, spaziature, layout dei design, curve di animazione e velocità dei movimenti</b>.</p></div>
+    <div class="r"><span class="t">8:33</span><p>Poi crea un <b>lookbook</b>, un libro che mostra com'è fatto il mio stile: <b>forme, colori, gradienti, stile delle icone, asset usati</b> e tutto il resto.</p></div>
+    <div class="r"><span class="t">8:41</span><p>Infine crea una <b>cartella di riferimento</b>, dove salva ogni singola animazione dei 14 video in una cartella. In ognuna c'è uno <b>screenshot del design</b>, un <b>foglio dei fotogrammi chiave</b> dell'animazione e una <b>scheda che spiega come funziona</b>. Lo fa per <b>quasi 200 animazioni</b>.</p></div>
+    <div class="r"><span class="t">8:57</span><p>Tutto questo insieme forma la skill short-form che crea questi montaggi.</p></div>
+  </div>
+  <div class="colonne">
+    <div class="box"><h3>Regolamento</h3><p>Font, spaziature, layout, curve, velocità.</p></div>
+    <div class="box"><h3>Lookbook</h3><p>Forme, colori, gradienti, icone, asset.</p></div>
+    <div class="box"><h3>Cartella di riferimento</h3><p>~200 animazioni: screenshot, fotogrammi chiave, scheda.</p></div>
+  </div>
+  <div class="foto d2">
+    <figure class="f"><img src="fotogrammi/video/t0511.jpg" alt="Il regolamento joseph-rules.md con dimensioni dei font, spaziature e curve"><figcaption><span class="mono">8:31</span> Si leggono le regole: testo ≈ 48 px, grassetto 66-73 px; interlinea stretta; i blocchi principali al centro vero; ogni movimento lento-veloce-lento, ~1,5 s, <code>bezier(0.7, 0, 0.3, 1)</code> in 45 frame; niente di veloce o rigido.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0531.jpg" alt="Una cartella di riferimento con screenshot, foglio dei fotogrammi chiave e scheda"><figcaption><span class="mono">8:51</span> Un riferimento: <code>R03-NUM-01</code>, cerchio viola che conta.</figcaption></figure>
+  </div>
+  <div class="pratica"><b>In pratica:</b> è esattamente la struttura che ho dato alla tua nuova skill <code>skill/reel-premium-ui/</code>. Nelle schermate si vede anche l'indice del regolamento: le tre domande, movimento, didascalie, capitoli, scene a tutto schermo, ricostruzioni UI, numeri e soldi, asset, suono, musica, consegna.</div>
+  <div class="racconto" style="margin-top:22px">
+    <div class="r pub"><span class="t">9:03</span><p><span class="tag">Pubblicità</span> Ripete che le due skill e i corsi sono nella masterclass. Dice che i suoi studenti partono da principianti e imparano in pochi mesi, che il corso ha fatto guadagnare ai montatori 282.000 $ in 9 mesi grazie al "blueprint da 2.000 $ al mese" (costruire un personal brand e trovare clienti), e che il prezzo scende da 1.200 $ l'anno a 299 $ a vita fino al 15 novembre.</p></div>
+  </div>
+</section>
+
+<!-- ===================== MONTAGGIO ===================== -->
+<section id="c-monta">
+  <div class="capo"><span class="etichetta"><b>10:16</b> · Capitolo 3</span></div>
+  <h2>Il montaggio dal <em>vivo</em></h2>
+  <div class="racconto">
+    <div class="r"><span class="t">10:16</span><p>Ora Claude conosce tutto del nostro stile e lo sa ricreare da zero. Vediamo come si usa la skill.</p></div>
+    <div class="r"><span class="t">10:26</span><p>Questo è il video grezzo che monterò. Apro Claude, entro in <b>Claude Code</b>, imposto il modello più potente e lo sforzo su "extra". Chiedo a Claude di <b>caricare la mia skill</b> short-form, per montare un video nel mio stile.</p></div>
+    <div class="r"><span class="t">10:40</span><p><b>Taglio grezzo.</b> La prima cosa è trasformare il girato, con silenzi e prese sbagliate, in un taglio pronto da montare. Carico il video e chiedo una <b>trascrizione parola per parola</b>, di trovare <b>tutti i silenzi e le prese sbagliate</b> e di toglierli con tagli netti. Premo invio.</p></div>
+    <div class="r"><span class="t">10:56</span><p>Claude trascrive il video parola per parola, analizza la trascrizione, cerca silenzi, prese sbagliate o qualunque cosa vada tolta, la toglie e restituisce il taglio grezzo.</p></div>
+  </div>
+  <div class="foto d2">
+    <figure class="f"><img src="fotogrammi/video/t0661.jpg" alt="Trascrizione con i silenzi segnati"><figcaption><span class="mono">11:01</span> Silenzi e prese segnati nella trascrizione: da 1:20 a 0:51.</figcaption></figure>
+  </div>
+  <div class="pratica"><b>In pratica:</b> lo facciamo già con <code>trascrivi_parole.py</code> e <code>proponi_tagli.py</code>.</div>
+</section>
+
+<section id="c-piano">
+  <h2>Il documento di <em>pianificazione</em></h2>
+  <div class="racconto">
+    <div class="r"><span class="t">11:08</span><p>Ora che abbiamo il taglio, bisogna pianificare il montaggio. <b>Non vogliamo assolutamente che sia l'IA a decidere cosa mostrare</b>: verrebbero fuori montaggi da IA, brutti e scadenti.</p></div>
+    <div class="r"><span class="t">11:20</span><p><b>Il vero segreto per avere buoni risultati è pianificare il montaggio da soli e far fare il lavoro all'IA.</b></p></div>
+    <div class="r"><span class="t">11:25</span><p>Chiedo a Claude di usare la trascrizione per creare un <b>documento di pianificazione</b>: a destra ogni riga del copione, a sinistra una casella vuota dove scrivo cosa voglio.</p></div>
+    <div class="r"><span class="t">11:37</span><p>Si può anche chiedere: <i>"In base allo studio che hai fatto sui miei contenuti short-form, consigliami 4 design possibili per ogni scena tra cui scegliere."</i> Avendo studiato i miei video, Claude sa che animazioni uso e può consigliare scene adatte a quello che dico.</p></div>
+    <div class="r"><span class="t">11:49</span><p>Claude ci mette qualche minuto e manda il documento. Lo apri e vedi le scene a destra e il piano a sinistra. <b>Questo è il vero trucco.</b></p></div>
+    <div class="r"><span class="t">12:01</span><p>Qui passo circa <b>15 minuti a ragionare dal punto di vista dello spettatore</b> e a pianificare il montaggio di conseguenza. Vi faccio vedere come l'ho fatto per questo video:</p></div>
+  </div>
+  <div class="tabella"><table>
+    <thead><tr><th>Tempo</th><th>Frase del copione</th><th>Cosa pianifica e perché</th></tr></thead>
+    <tbody>
+      <tr><td class="num">12:08</td><td>"Trovare lavoro come video editor nel 2026 si riduce a tre semplici step."</td><td>L'hook parla di guadagnare come montatore, quindi: <b>notifica di pagamento Stripe</b> che mostra un montatore che incassa. Poi i <b>tre rombi dei capitoli</b> quando dice "tre step".</td></tr>
+      <tr><td class="num">12:29</td><td>"Il problema è che il 90% dei montatori molla dopo il secondo step."</td><td>Rompe un po' lo schema, quindi: Claude <b>traccia il viso</b> tenendo la punta del naso al centro, <b>desatura</b> l'immagine e aggiunge una <b>vignetta</b>.</td></tr>
+      <tr><td class="num">12:41</td><td>"Step uno: diventa un montatore virale."</td><td>Il <b>rombo del capitolo uno</b> con il testo che descrive il capitolo.</td></tr>
+      <tr><td class="num">12:50</td><td>"I titolari non vogliono più assumere montatori medi. Vogliono quello che sa trasformare il girato noioso in edit virali che funzionano. Per questo oggi è più importante che mai padroneggiare gli stili virali del 2026."</td><td><b>Zoom fuori dallo schermo</b> che scorre su montaggi di bassa qualità. Poi una <b>panoramica</b> dai video grezzi fino alla vetrina degli edit finiti. "Fa arrivare il punto e aiuta lo spettatore a capire esattamente cosa dico."</td></tr>
+    </tbody></table></div>
+  <div class="racconto">
+    <div class="r"><span class="t">13:19</span><p>Continuo così per tutto il documento, scegliendo i design e scrivendo le animazioni che voglio, sempre dal punto di vista dello spettatore, fino ad avere <b>il piano completo</b>, esattamente come voglio che venga.</p></div>
+    <div class="r"><span class="t">13:29</span><p>Ripeto: questo passaggio è fondamentale perché <b>l'obiettivo non è far inventare il montaggio all'IA, ma guidarla a costruire il montaggio che abbiamo in testa</b>.</p></div>
+  </div>
+  <div class="foto d2">
+    <figure class="f"><img src="fotogrammi/video/t0742.jpg" alt="Documento di pianificazione con le note e i 4 design consigliati"><figcaption><span class="mono">12:22</span> "Cosa animo su questa riga?" e i 4 design: A consigliato, B, C, D.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0755.jpg" alt="Nota: track my face as I speak"><figcaption><span class="mono">12:35</span> "Primo piano: traccia il viso mentre parlo."</figcaption></figure>
+  </div>
+  <div class="pratica"><b>In pratica:</b> il nostro piano frase per frase diventa così. Per ogni frase propongo 4 design presi dai riferimenti, e tu scegli o scrivi il tuo.</div>
+</section>
+
+<section id="c-build">
+  <h2>Costruzione e <em>revisione</em></h2>
+  <div class="racconto">
+    <div class="r"><span class="t">13:36</span><p>Fatto il piano, lo diamo a Claude e chiediamo di creare il montaggio <b>usando il piano come guida a cosa creare e la skill come guida a come deve apparire</b>.</p></div>
+    <div class="r"><span class="t">13:46</span><p>Qui sta la magia. Claude guarda il piano: "ok, qui l'utente vuole questo". Poi guarda la skill: "ok, ecco come lo stile mostra questo tipo di animazione". Con questa logica costruisce le animazioni <b>in Remotion</b>, per ogni scena pianificata: legge il piano, decide come costruirla con la skill, raccoglie gli asset e la costruisce.</p></div>
+    <div class="r"><span class="t">14:07</span><p>È il passaggio più lungo: dopo circa <b>40 minuti</b> il video completo è pronto da guardare.</p></div>
+    <div class="r"><span class="t">14:14</span><p>Quando arriva la prima bozza, non esaltatevi troppo. Probabilmente vi lascerà a bocca aperta, ma <b>va rivista almeno una o due volte</b> prima che sia davvero buona. L'ho guardata tutta: era bellissima, ma molte cose potevano migliorare. Ho chiesto a Claude di:</p></div>
+  </div>
+  <ol class="correzioni">
+    <li>velocizzare l'animazione della notifica Stripe che scende;</li>
+    <li>ingrandire il rombo del capitolo 3;</li>
+    <li>togliere alcune animazioni dalla scena col viso tracciato;</li>
+    <li>mostrare un edit virale in una scena;</li>
+    <li>ammorbidire uno zoom out;</li>
+    <li>rifare un design: la camera scatta sul personal brand a sinistra e su un edit a destra;</li>
+    <li>ridurre le icone degli utenti in una scena;</li>
+    <li>rifare i grafici con una griglia "blueprint" sullo sfondo;</li>
+    <li>trasformare una scena in testo su una riga sola, perché Claude aveva sbagliato a costruirla.</li>
+  </ol>
+  <div class="racconto">
+    <div class="r"><span class="t">14:54</span><p>Questo passaggio è molto più veloce, perché Claude ha già il progetto: in circa <b>10 minuti</b> fa tutte le modifiche e manda il montaggio finale. Lo guardi e confermi che va bene. "E poi dite a Claude che ha fatto un ottimo lavoro, così se un giorno l'IA diventa cosciente non viene a vendicarsi."</p></div>
+  </div>
+  <div class="foto d2">
+    <figure class="f"><img src="fotogrammi/video/t0836.jpg" alt="Il piano e la skill che entrano in Claude"><figcaption><span class="mono">13:56</span> Piano + skill = montaggio.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0886.jpg" alt="Lista delle correzioni accanto al video"><figcaption><span class="mono">14:46</span> Le correzioni scritte accanto all'anteprima.</figcaption></figure>
+  </div>
+  <div class="pratica"><b>In pratica:</b> funziona come le tue revisioni. La differenza utile è mandare tutte le correzioni in un messaggio solo, numerate. Io rispondo con la lista spuntata.</div>
+</section>
+
+<section id="c-suono">
+  <h2>Suono e <em>musica</em></h2>
+  <div class="racconto">
+    <div class="r"><span class="t">15:12</span><p>Con il video finale pronto, basta chiedere a Claude di fare <b>il sound design e la musica</b>. Claude crea prima una <b>scheda dei suoni completa</b> (cue sheet), che mostra ogni animazione, tutto ciò che succede a schermo, esattamente quando succede e quale effetto usare.</p></div>
+    <div class="r"><span class="t">15:27</span><p>Poi aggiunge gli effetti, ricontrolla i volumi e chiude con la musica. Quando ti manda il master, il video è finito e pronto da guardare.</p></div>
+    <div class="r"><span class="t">15:36</span><p>A questo punto hai caricato il video, Claude ha fatto i tagli, tu hai pianificato, lui ha animato, ha fatto il sound design, ha messo la musica e ti ha mandato il video finale. <b>Mi ci è voluta circa un'ora e mezza.</b></p></div>
+  </div>
+  <div class="tabella"><table>
+    <thead><tr><th>Tempo</th><th>A schermo</th><th>Effetto</th><th>Livello</th></tr></thead>
+    <tbody>
+      <tr><td class="num">0:00.0</td><td>Didascalia hook "Getting"</td><td>Pop sordo</td><td class="num">−6 dB</td></tr>
+      <tr><td class="num">0:00.6</td><td>Arriva la notifica Stripe</td><td>Notifica UI</td><td class="num">−9 dB</td></tr>
+      <tr><td class="num">0:01.0</td><td>Compare 1.500 $</td><td>Cassa, kaching</td><td class="num">−6 dB</td></tr>
+      <tr><td class="num">0:09.8</td><td>Parte lo zoom out</td><td>Whoosh lungo, attacco rapido</td><td class="num">−9 dB</td></tr>
+      <tr><td class="num">0:14.2</td><td>Il pan arriva sul video grezzo</td><td>Vento forte</td><td class="num">−10 dB</td></tr>
+    </tbody></table></div>
+  <p class="testo">Dalle schermate: <b>164 effetti</b> in 51 secondi, tutti abbassati di altri 2 dB. Musica strumentale con il drop sullo step 1 a 0:07.7, 17-22 dB sotto la voce. Mix finale −18,3 LUFS, picco −1,4 dB.</p>
+  <div class="foto d2">
+    <figure class="f"><img src="fotogrammi/video/t0922.jpg" alt="Scheda dei suoni"><figcaption><span class="mono">15:22</span> La scheda dei suoni.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0931.jpg" alt="Tracce di voce, effetti e musica con i valori di loudness"><figcaption><span class="mono">15:31</span> Voce, effetti, musica e misure.</figcaption></figure>
+  </div>
+  <div class="pratica"><b>In pratica:</b> la scheda dei suoni prima del mix la facciamo sempre. Il volume finale resta il nostro: −14 LUFS.</div>
+</section>
+
+<section id="c-finale">
+  <h2>Il reel <em>finale</em></h2>
+  <p class="testo">Da 15:48 mostra il reel montato con Claude, 51 secondi. Ecco tutto il testo:</p>
+  <div class="racconto">
+    <div class="r"><span class="t">0:00</span><p>"Trovare lavoro come video editor nel 2026 si riduce a tre semplici step. Il problema è che il 90% dei montatori molla dopo il secondo."</p></div>
+    <div class="r"><span class="t">0:08</span><p>"<b>Step uno: diventa un montatore virale.</b> I titolari non vogliono più assumere montatori medi. Vogliono quello che sa trasformare il girato grezzo e noioso in edit virali che funzionano. Per questo oggi è più importante che mai padroneggiare gli stili virali del 2026."</p></div>
+    <div class="r"><span class="t">0:23</span><p>"<b>Step due: costruisci il tuo brand.</b> Russell Brunson ha detto: non puoi costruire qualcosa di straordinario e aspettarti che la gente lo trovi. Devi promuovere le tue capacità. Per farlo devi costruire una pagina social e pubblicare i tuoi lavori migliori, per attirare i clienti migliori."</p></div>
+    <div class="r"><span class="t">0:37</span><p>"<b>Step tre: tratta i clienti come re.</b> I soldi veri sono nei clienti che non vogliono più andarsene. Consegna più del dovuto e prima delle scadenze, e fai di tutto perché i tuoi clienti ti adorino. Se fai solo queste tre cose, non dovrai mai più cercare clienti."</p></div>
+  </div>
+  <div class="foto d3">
+    <figure class="f"><img src="fotogrammi/video/t0952.jpg" alt="Hook del reel finale"><figcaption><span class="mono">0:02</span> L'hook.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0956.jpg" alt="Primo piano in bianco e nero con 90%"><figcaption><span class="mono">0:06</span> "Il 90% molla": viso tracciato, bianco e nero.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0976.jpg" alt="Citazione di Russell Brunson su card blu"><figcaption><span class="mono">0:26</span> Citazione su card blu.</figcaption></figure>
+    <figure class="f"><img src="fotogrammi/video/t0991.jpg" alt="Card blu con icone di clienti intorno"><figcaption><span class="mono">0:41</span> Clienti intorno: scena singola.</figcaption></figure>
+  </div>
+</section>
+
+<section id="c-ia">
+  <h2>L'IA ruberà il <em>lavoro</em>?</h2>
+  <div class="racconto">
+    <div class="r"><span class="t">16:41</span><p>Dopo aver visto un montaggio fatto con l'IA, potreste temere che il montaggio stia morendo o che l'IA stia per prendersi tutti i lavori.</p></div>
+    <div class="r"><span class="t">16:48</span><p>La verità è che il montaggio di oggi non sarebbe venuto così bene senza i miei <b>8 anni di esperienza</b>. Devi comunque capire come si fa un buon video per guidare l'IA a farne di buoni per te.</p></div>
+    <div class="r"><span class="t">16:58</span><p>Per un montatore servono due capacità. La prima è la <b>psicologia del contenuto</b>: sapere cosa va messo dove in un video perché funzioni. La seconda è <b>saperlo far eseguire all'IA</b>.</p></div>
+    <div class="r"><span class="t">17:08</span><p>Se avete paura che l'IA prenda il sopravvento, probabilmente non sapete creare video belli e non sapete come farlo con l'IA.</p></div>
+    <div class="r pub"><span class="t">17:15</span><p><span class="tag">Pubblicità</span> Chiusura sul corso: fondamenti di design e di animazione, psicologia dei contenuti short-form, le cinque masterclass sugli stili, il corso base sugli strumenti IA (Claude, Remotion, Higgsfield), la masterclass con le sue skill e il gruppo sul personal brand. 299 $ a vita invece di 1.200 $ l'anno, fino al 15 novembre.</p></div>
+  </div>
+  <blockquote><p><b>Il messaggio di tutto il video, in una frase:</b> Claude esegue, ma il montaggio lo decide chi conosce il mestiere. Un piano scritto da te e una skill che conosce lo stile danno un reel professionale. Lasciare scegliere all'IA dà grafiche a caso.</p></blockquote>
 </section>
 
 <section id="confronto">
-  <h2>Confronto col <em>tuo</em> stile</h2>
+  <div class="capo"><span class="etichetta">Dopo il video</span></div>
+  <h2>Cosa ne ricaviamo: confronto col <em>tuo</em> stile</h2>
   <p class="testo">Molte cose le facciamo già nella scheda G. Dove il suo stile e le tue regole si scontrano, vincono le tue regole.</p>
   <div class="tabella"><table>
     <thead><tr><th>Tema</th><th>Joseph</th><th>Tu (scheda G)</th><th>Cosa facciamo</th></tr></thead>

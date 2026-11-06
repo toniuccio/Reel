@@ -1,0 +1,233 @@
+0:00 Over the last three weeks, I've been building this short form editing skill, and I've used it to create the last 12 premium reels that I posted on my Instagram.
+0:07 And one of them even hit 90,000 views.
+0:10 Now a lot of people have been wondering if these are edited using AI or an actual editor.
+0:14 So today I'm finally showing you how I trained Claude to edit my short form videos for Instagram.
+0:19 First, I'm gonna break down the five keys that make up my viral short form editing style so that you can understand it.
+0:24 Second, I'll walk you through the training process of how you can create a viral short form editor skill for any editing style, including mine.
+0:31 And finally, I'll take a raw short form video and edit it using this skill with you step by step.
+0:35 And by the end of the video, you'll know exactly how you can train Claude on any editing style that you want, and how to use it to edit viral short form videos like the ones you love.
+0:44 If you want access to this very skill, I just dropped the Joseph AI editing masterclass where I'm sharing the skills that edit both my short form and long form content.
+0:52 It's all in Ultimate Editors and the link is down below.
+0:55 But without further ado, before we learn how we can create the skill that edits short form videos for us, first let's understand the style that we're about to train it on.
+1:02 You see, I've been posting for quite some time, and a lot of my audience specifically loved the style of the videos that we were making.
+1:08 It felt clean, it was premium, and it was really simple.
+1:10 So my goal with this skill that I was about to build was very simple.
+1:13 I wanted to train Claude on how it can create these exact videos.
+1:17 So before we do that, let's first break down what my editing style is actually made of.
+1:21 The Joseph Shortform editing skill is made up of five keys.
+1:24 If you combine these five keys, you get premium stunning edits that look like this.
+1:28 The first key to the Joseph editing style is the captions.
+1:31 We start with our A roll and break down the scene into thirds.
+1:34 Then we add a darkness and blur to the lower third, and our caption sits in this box here.
+1:38 The caption is made up of two separate fonts a simple sounds font for the regular text for using create or display, and a special script font for the highlighted text, where we use Apple Garmouth.
+1:47 When we place the text, we start by placing one or two script fonts for the special words, then we look for gaps around it where the rest can fit.
+1:53 And we fit the rest of the sentence in using the sounds font.
+1:56 Finally, for the text animation, it's a simple pop up blur fade in where the text pops up, fades in from low opacity, and even has a blur at the beginning as an extra touch.
+2:04 The first key is done, now onto the second key, the on-screen UI listles.
+2:08 A lot of our videos are chapter based, where we walk the viewer through chapter one, then two, then three.
+2:13 So we use these UI listals to show the viewer three chapters early in the video.
+2:17 For the design, it's a Rhombus with a slight gradient and a stroke around the outside that's thin, with a number that's in the middle.
+2:23 For the chapter animation, we simply introduce each one with a pop up fade in.
+2:27 Then every time we mention the chapter throughout the video, we'll reuse it with text next to it to name the chapter.
+2:32 Key three is our on screen UI pops and number counters.
+2:35 There's many different kinds, and they all differ based on what is being said in the script.
+2:39 For example, when we talk about two elements or compare two things, we use a before and after layout like this.
+2:44 Object on the left, object on the right, linked with a clean simple air.
+2:48 When we mention a certain software or an event, we can use a UI pop up animation like this, with a blurred background, the logo of the software, and text representing the notification.
+2:55 If we ever mention timers or counter, we use a circular animation like this one.
+2:59 It has a gray stroke background and a colored foreground, and number in the middle that represents the amount.
+3:04 And if we ever need to list out multiple things, we pop up a blurred square just like this one and list out each element in a sequence like this.
+3:10 Key four is how we create engaging hooks.
+3:13 We use a simple three-piece formula for our hooks, speaker, text, and visual.
+3:17 The first thing we do is ensure the speaker is visible by aligning our speakers' eyes to the upper thirds of the video, we can ensure that the viewer instantly sees the speaker and connects with it.
+3:24 Then for the text, it all starts by looking at the script and asking ourselves what about this makes the viewer want to watch the video.
+3:30 Once you've found it, then you want to emphasize it using text.
+3:33 Finally, for the visuals, we simply ask ourselves what can we show on the screen that would support the text in hooking the viewer.
+3:39 This could be popping up the editing styles that we're talking about, or it could be show a timer if the video is about how short we're gonna be teaching the viewer a certain thing.
+3:46 Finally, key 5 is the full screen animations.
+3:49 These are the bread and butter of the video.
+3:51 They take up half of the edit, but have the most impact.
+3:54 These fully depend on what the script is saying, but to keep it simple, sometimes we use listical animations to take our
+4:00 Viewer from one point to another.
+4:01 These are composed of a timeline, UI chapter cards, and text and elements that slide by.
+4:05 Other times we use simple full screen scenes where one element takes up the entire scene and showcases a screen or a sample of what we want to show.
+4:12 We even use full screen text animations where the background and text contrast each other to help the viewer read through the point that we're delivering.
+4:17 And finally, we'll use out of screen zooms if we want to take the viewer out of the A roll and introduce new elements like other edits and other showcases.
+4:24 Now all five of these keys come together to form the editing style that you guys know and love on my Instagram.
+4:30 Now here's the thing.
+4:31 You clicked on this video to learn how you can edit premium videos with AI.
+4:34 But what if I told you that I've built a full skill pack that creates premium stunning videos like these called the Joseph AI short form editing skill.
+4:41 And I've also created a skill pack that edits the very YouTube videos that you've been watching on this channel, and it's called the Joseph Longform Editing Skill.
+4:49 And I've even recorded step by step courses showing you how I train both of them and how I use both of these skills to edit my short form and long form YouTube videos.
+4:57 This is all inside the Joseph AI editing masterclass, and we just drop this into Ultimate Editors 2.0.
+5:03 This is just one of the 12 masterclasses that you can get access to, including the five viral editing styles that you can learn to recreate, and an AI editing fundamentals course that teaches you the basics of AI video editing.
+5:14 The program is closing in about 10 more days on November 15th.
+5:17 So if you want to create stunning edits like these using AI, click the link down below because we have a special discount before the program closes down forever.
+5:25 But now that you understand all five keys, it's time to understand how you can train Claude on this editing style.
+5:30 You might think that training Claude on the editing style this complex is very difficult.
+5:34 But the truth is, when training Claude on any editing style, you only need two simple things.
+5:38 The first thing is a big reference folder, a folder that contains all the videos that we want to replicate.
+5:44 How do I collect that?
+5:45 I head over to my personal brand and I watch through the edits and pick out the ones that I like the most.
+5:49 I ended up downloading 14 edits.
+5:51 Now I place those in a reference folder, and this checks off the first part.
+5:55 Now the second thing I will need is a full breakdown of the editing style.
+5:58 And this is the part that really makes a difference.
+6:00 Check it out.
+6:00 First you start by loading up a program like Figma, then we're gonna split the screen into two, have Figma on the right, and we'll load up our reference videos and watch through them on the left.
+6:08 Now what we need to do is simple.
+6:10 Any time we see a good design scene, we snap the screenshot and place it on the board.
+6:14 We do this for text scenes, on screen animations, full screen animations, and everything that looks high quality.
+6:19 Until we have a big inspiration board of more than 120 images.
+6:24 Now this is very important because we just turned the videos that we want to create into images that we could see on the screen.
+6:29 Now the next step is we need to break down the style.
+6:31 So remember the five keys that we talked about?
+6:34 Well, now we're gonna break down each one using the inspiration board that we just built.
+6:37 Start with key number one, collect all the inspiration that shows on screen text design and bundle them together here.
+6:42 Then take one to the side and break down what it's made of, the fonts, the placement, and everything in between.
+6:47 Next, we're gonna do this for every single key.
+6:49 I drag all my list of inspiration over here and I break them down like so.
+6:52 Then I drag my on-screen animations here and I break them down in a table of each design and every kind of animation.
+6:57 Then I have a segment where it talks about key 4, how we set up the hooks, character, text, and visuals, and finally I take all the inspiration of the full screen animations and build them over here, where I section them out into tables and break down their designs and animations.
+7:09 Now, if we zoom out, this Figma board has 120 images of what our style looks like and breaks down every element in it and how it is made from scratch.
+7:17 The designs, the animations, and even the references.
+7:19 So now that we have both a reference folder and a full Figma board, how do we create a short form editing skill?
+7:24 This is where things get interesting.
+7:25 First we're gonna head into Claude and start by uploading the 14 reference videos and the full Figma breakdown that we just created.
+7:30 Then we're gonna prompt it with this.
+7:32 First, you're gonna break down the 14 reference videos into a word by word transcript and a frame by frame breakdown.
+7:37 Then you're going to study three main things the design principles of every scene, the colors, layout, effects, and everything else, the animation logic, what does each element have as an animation, a pop up fade in, a blur reveal, and so on, and the placement of the animations and timing relative to the script of the video.
+7:51 Then you're going to use the Figma breakdowns as a deep analysis of the design principles of this editing style.
+7:57 So study it and analyze how the style is made.
+7:59 Learn everything there is.
+8:00 To this editing style so that you can recreate it and turn it all into a skill.
+8:03 Claude starts by taking all 14 videos and breaking them down into all the frames that make up the animations.
+8:09 And word by word transcripts of each video.
+8:11 Finally, it looks at the Figma file and studies everything from top to bottom, every design, how it's made, and how it's animated, and formulates the rules for the video style.
+8:19 Then it combines all of that into the skill pack, the short form editing skill.
+8:23 Now inside the skill pack, first there's a rule book.
+8:26 The rule book determines all the nitty gritty details about the skill, like the font sizes, the spacing, the layout of the designs, the animation curves, and the speed of the movement.
+8:33 Then it creates what's called a lookbook, which is a book that contains what my editing style looks like, the shapes, the colors, gradients, icon styles, assets used, and everything in between, and finally it creates a reference folder, where it saves every single animation from the 14 reference videos into these files.
+8:48 In each one is a screenshot of the design, a keyframe sheet of the animation, and a breakdown of how the animation works.
+8:54 And it does this for almost 200 animations.
+8:57 This all comes together to form the short form editing skill that's responsible for creating these stunning viral short formats.
+9:03 And as I mentioned before, if you want to skip the training, I've uploaded the short form skill that creates stunning short form edits for my brand and the long form editing skill that has edited the long form YouTube videos you're watching right now, all into the Joseph AI editing masterclass.
+9:16 I've even recorded step by step courses on how I train both of them so that you can use the same logic to train Claude on any editing styles that you like.
+9:23 And this is just one of the many courses that you get access to inside of Ultimate Editors 2.0, where you can literally learn how to edit stunning videos like these in 2026 and make money as a video editor.
+9:34 The editors that join Ultimate Editors joined as complete beginners, and over just a few months, they master viral video editing because of how easy the courses are.
+9:41 We've helped editors make 282,000 in the last 9 month of Ultimate Editors 2.0.
+9:47 We were only able to do that because of our $2000 per month editor blueprint, which teaches editors how to build a premium personal band and land high paying clients.
+9:54 This is all going to close down forever on November 15th, which is why the price for this program just went down from 1,200 per year to just 299 dollars for lifetime access.
+10:06 If you want to learn how to edit premium videos like these using AI and make 2000 per month as a video editor, click the link down below and join Ultimate Editors 2.0 before it closes down forever.
+10:16 But now that we've trained Claude on our editing style, it understands everything about our editing style and can recreate it from scratch.
+10:22 So let's show you how we can use this skill to create the stunning edits you guys know and love.
+10:26 This is the raw video I'm gonna be editing.
+10:28 I'll start by booting up Claude and going into Claude Code, setting the model to Office 5.5 and the effort to extra.
+10:34 Then I start by asking Claude to load up my short form editing skills so that I can edit a short form video in my style.
+10:40 The first thing I want to do is turn my raw footage with silences and bad takes into a raw cut clip that's actually ready to be edited.
+10:45 To do this, I upload my raw video into Claude and prompt it asking to do a word by word level transcript of the video, finding all the silences and all the bad takes, and cutting them all out with type cuts.
+10:55 Then I click on enter.
+10:56 Claude starts by taking the video, transcribing it word by word into a full transcript, then it analyzes the transcript and searches for any silences or any bad takes or anything that needs to be removed, and takes them out and delivers the raw cut video back.
+11:08 Sweet!
+11:08 Now that we have a raw cut video, the next thing we want to do is plan out how the edit is gonna go.
+11:13 We definitely don't want AI to plan out what it needs to show in the edit, because if we do that, it's gonna end up creating trashy AI edits that look very bad.
+11:20 The real secret to getting good results with AI editing is planning out the editing yourself and having AI do the work.
+11:25 So I prompt Claude to use the transcript of the video to create a planning document for me to plan out what I want each scene to look like.
+11:31 On the right, it's going to have each script line, and on the left, it's going to have an empty text box where I can plan out my edit.
+11:37 You can also ask it to do this.
+11:38 Based on the study that you did on my short form content, recommend four potential designs for each scene that I could choose from.
+11:43 Since Claude studied my short form videos, it knows what kind of animations I use.
+11:47 So it can actually recommend good scenes based on what I'm saying.
+11:49 Now Claude will spend a few minutes building the document out, and once it's done, it's gonna send me this back.
+11:54 You can click on it and open it up.
+11:56 This full document allows you to see the scenes on the right and plan out your edit on the left.
+12:00 And this is the real trick.
+12:01 Now, this is where I would spend around 15 minutes thinking from the viewer's perspective and planning out the edit accordingly.
+12:06 Let me show you how I did that for our video here.
+12:08 First, the hook.
+12:09 The video starts with me saying this as the hook.
+12:11 Getting hired as a video editor in 2026 comes down to three simple steps.
+12:15 The hook in this video is around making money as a video editor.
+12:18 So I plan a stripe notification pop-up that shows an editor earning.
+12:22 Then I plan a three chapter listal animation popping up once I mention the three steps.
+12:27 Then I keep thinking from the viewer's perspective.
+12:29 The next segment says this.
+12:30 The problem is 90% of editors give up after the second step.
+12:34 Since it breaks the pattern a little, I chose to ask Claude to track me and keep the tip of my nose in the center of the screen, desaturate the screen, and add a weaver.
+12:41 That's when we get started on the chapter by seeing this.
+12:44 Step one is become a viral editor.
+12:46 Here I ask Claude to create the chapter one listing with text describing the chapter.
+12:50 Now the first point I make is this.
+12:52 Business owners don't want to hire average editors anymore.
+12:55 They want to hire the editor that knows how to turn the raw boring footage into the viral edits that actually perform.
+13:01 That's why it's more important than ever to master the viral editing styles of 2026.
+13:05 So I start with an out of screen zoom out where we slide through low quality edits to showcase them.
+13:10 Then we're gonna pan to a scene where the viewer can see raw videos as the camera keeps spanning over to the final editing showcase.
+13:16 This delivers my point and helps the viewer understand exactly what I'm saying.
+13:19 Now I just keep working through this document, selecting the designs and filling the animations that I want, thinking from the viewer's perspective, until we end up with this.
+13:26 The full plan for the edit.
+13:28 Exactly how I want it to turn out.
+13:29 Again, this step is so crucial because the objective isn't to let AI come up with the edit.
+13:33 It's to guide AI to build the edit that we have in our mind.
+13:36 And with all that done, now we just hand Claude the full plan and ask it to create the edit using the plan as a guide to what it needs to create.
+13:43 And use the skill as a guide on how it needs to look.
+13:46 And this is the real magic.
+13:47 Claude now looks at the plan and sees, okay, the user wants this here.
+13:51 Then Claude looks at the skills and sees, okay, this is how the style shows this kind of animation.
+13:55 Then he uses this logic to build these animations inside of Remotion for us.
+13:59 And it's gonna do this for every single scene that we just planned out.
+14:02 It looks at the plan, concludes how it can build it with the skill, gathers the assets, and builds it out.
+14:07 And this is the step that takes the longest, but after around 40 minutes or so, it should have the full video built out for you to take a look at it.
+14:14 And when the first draft is ready, don't get too excited, you're probably gonna be mind blown by how good it is, but you need to review it at least once or twice before it's actually good.
+14:21 I watched through the entire edit and noticed that it looked amazing, but there were a lot of things that could be changed to look better.
+14:27 So I prompted Claude to speed up the slide down animation of Stripe.
+14:30 To increase the scale of the chapter 3 listing, remove these animations in the tracking scene, show a viral edit in this scene, smoothen out this zoom out, and completely change this design to where the camera snaps to the personal brand on the left and an edit on the right.
+14:42 Then I told it to decrease the user icons in this scene, change the design of the graphs here to one with a blueprint grid in the background, and change this scene to a one-line text scene because it actually made a mistake when building it.
+14:52 Then I clicked on enter.
+14:54 Now this will be a much faster process since Claude already has the project file, it's gonna take around 10 minutes, make all the changes that need to be made, and send you back the final edit.
+15:02 This should be much better.
+15:03 So watch through it and confirm that it looks good.
+15:06 And then tell Claude that he did a great job so that in the case that AI later does become conscious, he doesn't hunt you down and get revenge for abusing it.
+15:12 But now that we have our final video ready, you can simply prompt Claude asking it to do the sound design and music for the edit.
+15:18 This is where Claude first creates a full Q sheet of your edit, which shows every animation, everything that happens on the screen, exactly when it happens, and which sound effect needs to be used accordingly.
+15:27 Then it adds those sound effects in, double checks the volume, and wraps things up with music.
+15:31 Once it sends you this, the master file, this means that the video is complete and ready to be watched.
+15:36 By this point, you'll have uploaded a ful video into Claude, it did the cuts, you plan the video, it animated it, sound designed it, added the music, and sent you the final edited version.
+15:45 It took me just around an hour and a half to do this edit with Claude.
+15:48 And if you guys want to see the final results, here you go.
+15:50 Getting hired as a video editor in 2026 comes down to three simple steps.
+15:54 The problem is 90% of editors give up after the second step.
+15:58 Step one is become a viral editor.
+16:00 Business owners don't want to hire average editors anymore.
+16:03 They want to hire the editor that knows how to turn the raw, boring footage into the viral edits that actually perform.
+16:08 That's why it's more important than ever to master the viral editing styles of 2026.
+16:13 Step number two is build your brand.
+16:15 Russell Brunson said you can't build something amazing and expect people to find it.
+16:19 You need to market your editing skills.
+16:21 To do this, you must build a social media page and post your best work to attract the highest quality clients.
+16:27 Finally, step number three is treat your clients like kings.
+16:30 The real money is in the clients that never want to leave.
+16:32 Over deliver and finish before deadlines.
+16:34 And go above and beyond to make sure that your clients actually love you.
+16:38 And if you just do these three things, you'll never need to find clients ever again.
+16:41 Now after seeing today's edit created by AI, you might be worried that video editing is dying or that AI video editing is about to take all the jobs.
+16:48 The truth is, today's edit wouldn't have looked this good if it wasn't for my eight years of video editing experience.
+16:54 You still need to understand how a good video is made to guide AI on how to make good videos for you.
+16:58 So as a video editor in 2027, there's two skills you need to know.
+17:01 You need to understand content psychology, which is knowing what needs to be where in the video for it to look good, and you need to learn how to execute that using AI.
+17:08 And if you're scared that AI is taking over, chances are you don't know how to create stunning videos and you have no clue how to do that with AI.
+17:15 This is why, with less than 10 days left, this is the best time to join Ultimate Editors 2.0.
+17:20 It's the easiest place to learn the content psychology skills step by step.
+17:23 We teach you the design fundamentals, the fundamentals of setting up your animations, and short form content psychology in step by step courses.
+17:29 Then, through our five editing style masterclass, our students learn how to edit premium videos like these.
+17:34 Then our AI editing fundamentals masterclass starts from zero and teaches you the basics of the AI tools, Claud, Remotion, and Hicksfield.
+17:41 And the Joseph AI editing masterclass gives you the short form editing skills that edit my reels and the long form skills that edited the video that you're watching right now.
+17:48 And finally, our $2000 per month editor group and teaches you how to build a premium person on brand and land high bank lines.
+17:54 This is how we've helped editors make 282,000 in the last nine months.
+17:58 There's less than 10 days left before the program closes down forever.
+18:02 And instead of 1,200 per year, you can now get lifetime access for just 299 dollars.
+18:07 This includes all the AI modules and all the skills you'll ever need.
+18:10 After November 15th, there's no other place that teaches you the viral editing styles of 226 and how to do them with AI.
+18:16 This is going to be your last chance.
+18:18 So take it while you can.
+18:19 Click the link down below and I'll see you guys inside.
