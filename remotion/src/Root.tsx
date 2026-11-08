@@ -34,5 +34,6 @@ export const Root: React.FC = () => (
     <Composition id="DueVertenze" component={Reel} durationInFrames={TOTAL} fps={FPS} width={W} height={H} />
     <Composition id="GiemmeDVR" component={GiemmeReel} durationInFrames={G_TOTAL} fps={FPS} width={W} height={H} />
     <Composition id="GiemmeDVR2" component={GiemmeReel2} durationInFrames={G_TOTAL} fps={FPS} width={W} height={H} />
+    <Composition id="GiemmeDVR2AI" component={GiemmeReel2} durationInFrames={G_TOTAL} fps={FPS} width={W} height={H} defaultProps={{voce: 'ai' as const}} />
   </>
 );

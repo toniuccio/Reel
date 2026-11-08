@@ -283,7 +283,7 @@ const OUT_ = (f: number, v = 0.16) => add('quick_whoosh', f + 2, v); // uscita d
   add('low_slow_whoosh', TOTAL - 4, 0.2);
 }
 
-export const GiemmeReel2: React.FC = () => {
+export const GiemmeReel2: React.FC<{voce?: 'originale' | 'ai'}> = ({voce = 'originale'}) => {
   const g = useCurrentFrame();
   return (
     <AbsoluteFill style={{background: '#000'}}>
@@ -298,7 +298,7 @@ export const GiemmeReel2: React.FC = () => {
       {g >= T.d0 - 1 && g < T.d0 + 1 && <AbsoluteFill style={{background: '#E50210', opacity: g === T.d0 - 1 ? 0.85 : 0.4}} />}
       {SEGS.map((s) => (
         <Sequence key={`a${s.id}`} from={segStart[s.id]} durationInFrames={s.frames}>
-          <Audio src={staticFile(`giemme/clips/${s.id}.wav`)} />
+          <Audio src={staticFile(voce === 'ai' ? `giemme/voce_ai/${s.id}.wav` : `giemme/clips/${s.id}.wav`)} />
         </Sequence>
       ))}
       {sfx.map((s, i) => (
