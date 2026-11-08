@@ -1,0 +1,163 @@
+<title>Storyboard Giemme DVR</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Tavolo di montaggio scuro (come le versioni precedenti); dentro i fotogrammi la scheda G nei colori Giemme. Pagina solo scura. */
+:root{
+  --bg:#121315; --panel:#1a1b1e; --line:#2b2d32; --fg:#ECEBE7; --muted:#9a9ca3; --cut:#F2C14E;
+  --red:#E50210; --red-d:#9E0010; --red-l:#FF3B30; --pink:#FFC9C4; --paper:#F6F6F7; --ink:#1A1A1E;
+  --f-ui:"Mulish","Helvetica Neue",Arial,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-ui);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1080px;margin:0 auto;padding-block:40px 96px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:grid;gap:12px;margin-bottom:26px}
+.kicker{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.05;letter-spacing:-.03em;margin:0;font-weight:800;text-wrap:balance}
+h1 u{text-decoration:none;box-shadow:inset 0 -.18em 0 var(--red)}
+h2{font-size:22px;letter-spacing:-.02em;margin:0 0 14px;font-weight:800}
+h3{font-size:19px;margin:0;font-weight:800}
+p.lead{color:var(--muted);max-width:65ch;margin:0}
+section{margin-top:52px}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.fact{font-family:var(--f-mono);font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.fact b{color:var(--cut);font-weight:500}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.rule{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.rule b{display:block;margin-bottom:4px}.rule span{color:var(--muted);font-size:14px}
+.refimg{width:100%;border-radius:10px;box-shadow:0 0 0 1px var(--line);margin-top:14px}
+.player{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(18,19,21,.94);border-bottom:1px solid var(--line);margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.player audio{flex:1 1 260px;min-width:0;height:36px}
+.play{font-family:var(--f-mono);font-size:12px;background:transparent;color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:3px 10px;cursor:pointer}
+.play:hover{border-color:var(--red)}.play:focus-visible{outline:2px solid var(--cut);outline-offset:2px}
+.scene{display:grid;grid-template-columns:270px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--line);align-items:start}
+@media (max-width:640px){.scene,.cover{grid-template-columns:1fr}.frame,.cover img{max-width:300px}}
+.meta{display:grid;gap:10px;min-width:0}
+.tc{font-family:var(--f-mono);font-size:13px;color:var(--cut);display:flex;gap:10px;align-items:center;flex-wrap:wrap}.tc span{color:var(--muted)}
+.quote{font-size:18px;line-height:1.4;margin:0;font-weight:600}
+dl{display:grid;grid-template-columns:104px 1fr;gap:6px 14px;margin:0;font-size:14px}
+dt{color:var(--muted);font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+dd{margin:0;min-width:0}
+code{font-family:var(--f-mono);font-size:12.5px;background:#25272c;border-radius:4px;padding:1px 5px;color:#d8d6cf}
+@media (max-width:420px){dl{grid-template-columns:1fr}}
+.cover{display:grid;grid-template-columns:270px 1fr;gap:28px;align-items:start}.cover img{width:100%;border-radius:14px}
+
+/* ---------- fotogramma 9:16 ---------- */
+.frame{position:relative;width:100%;max-width:100%;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--paper);container-type:inline-size;box-shadow:0 0 0 1px var(--line);font-family:var(--f-ui)}
+.frame img{max-width:none;max-height:none}
+.frame img.bg{position:absolute}
+.safe{position:absolute;left:0;right:0;bottom:0;height:20%;border-top:1px dashed rgba(242,193,78,.6);pointer-events:none}
+.safetop{position:absolute;left:0;right:0;top:0;height:12%;border-bottom:1px dashed rgba(242,193,78,.45);pointer-events:none}
+.paper{position:absolute;inset:0;background:radial-gradient(rgba(26,26,30,.09) .9px,transparent 1.1px) 0 0/4.2cqw 4.2cqw,linear-gradient(#fff,#ECECEF)}
+.sphere{position:absolute;width:62cqw;height:62cqw;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(255,179,173,.75),rgba(255,201,196,.25) 60%,transparent 72%);filter:blur(1.4cqw)}
+.sphere.s2{width:70cqw;height:70cqw;opacity:.7}
+.arcs{position:absolute;inset:0;width:100%;height:100%}
+/* testi */
+.sub{position:absolute;left:5%;right:5%;text-align:center;color:#fff;font-weight:700;font-size:5.6cqw;letter-spacing:-.01em;text-shadow:0 .4cqw 2.2cqw rgba(0,0,0,.45)}
+.sub b.r{background:var(--red);color:#fff;border-radius:99px;padding:0 2.2cqw;text-shadow:none}
+.kw{position:absolute;left:0;right:0;margin:0 auto;width:max-content;color:#fff;font-weight:800;font-size:15cqw;letter-spacing:-.04em;line-height:1;text-shadow:0 .5cqw 2.5cqw rgba(0,0,0,.45)}
+.under{position:absolute;left:-2%;bottom:-3.2cqw;width:104%;overflow:visible}
+.h{position:absolute;left:4%;right:4%;text-align:center;color:var(--ink);font-weight:800;font-size:6.6cqw;letter-spacing:-.03em;line-height:1.1}
+.h.sm{font-size:5.2cqw;font-weight:700}
+.h b.r{color:var(--red)}
+/* tile squircle */
+.tile{position:absolute;aspect-ratio:1;border-radius:22%;display:grid;place-items:center;align-content:center;gap:1.2cqw;
+  background:linear-gradient(150deg,var(--red-l),var(--red) 45%,var(--red-d));
+  box-shadow:inset 0 .5cqw 0 rgba(255,255,255,.35),inset 0 -1.6cqw 3cqw rgba(0,0,0,.22),0 3.6cqw 7cqw rgba(158,0,16,.32)}
+.tile .ill{width:62%;height:auto;filter:drop-shadow(0 .6cqw 1cqw rgba(0,0,0,.18))}
+.tile span{color:#fff;font-weight:700;font-size:3.4cqw;letter-spacing:.01em}
+.tile.big span{font-size:4.6cqw}
+.tile.mini{border-radius:26%}.tile.mini span{position:absolute;bottom:-6.4cqw;left:50%;transform:translateX(-50%);color:#fff;font-size:3.6cqw;text-shadow:0 .3cqw 1.4cqw rgba(0,0,0,.5);white-space:nowrap}
+.letter{color:#fff;font-weight:900;font-size:13cqw;line-height:1}
+.tile.dim{opacity:.55;filter:saturate(.8)}
+.tile.sel{transform:scale(1.04);box-shadow:inset 0 .5cqw 0 rgba(255,255,255,.4),inset 0 -1.6cqw 3cqw rgba(0,0,0,.22),0 0 0 .7cqw #fff,0 4cqw 8cqw rgba(158,0,16,.4)}
+.tile.grad{background:linear-gradient(170deg,var(--red) 0%,#F25A52 45%,#fff 100%)}
+.tile.grad span{color:var(--ink)}
+.vtile{position:absolute;aspect-ratio:1;border-radius:22%;overflow:hidden;box-shadow:0 0 0 .7cqw var(--red),0 3.6cqw 7cqw rgba(26,26,30,.25)}
+.vtile img{width:100%;height:100%;object-fit:cover;object-position:50% 38%}
+.checks{position:absolute;left:0;right:0;display:flex;justify-content:space-around;padding:0 9%;font-weight:900;font-size:6cqw;color:#1F9D55}
+.checks span:last-child{color:#B9B9B4}
+/* nido d'ape */
+.hex{position:absolute;width:17cqw;aspect-ratio:1/1.1547;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:linear-gradient(160deg,#fff,#EDEDF0);display:grid;place-items:center}
+.hex.on{background:#fff}
+.hex .ill{width:66%}
+.hl{position:absolute;font-weight:800;font-size:4.4cqw;color:var(--ink);background:#fff;border-radius:99px;padding:.6cqw 2.4cqw;box-shadow:0 1cqw 3cqw rgba(26,26,30,.12)}
+.links{position:absolute;inset:0;width:100%;height:100%}
+.nav{position:absolute;left:6%;right:6%;top:13%;display:flex;justify-content:space-between;gap:2cqw}
+.nt{flex:1;display:flex;align-items:center;gap:1.6cqw;padding:1.6cqw 2cqw;border-radius:4cqw;background:#fff;box-shadow:0 1cqw 3cqw rgba(26,26,30,.1);font-weight:800;font-size:3.6cqw;color:#9a9ca3}
+.nt b{display:grid;place-items:center;width:6.4cqw;height:6.4cqw;border-radius:1.8cqw;background:#ECECEF;color:#9a9ca3;font-size:3cqw}
+.nt.on{transform:scale(1.08);background:linear-gradient(150deg,var(--red-l),var(--red) 45%,var(--red-d));color:#fff}
+.nt.on b{background:rgba(255,255,255,.25);color:#fff}
+.nt.done{color:var(--ink)}.nt.done b{background:#1F9D55;color:#fff}
+/* pillole, rischio, cursore */
+.pill{position:absolute;transform:translateX(-50%);white-space:nowrap;border-radius:99px;padding:1.6cqw 4cqw;font-weight:800;font-size:4.4cqw}
+.pill.out{background:#fff;color:var(--ink);border:.4cqw solid var(--ink)}
+.pill.red{background:linear-gradient(180deg,var(--red-l),var(--red));color:#fff;box-shadow:0 1.6cqw 3.6cqw rgba(229,2,16,.35)}
+.pill.big{font-size:5cqw;padding:2.2cqw 5.4cqw}
+.pill i{position:absolute;left:-6%;right:-6%;top:50%;height:.9cqw;background:var(--red);transform:rotate(-6deg);border-radius:9px}
+.risk{position:absolute;left:18%;right:18%}
+.risk .track{height:4.2cqw;border-radius:99px;background:linear-gradient(90deg,#1F9D55,#FFC21A,var(--red));position:relative;box-shadow:0 1cqw 3cqw rgba(0,0,0,.35)}
+.risk .track i{position:absolute;left:9%;top:50%;width:6.6cqw;height:6.6cqw;border-radius:50%;background:#fff;transform:translate(-50%,-50%);box-shadow:0 .6cqw 2cqw rgba(0,0,0,.4)}
+.risk .lab{display:flex;justify-content:space-between;color:#fff;font-weight:800;font-size:3cqw;margin-top:1.4cqw;text-shadow:0 .3cqw 1cqw rgba(0,0,0,.6)}
+.chevpeek{position:absolute;right:-18%;top:0;bottom:0;width:26%;background:linear-gradient(135deg,#7A000C,var(--red));clip-path:polygon(0 0,40% 0,100% 50%,40% 100%,0 100%,60% 50%)}
+.cursor{width:100%;filter:drop-shadow(0 .6cqw 1cqw rgba(0,0,0,.4))}
+.cycle{position:absolute;left:12%;top:21%;width:76%}
+.chev{position:absolute;inset:0;width:100%;height:100%}
+.chevtext{position:absolute;left:8%;top:36%;color:#fff}
+.ct1{font-weight:900;font-size:17cqw;letter-spacing:-.04em;line-height:1}
+.ct2{font-weight:700;font-size:7cqw;line-height:1.15;margin-top:3cqw;opacity:.92}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="kicker">Giemme Engineering · Reel 9:16 · storyboard v2 · scheda G</div>
+  <h1>Il tuo DVR è in un <u>cassetto?</u></h1>
+  <p class="lead">Nuova versione con il linguaggio del riferimento motion (tile squircle con illustrazioni line art, nido d'ape, chevron, cursore che clicca) nei colori Giemme. I fotogrammi del parlato sono veri, già nel nuovo look nitido e contrastato (viso a 116–122). Le grafiche sono bozze statiche delle animazioni; il lettore suona la voce montata.</p>
+  <div class="facts"><span class="fact">durata <b>42,3 s</b></span><span class="fact">13 scene</span><span class="fact">font <b>Mulish</b></span><span class="fact">rosso <b>#E50210</b> · rosa <b>#FFC9C4</b></span><span class="fact">linee gialle = zone sicure</span></div>
+</header>
+
+<div class="player">
+  <audio id="au" controls preload="auto" src="%%AUDIO%%"></audio>
+  <button class="play" data-a="0" data-b="5.33" type="button">▶ ascolta l'hook</button>
+</div>
+
+<section>
+  <h2>Linguaggio</h2>
+  <div class="rules">
+    <div class="rule"><b>Tile squircle rossi</b><span>Gradiente dal rosso scuro al rosso acceso, rilievo 3D, illustrazioni line art grafite e rosa. Entrano da sfocati a nitidi, uno dopo l'altro.</span></div>
+    <div class="rule"><b>Nido d'ape e archi</b><span>Celle bianche in rilievo leggero che si riempiono una alla volta; archi rossi sottili che ruotano negli angoli.</span></div>
+    <div class="rule"><b>Chevron</b><span>Frecce rosse piene che spazzano lo schermo; il testo bianco entra parola per parola.</span></div>
+    <div class="rule"><b>Pillole e cursore</b><span>Parole chiave in pillola rossa, bottone finale cliccato dal cursore, sottolineatura tracciata a mano.</span></div>
+  </div>
+  <img class="refimg" alt="Fotogrammi del riferimento motion" src="%%REF%%">
+</section>
+
+<section>
+  <h2>Scene</h2>
+%%SCENES%%
+</section>
+
+<section>
+  <h2>Copertina</h2>
+  <div class="cover"><img alt="Copertina: il soggetto guarda in camera, titolo «Il tuo DVR è in un cassetto?», logo in basso" src="%%COVER%%">
+  <div class="meta"><p class="quote">Nuovo look, titolo in Mulish con la sottolineatura rossa tracciata a mano, logo bianco in basso al centro. Viso, titolo e logo stanno nella fascia 1080×1350 della griglia.</p></div></div>
+</section>
+
+<section>
+  <h2>Scelte fatte</h2>
+  <div class="rules">
+    <div class="rule"><b>Font Mulish</b><span>Come nel riferimento, al posto di Inter Tight e del serif corsivo.</span></div>
+    <div class="rule"><b>Niente logo in chiusura</b><span>Il logo è sulla copertina; nel video lo aggiungo solo se lo chiedi.</span></div>
+    <div class="rule"><b>Soggetto negli esempi</b><span>Solo nel tile della scena 5; le altre scene di esempi sono solo grafica.</span></div>
+    <div class="rule"><b>SFX</b><span>Quelli già nel progetto, finché non arriva la libreria.</span></div>
+  </div>
+</section>
+</div>
+<script>
+(function(){var au=document.getElementById('au'),stop=null;
+au.addEventListener('timeupdate',function(){if(stop!==null&&au.currentTime>=stop){au.pause();stop=null}});
+document.querySelectorAll('[data-a]').forEach(function(b){b.addEventListener('click',function(){try{au.currentTime=parseFloat(b.dataset.a);stop=parseFloat(b.dataset.b);var p=au.play();if(p&&p.catch)p.catch(function(){})}catch(e){}})});})();
+</script>
