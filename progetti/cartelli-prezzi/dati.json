@@ -9,7 +9,7 @@
   "qta": "1 PEZZO",
   "euro": "3",
   "cent": "90",
-  "foto": "sfondi/salsiccia-multi.jpg"
+  "foto": "sfondi/salumi-misti.jpg"
  },
  {
   "file": "02-soppressata-calabrese",
@@ -21,7 +21,7 @@
   "qta": "1 PEZZO",
   "euro": "3",
   "cent": "90",
-  "foto": "sfondi/soppressata-multi.jpg"
+  "foto": "sfondi/salumi-misti.jpg"
  },
  {
   "file": "03-nduja-calabrese",
@@ -32,7 +32,7 @@
   "qta": "AL PEZZO",
   "euro": "3",
   "cent": "99",
-  "foto": "sfondi/nduja-multi.jpg"
+  "foto": "sfondi/salumi-misti.jpg"
  },
  {
   "file": "04-salsiccia-san-vincenzo",
@@ -43,7 +43,7 @@
   "qta": "3 PEZZI",
   "euro": "5",
   "cent": "90",
-  "foto": "sfondi/sanvincenzo-multi.jpg"
+  "foto": "sfondi/salumi-misti.jpg"
  },
  {
   "file": "05-pancetta-calabrese-590",
@@ -54,7 +54,7 @@
   "variante": "DOLCE O PICCANTE",
   "euro": "5",
   "cent": "90",
-  "foto": "sfondi/pancetta-multi.jpg"
+  "foto": "sfondi/salumi-misti.jpg"
  },
  {
   "file": "06-pancetta-calabrese-490",
@@ -65,7 +65,7 @@
   "variante": "DOLCE O PICCANTE",
   "euro": "4",
   "cent": "90",
-  "foto": "sfondi/pancetta-multi.jpg"
+  "foto": "sfondi/salumi-misti.jpg"
  },
  {
   "file": "07-spianata-calabrese",
@@ -76,7 +76,7 @@
   "variante": "DOLCE O PICCANTE",
   "euro": "5",
   "cent": "90",
-  "foto": "sfondi/spianata-multi.jpg"
+  "foto": "sfondi/salumi-misti.jpg"
  },
  {
   "file": "08-provole-3-pezzi",
