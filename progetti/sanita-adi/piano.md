@@ -39,3 +39,13 @@ Tutte 1080x1920, **senza HDR** (SDR bt709), volume -11/-14 LUFS: colore e luce g
 | IMG_0408 | 10,7 s | **b-roll con la sua voce**: panoramica sull'ospedale con la scritta "OSPEDALE" | «Gli sprechi, se vogliamo cercarli, sono nelle inefficienze e nelle scelte sbagliate di tutti questi messia venuti da fuori per governare la sanità crotonese.» |
 
 Mancano le frasi 5-8 (operatori sanitari, Occhiuto, Terza Commissione, chiusura).
+
+## Clip ricevute (seconda parte: 4 di 9)
+| Clip | Durata | Cosa si vede | Parlato |
+|---|---|---|---|
+| IMG_0409 | 7,3 s | **b-roll con la sua voce**: ingresso dell'ospedale, auto, persone | plauso agli operatori sanitari |
+| IMG_0412 | 8,0 s | Andrea, ospedale dietro | «E al Presidente Occhiuto dico che l'ospedale di Crotone va governato da chi conosce il territorio…» |
+| IMG_0413 | 9,8 s | **b-roll con la sua voce**: alberi, parcheggio, poi l'ospedale | richiesta formale alla Terza Commissione consiliare |
+| IMG_0414 | 4,8 s | Andrea vicino all'ingresso | «Crotone e il suo ospedale non hanno bisogno di promesse, hanno bisogno di risposte.» |
+
+Tagli proposti in `tagli.txt` (circa 52 s dopo la velocità 1,06×). Documento di pianificazione con i 4 design per frase: `piano-frase-per-frase.html`.
