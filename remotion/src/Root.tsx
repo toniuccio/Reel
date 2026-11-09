@@ -4,6 +4,8 @@ import {Reel} from './Reel';
 import {FPS, H, TOTAL, W} from './timeline';
 import {ReelCentro} from './centro/Reel';
 import {TOTAL as TOTAL_CENTRO} from './centro/timeline';
+import {ReelSanita} from './sanita/Reel';
+import {TOTAL as TOTAL_SANITA} from './sanita/timeline';
 
 const FONTS: [string, string, string, string][] = [
   ['Inter Tight', 'fonts/inter-tight-latin-700-normal.woff2', '700', 'normal'],
@@ -28,5 +30,6 @@ export const Root: React.FC = () => (
   <>
     <Composition id="DueVertenze" component={Reel} durationInFrames={TOTAL} fps={FPS} width={W} height={H} />
     <Composition id="CentroStorico" component={ReelCentro} durationInFrames={TOTAL_CENTRO} fps={FPS} width={W} height={H} />
+    <Composition id="SanitaADI" component={ReelSanita} durationInFrames={TOTAL_SANITA} fps={FPS} width={W} height={H} />
   </>
 );

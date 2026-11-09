@@ -1,0 +1,751 @@
+{
+ "0396": {
+  "text": "Dottore Graziano, vorrei dirle una cosa: gli sprechi insanità non sono i malati da curare.",
+  "words": [
+   {
+    "w": "Dottore",
+    "t": 0.24
+   },
+   {
+    "w": "Graziano,",
+    "t": 0.72
+   },
+   {
+    "w": "vorrei",
+    "t": 1.28
+   },
+   {
+    "w": "dirle",
+    "t": 1.52
+   },
+   {
+    "w": "una",
+    "t": 1.84
+   },
+   {
+    "w": "cosa:",
+    "t": 1.92
+   },
+   {
+    "w": "gli",
+    "t": 2.24
+   },
+   {
+    "w": "sprechi",
+    "t": 2.48
+   },
+   {
+    "w": "insanità",
+    "t": 2.96
+   },
+   {
+    "w": "non",
+    "t": 3.36
+   },
+   {
+    "w": "sono",
+    "t": 3.44
+   },
+   {
+    "w": "i",
+    "t": 3.6
+   },
+   {
+    "w": "malati",
+    "t": 3.68
+   },
+   {
+    "w": "da",
+    "t": 4.0
+   },
+   {
+    "w": "curare.",
+    "t": 4.16
+   }
+  ]
+ },
+ "0397": {
+  "text": "Ho seguito con attenzione le notizie di questi giorni sulla di acrotone e le polemiche che ne sono statunite.",
+  "words": [
+   {
+    "w": "Ho",
+    "t": 0.0
+   },
+   {
+    "w": "seguito",
+    "t": 0.24
+   },
+   {
+    "w": "con",
+    "t": 0.64
+   },
+   {
+    "w": "attenzione",
+    "t": 0.72
+   },
+   {
+    "w": "le",
+    "t": 1.12
+   },
+   {
+    "w": "notizie",
+    "t": 1.28
+   },
+   {
+    "w": "di",
+    "t": 1.6
+   },
+   {
+    "w": "questi",
+    "t": 1.68
+   },
+   {
+    "w": "giorni",
+    "t": 1.92
+   },
+   {
+    "w": "sulla",
+    "t": 2.16
+   },
+   {
+    "w": "di",
+    "t": 2.4
+   },
+   {
+    "w": "acrotone",
+    "t": 2.56
+   },
+   {
+    "w": "e",
+    "t": 3.12
+   },
+   {
+    "w": "le",
+    "t": 3.28
+   },
+   {
+    "w": "polemiche",
+    "t": 3.36
+   },
+   {
+    "w": "che",
+    "t": 3.68
+   },
+   {
+    "w": "ne",
+    "t": 3.76
+   },
+   {
+    "w": "sono",
+    "t": 3.92
+   },
+   {
+    "w": "statunite.",
+    "t": 4.16
+   }
+  ]
+ },
+ "0404": {
+  "text": "Settore generale, dietro ogni assistenza domiciliare ci sono famiglie, persone fragili e cargiver.",
+  "words": [
+   {
+    "w": "Settore",
+    "t": 0.08
+   },
+   {
+    "w": "generale,",
+    "t": 0.48
+   },
+   {
+    "w": "dietro",
+    "t": 0.88
+   },
+   {
+    "w": "ogni",
+    "t": 1.2
+   },
+   {
+    "w": "assistenza",
+    "t": 1.44
+   },
+   {
+    "w": "domiciliare",
+    "t": 1.84
+   },
+   {
+    "w": "ci",
+    "t": 2.56
+   },
+   {
+    "w": "sono",
+    "t": 2.72
+   },
+   {
+    "w": "famiglie,",
+    "t": 2.88
+   },
+   {
+    "w": "persone",
+    "t": 3.44
+   },
+   {
+    "w": "fragili",
+    "t": 3.76
+   },
+   {
+    "w": "e",
+    "t": 4.24
+   },
+   {
+    "w": "cargiver.",
+    "t": 4.4
+   }
+  ]
+ },
+ "0405": {
+  "text": "Non possiamo trasformare il diritto alle cure in una voce di spreco.",
+  "words": [
+   {
+    "w": "Non",
+    "t": 0.0
+   },
+   {
+    "w": "possiamo",
+    "t": 0.32
+   },
+   {
+    "w": "trasformare",
+    "t": 0.8
+   },
+   {
+    "w": "il",
+    "t": 1.28
+   },
+   {
+    "w": "diritto",
+    "t": 1.36
+   },
+   {
+    "w": "alle",
+    "t": 1.68
+   },
+   {
+    "w": "cure",
+    "t": 2.0
+   },
+   {
+    "w": "in",
+    "t": 2.32
+   },
+   {
+    "w": "una",
+    "t": 2.48
+   },
+   {
+    "w": "voce",
+    "t": 2.64
+   },
+   {
+    "w": "di",
+    "t": 2.88
+   },
+   {
+    "w": "spreco.",
+    "t": 3.04
+   }
+  ]
+ },
+ "0408": {
+  "text": "Gli sprechi, se vogliamo cercarli, sono nelle inefficienze e nelle scel sbagliate di tutti questi messia venuti da fuori per governare la sanità clotonese.",
+  "words": [
+   {
+    "w": "Gli",
+    "t": 0.16
+   },
+   {
+    "w": "sprechi,",
+    "t": 0.48
+   },
+   {
+    "w": "se",
+    "t": 1.04
+   },
+   {
+    "w": "vogliamo",
+    "t": 1.2
+   },
+   {
+    "w": "cercarli,",
+    "t": 1.6
+   },
+   {
+    "w": "sono",
+    "t": 2.24
+   },
+   {
+    "w": "nelle",
+    "t": 2.4
+   },
+   {
+    "w": "inefficienze",
+    "t": 2.72
+   },
+   {
+    "w": "e",
+    "t": 3.44
+   },
+   {
+    "w": "nelle",
+    "t": 3.6
+   },
+   {
+    "w": "scel",
+    "t": 3.84
+   },
+   {
+    "w": "sbagliate",
+    "t": 4.16
+   },
+   {
+    "w": "di",
+    "t": 4.64
+   },
+   {
+    "w": "tutti",
+    "t": 4.72
+   },
+   {
+    "w": "questi",
+    "t": 4.96
+   },
+   {
+    "w": "messia",
+    "t": 5.2
+   },
+   {
+    "w": "venuti",
+    "t": 5.68
+   },
+   {
+    "w": "da",
+    "t": 6.0
+   },
+   {
+    "w": "fuori",
+    "t": 6.16
+   },
+   {
+    "w": "per",
+    "t": 6.4
+   },
+   {
+    "w": "governare",
+    "t": 6.48
+   },
+   {
+    "w": "la",
+    "t": 6.88
+   },
+   {
+    "w": "sanità",
+    "t": 6.96
+   },
+   {
+    "w": "clotonese.",
+    "t": 7.28
+   }
+  ]
+ },
+ "0409": {
+  "text": "E voglio fare un pauso a tutti gli operatori sanitari che nonostante le tante difficoltà continuano ogni giorno a garantire assistenza ai nostri cittadini.",
+  "words": [
+   {
+    "w": "E",
+    "t": 0.16
+   },
+   {
+    "w": "voglio",
+    "t": 0.4
+   },
+   {
+    "w": "fare",
+    "t": 0.72
+   },
+   {
+    "w": "un",
+    "t": 0.88
+   },
+   {
+    "w": "pauso",
+    "t": 1.04
+   },
+   {
+    "w": "a",
+    "t": 1.36
+   },
+   {
+    "w": "tutti",
+    "t": 1.44
+   },
+   {
+    "w": "gli",
+    "t": 1.6
+   },
+   {
+    "w": "operatori",
+    "t": 1.68
+   },
+   {
+    "w": "sanitari",
+    "t": 2.08
+   },
+   {
+    "w": "che",
+    "t": 2.56
+   },
+   {
+    "w": "nonostante",
+    "t": 2.72
+   },
+   {
+    "w": "le",
+    "t": 3.2
+   },
+   {
+    "w": "tante",
+    "t": 3.28
+   },
+   {
+    "w": "difficoltà",
+    "t": 3.52
+   },
+   {
+    "w": "continuano",
+    "t": 4.16
+   },
+   {
+    "w": "ogni",
+    "t": 4.56
+   },
+   {
+    "w": "giorno",
+    "t": 4.8
+   },
+   {
+    "w": "a",
+    "t": 5.04
+   },
+   {
+    "w": "garantire",
+    "t": 5.12
+   },
+   {
+    "w": "assistenza",
+    "t": 5.52
+   },
+   {
+    "w": "ai",
+    "t": 6.0
+   },
+   {
+    "w": "nostri",
+    "t": 6.16
+   },
+   {
+    "w": "cittadini.",
+    "t": 6.4
+   }
+  ]
+ },
+ "0412": {
+  "text": "E al Presidente Ochiuto dico che l'ospedale di Crotone va governato da chi conosce il territorio, i suoi problemi e sa dove intervenire immediatamente.",
+  "words": [
+   {
+    "w": "E",
+    "t": 0.0
+   },
+   {
+    "w": "al",
+    "t": 0.16
+   },
+   {
+    "w": "Presidente",
+    "t": 0.32
+   },
+   {
+    "w": "Ochiuto",
+    "t": 0.64
+   },
+   {
+    "w": "dico",
+    "t": 1.2
+   },
+   {
+    "w": "che",
+    "t": 1.36
+   },
+   {
+    "w": "l'ospedale",
+    "t": 1.44
+   },
+   {
+    "w": "di",
+    "t": 1.84
+   },
+   {
+    "w": "Crotone",
+    "t": 1.92
+   },
+   {
+    "w": "va",
+    "t": 2.48
+   },
+   {
+    "w": "governato",
+    "t": 2.72
+   },
+   {
+    "w": "da",
+    "t": 3.12
+   },
+   {
+    "w": "chi",
+    "t": 3.28
+   },
+   {
+    "w": "conosce",
+    "t": 3.44
+   },
+   {
+    "w": "il",
+    "t": 3.84
+   },
+   {
+    "w": "territorio,",
+    "t": 3.92
+   },
+   {
+    "w": "i",
+    "t": 4.56
+   },
+   {
+    "w": "suoi",
+    "t": 4.72
+   },
+   {
+    "w": "problemi",
+    "t": 4.96
+   },
+   {
+    "w": "e",
+    "t": 5.36
+   },
+   {
+    "w": "sa",
+    "t": 5.6
+   },
+   {
+    "w": "dove",
+    "t": 5.84
+   },
+   {
+    "w": "intervenire",
+    "t": 6.08
+   },
+   {
+    "w": "immediatamente.",
+    "t": 6.56
+   }
+  ]
+ },
+ "0413": {
+  "text": "Ho già presentato formale richiesta per avere il dottore Graziano ospite nella terza commissione consigliare del Comune di Crotone, che si occupa di sanità, per confrontarci sui problemi reali del nostro ospedale.",
+  "words": [
+   {
+    "w": "Ho",
+    "t": 0.0
+   },
+   {
+    "w": "già",
+    "t": 0.24
+   },
+   {
+    "w": "presentato",
+    "t": 0.48
+   },
+   {
+    "w": "formale",
+    "t": 0.96
+   },
+   {
+    "w": "richiesta",
+    "t": 1.36
+   },
+   {
+    "w": "per",
+    "t": 1.68
+   },
+   {
+    "w": "avere",
+    "t": 1.76
+   },
+   {
+    "w": "il",
+    "t": 2.0
+   },
+   {
+    "w": "dottore",
+    "t": 2.08
+   },
+   {
+    "w": "Graziano",
+    "t": 2.4
+   },
+   {
+    "w": "ospite",
+    "t": 2.88
+   },
+   {
+    "w": "nella",
+    "t": 3.2
+   },
+   {
+    "w": "terza",
+    "t": 3.44
+   },
+   {
+    "w": "commissione",
+    "t": 3.68
+   },
+   {
+    "w": "consigliare",
+    "t": 4.08
+   },
+   {
+    "w": "del",
+    "t": 4.56
+   },
+   {
+    "w": "Comune",
+    "t": 4.64
+   },
+   {
+    "w": "di",
+    "t": 4.96
+   },
+   {
+    "w": "Crotone,",
+    "t": 5.04
+   },
+   {
+    "w": "che",
+    "t": 5.68
+   },
+   {
+    "w": "si",
+    "t": 5.76
+   },
+   {
+    "w": "occupa",
+    "t": 5.92
+   },
+   {
+    "w": "di",
+    "t": 6.24
+   },
+   {
+    "w": "sanità,",
+    "t": 6.32
+   },
+   {
+    "w": "per",
+    "t": 6.8
+   },
+   {
+    "w": "confrontarci",
+    "t": 6.96
+   },
+   {
+    "w": "sui",
+    "t": 7.6
+   },
+   {
+    "w": "problemi",
+    "t": 7.76
+   },
+   {
+    "w": "reali",
+    "t": 8.08
+   },
+   {
+    "w": "del",
+    "t": 8.4
+   },
+   {
+    "w": "nostro",
+    "t": 8.48
+   },
+   {
+    "w": "ospedale.",
+    "t": 8.72
+   }
+  ]
+ },
+ "0414": {
+  "text": "Crotone del suo ospedale non hanno bisogno di promesse, hanno bisogno di risposte.",
+  "words": [
+   {
+    "w": "Crotone",
+    "t": 0.08
+   },
+   {
+    "w": "del",
+    "t": 0.72
+   },
+   {
+    "w": "suo",
+    "t": 0.88
+   },
+   {
+    "w": "ospedale",
+    "t": 1.04
+   },
+   {
+    "w": "non",
+    "t": 1.36
+   },
+   {
+    "w": "hanno",
+    "t": 1.52
+   },
+   {
+    "w": "bisogno",
+    "t": 1.76
+   },
+   {
+    "w": "di",
+    "t": 2.0
+   },
+   {
+    "w": "promesse,",
+    "t": 2.16
+   },
+   {
+    "w": "hanno",
+    "t": 2.72
+   },
+   {
+    "w": "bisogno",
+    "t": 3.04
+   },
+   {
+    "w": "di",
+    "t": 3.36
+   },
+   {
+    "w": "risposte.",
+    "t": 3.52
+   }
+  ]
+ }
+}
