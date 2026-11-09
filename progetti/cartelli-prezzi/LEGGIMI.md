@@ -14,14 +14,14 @@ Lavoro avviato in una sessione cloud e spostato qui per continuare sul desktop.
 | 05 | Pancetta calabrese, dolce o piccante | €5,90 | Higgsfield | fatto, **dubbio prezzo** |
 | 06 | Pancetta calabrese, dolce o piccante | €4,90 | come 05 | fatto, **dubbio prezzo** |
 | 07 | Spianata calabrese, dolce o piccante | €5,90 | Higgsfield | **fatto** |
-| 08 | Provola bianca o affumicata, 3 pezzi | €10,00 | scontorno moltiplicato (foto cliente) | **fatto** |
-| 09 | Provola bianca o affumicata, 1 kg | €5,99 | scontorno moltiplicato | **fatto** |
-| 10 | Provola bianca o affumicata, 1,8 kg | €12,90 | scontorno moltiplicato | **fatto** |
-| 11 | Pecorino, pezzo intero | €14,90 | scontorno moltiplicato | **fatto** |
+| 08 | Provola bianca o affumicata, 3 pezzi | €10,00 | Higgsfield (rif. foto cliente) | **fatto** |
+| 09 | Provola bianca o affumicata, 1 kg | €5,99 | Higgsfield (rif. foto cliente) | **fatto** |
+| 10 | Provola bianca o affumicata, 1,8 kg | €12,90 | Higgsfield (rif. foto cliente) | **fatto** |
+| 11 | Pecorino, pezzo intero | €14,90 | Higgsfield (rif. foto cliente) | **fatto** |
 | 12 | Formaggio, pezzo intero | €10,00 | Stock 479675608 | **fatto** |
 
 Sfondi Stock: foto gratuite di Adobe Stock prese in licenza dall'account Adobe di Antonio (7 novembre 2026), estese in verticale con l'espansione generativa di Adobe Photoshop (`image_generative_expand`) e ritagliate a 1240×3508. Le foto Stock originali non sono nel repository: solo gli sfondi finiti in `sfondi/`.
-**Regola del cliente:** solo prodotti da salumeria (stagionati, secchi), mai carne cruda da macelleria. Per questo 'nduja, San Vincenzo, pancetta e spianata sono stati rigenerati con Higgsfield (9/11/2026): modello `nano_banana_2_1`, formato 1:4, 2k, seed 240611, riferimento di stile `sfondi/salsiccia-multi.jpg`, scena comune "stanza di stagionatura con tanti salumi appesi". Prompt in `HIGGSFIELD.md`.
+**Regola del cliente:** solo prodotti da salumeria (stagionati, secchi), mai carne cruda da macelleria. Per questo 'nduja, San Vincenzo, pancetta e spianata, e poi anche provola e pecorino (per omogeneità), sono stati rigenerati con Higgsfield (9/11/2026): modello `nano_banana_2_1`, formato 1:4, 2k, seed 240611, riferimento di stile `sfondi/salsiccia-multi.jpg`, scena comune "stanza di stagionatura con tanti salumi appesi". Prompt in `HIGGSFIELD.md`.
 
 Anteprima di tutti i cartelli: `anteprime/tutti-12.png`.
 
