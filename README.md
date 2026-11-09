@@ -69,6 +69,19 @@ Infine scarica i due modelli che servono e mettili in `strumenti/modelli/` (ques
      -af "loudnorm=I=-14:TP=-1.5:LRA=9" -c:a aac -b:a 256k out/reel-finale.mp4
    ```
 
+## Video in arrivo e motion graphics
+- **Analisi automatica di un video** (link Drive condiviso con "Chiunque abbia il link", oppure un file):
+  ```bash
+  strumenti/scarica_video.sh "<link>" progetti/_in-arrivo/nome/video
+  python3 strumenti/analizza_video.py progetti/_in-arrivo/nome/video/<file> progetti/_in-arrivo/nome
+  ```
+  Escono provini, trascrizione e un'ipotesi sul tipo di video. Con Claude basta `/analizza-video`.
+- **Motion graphics** (scheda M): `/motion-graphics`, regole in `skill/motion-graphics-claude/`.
+- **Blender senza aprirlo** (livello 3): `pip install bpy`, poi
+  ```bash
+  python3 strumenti/blender/scena_prodotto.py --modello prodotto.glb --uscita out/prova --anteprima
+  ```
+
 ## Effetti sonori
 In `remotion/public/sfx/` ci sono effetti generati da `strumenti/genera_sfx.py`. Per usare quelli di `libreria_sfx_reel.zip`, copia i WAV in quella cartella con gli stessi nomi (`short_whoosh.wav`, `boom_sub.wav`, …) e renderizza di nuovo.
 

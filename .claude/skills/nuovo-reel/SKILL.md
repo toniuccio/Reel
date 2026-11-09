@@ -21,6 +21,7 @@ Nella risposta non riassumere questi file ad Antonio. Usali.
 - **G, parlato cinematico**: video in esterno, a camminata o in piedi, viso tracciato, insert su fondo bianco, film burn.
 - **H, premium UI**: video da scrivania o da studio, contenuto educativo a step, con capitoli a rombi, contatori, notifiche e scene a tutto schermo.
 - Si possono mescolare: per esempio un parlato G con i rombi dei capitoli e la scheda dei suoni della H.
+- **M, motion graphics** (`skill/motion-graphics-claude/`): aperture, chiusure o inserti animati dentro il reel, per esempio il logo che si costruisce e finisce nel girato (stile M5).
 - Se non è chiaro, proponi la scheda con una riga di motivazione e chiedi conferma insieme ai materiali.
 
 ## 3. Materiali da chiedere

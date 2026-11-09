@@ -1,2 +1,5 @@
 strumenti/modelli/
 __pycache__/
+# video scaricati da analizzare o montare (pesanti, non vanno su git)
+progetti/*/video/
+progetti/_in-arrivo/
