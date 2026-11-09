@@ -26,3 +26,16 @@ Soggetto: Andrea Devona. Durata stimata: 50-60 s (da verificare sulle clip). Pro
 | 8 CHIUSURA | "non promesse." barrato in rosso, poi ***risposte!*** in serif con il bagliore | Zoom out lento, film burn leggero finale. Niente nome né logo |
 
 Da verificare sui video: frasi registrate davvero (possono differire dal testo), riprese del luogo disponibili, luce e colore.
+
+## Clip ricevute (prima parte: 5 di 9)
+Tutte 1080x1920, **senza HDR** (SDR bt709), volume -11/-14 LUFS: colore e luce già omogenei di partenza.
+
+| Clip | Durata | Cosa si vede | Parlato |
+|---|---|---|---|
+| IMG_0396 | 5,0 s | Andrea davanti all'ospedale (palazzo azzurro), parcheggio | «Dottor Graziano, vorrei dirle una cosa. Gli sprechi in sanità non sono i malati da curare.» |
+| IMG_0397 | 5,9 s | **b-roll con la sua voce**: panoramica sul parcheggio e sull'ospedale | «Ho seguito con attenzione le notizie di questi giorni sull'ADI a Crotone e le polemiche che ne sono scaturite.» |
+| IMG_0404 | 5,9 s | Andrea, sfondo ospedale giallo e azzurro | «Direttore generale, dietro ogni assistenza domiciliare ci sono famiglie, persone fragili e caregiver.» |
+| IMG_0405 | 3,9 s | Andrea, stessa posizione | «Non possiamo trasformare il diritto alle cure in una voce di spreco.» |
+| IMG_0408 | 10,7 s | **b-roll con la sua voce**: panoramica sull'ospedale con la scritta "OSPEDALE" | «Gli sprechi, se vogliamo cercarli, sono nelle inefficienze e nelle scelte sbagliate di tutti questi messia venuti da fuori per governare la sanità crotonese.» |
+
+Mancano le frasi 5-8 (operatori sanitari, Occhiuto, Terza Commissione, chiusura).
