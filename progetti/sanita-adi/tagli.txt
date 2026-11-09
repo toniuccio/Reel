@@ -1,10 +1,10 @@
-# clip inizio fine (secondi nel file originale, pause tolte)
-0396 0.44 4.97
-0397 0.00 4.97
-0404 0.00 5.41
-0405 0.18 3.65
-0408 0.00 8.69
-0409 0.31 7.32
-0412 0.00 7.80
-0413 0.19 9.77
-0414 0.00 4.26
+# clip inizio fine (secondi nel file originale) - corretti a mano: nessuna parola tagliata
+0396 0.05 4.97
+0397 0.00 5.20
+0404 0.00 5.45
+0405 0.00 3.75
+0408 0.00 8.80
+0409 0.00 7.32
+0412 0.00 7.95
+0413 0.00 9.77
+0414 0.00 4.70
