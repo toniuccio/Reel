@@ -1,8 +1,9 @@
 // Reel Giemme DVR · v2.1 — scheda G nei colori Giemme, con pause di lettura, chevron continui e SFX vari
 import React from 'react';
 import {AbsoluteFill, Audio, Easing, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
-import {G, H, PIECES, segStart, TOTAL, VOICE_END, W, FPS} from './timeline2';
-import {PieceCard, PieceVideo} from './video2';
+import {G, H, PIECES, pieceStartAt, segStart, TOTAL, VOICE_END, W, FPS} from './timeline2';
+import {SEGS} from '../giemme/timeline';
+import {PieceCard, SegVideo} from './video2';
 import {Arcs, ChevronWipe, Cursor, FONT, Hazard, HEX_W, HexGrid, hexPos, Heading, Ill, inOut, INK, k, Nav, Paper, Pill, RiskBar, Sub, Tile, Underline} from './gfx';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
@@ -23,21 +24,24 @@ const T = {
   infine: G('0109', 'infine'), strutturare: G('0109', 'strutturare'), misure: G('0109', 'misure'), prevenzione: G('0109', 'prevenzione'),
   tecniche: G('0109', 'tecniche'), organizzative: G('0109', 'organizzative'), per: G('0109', 'per'), mitigare: G('0109', 'mitigare'),
   ridurre: G('0109', 'ridurre'), rischio: G('0109', 'rischio'),
+  dopoMisure: pieceStartAt('0109', 16.1), dopoDvr: pieceStartAt('0110', 8.15),
   f0: segStart['0110'], quindi: G('0110', 'quindi'), deve: G('0110', 'deve'), rappresentare: G('0110', 'rappresentare'),
   realmente2: G('0110', 'realmente'), azienda: G('0110', "l'azienda"), esuo: G('0110', 'e'), ciclo: G('0110', 'ciclo'),
   tu: G('0110', 'tu'), sapevi: G('0110', 'sapevi'), cosa: G('0110', 'cosa'), dvr2: G('0110', 'dvr', 1), fammelo: G('0110', 'fammelo'), sapere: G('0110', 'sapere'),
 };
+T.per = Math.max(T.per, T.dopoMisure + 2);
+T.fammelo = Math.max(T.fammelo, T.dopoDvr + 2);
 const N = 9; // transizioni zoom più morbide
 const W_IN = 16; // chevron: entrata (0,5 s)
 const W_OUT = 32; // chevron: uscita lenta che scopre la scena (1 s)
 const S3 = {a: T.cassetto - 3, b: T.c0};
 const W1 = T.d0 - W_IN; // chevron tra la domanda e le tre parole: a metà corsa copre lo schermo
 const S5 = {a: T.d0, b: T.e0};
-const S7 = {a: T.e0, b: T.per - 2};
-const W2 = S7.b - W_IN; // chevron che scoprono il parlato su «per mitigare»
+const S7 = {a: T.e0, b: T.dopoMisure};
+const W2 = S7.b - W_IN; // i chevron coprono durante la pausa e scoprono il parlato esattamente quando riparte
 const S11 = {a: T.azienda - 3, b: T.tu - 6};
 const CH_IN = T.tu - 14; // chevron che coprono per «E tu?»
-const CH_OUT = T.fammelo - 12;
+const CH_OUT = T.dopoDvr; // i chevron escono quando riparte il parlato (niente fotogrammi fermi)
 
 /* ---------------- parlato ---------------- */
 const zoomMul = (id: string) => (g: number) => {
@@ -54,16 +58,32 @@ const zoomMul = (id: string) => (g: number) => {
 /* ---------------- livelli ---------------- */
 type Tin = 'zoom-out' | 'cut';
 type Tout = 'zoom-in' | 'cut';
-const Layer: React.FC<{g: number; a: number; b: number; tin: Tin; tout: Tout; children: React.ReactNode}> = ({g, a, b, tin, tout, children}) => {
+const Layer: React.FC<{g: number; a: number; b: number; tin: Tin; tout: Tout; grp?: Grp; children: React.ReactNode}> = ({g, a, b, tin, tout, grp, children}) => {
   if (g < a || g >= b + (tout === 'zoom-in' ? N : 0)) return null;
   const ei = k(g, a, a + N);
   const eo = k(g, b, b + N);
-  let transform = '';
+  let transform = grp ? `translateX(${shiftX(grp, g)}px) ` : '';
   let opacity = 1;
   if (tin === 'zoom-out') { transform += `scale(${1.2 - 0.2 * ei}) `; opacity = ei; }
   if (tout === 'zoom-in' && g >= b) { transform += `scale(${1 + 0.3 * eo}) `; opacity = 1 - eo; }
   const blur = g < a + N && tin === 'zoom-out' ? Math.sin(ei * Math.PI) * 14 : g >= b && tout === 'zoom-in' ? Math.sin(eo * Math.PI) * 14 : 0;
   return <AbsoluteFill style={{transform, opacity, filter: blur > 0.3 ? `blur(${blur}px)` : undefined}}>{children}</AbsoluteFill>;
+};
+type Grp = 'talk' | 'S5' | 'S7' | 'S11';
+const PUSH: {s: number; out: Grp | null; inn: Grp | null}[] = [
+  {s: W1, out: 'talk', inn: 'S5'},
+  {s: W2, out: 'S7', inn: 'talk'},
+  {s: CH_IN, out: 'S11', inn: null},
+  {s: CH_OUT - W_IN, out: null, inn: 'talk'},
+];
+const shiftX = (grp: Grp, g: number) => {
+  let x = 0;
+  for (const t of PUSH) {
+    const m = t.s + W_IN;
+    if (t.out === grp && g >= t.s && g < m) x += 0.28 * W * Easing.in(Easing.cubic)((g - t.s) / W_IN);
+    if (t.inn === grp && g >= m && g < m + W_OUT) x -= 0.34 * W * (1 - Easing.out(Easing.cubic)((g - m) / W_OUT));
+  }
+  return x;
 };
 const wipeP = (g: number, start: number) => (g < start + W_IN ? (g - start) / W_IN / 2 : 0.5 + (g - start - W_IN) / W_OUT / 2);
 
@@ -108,6 +128,11 @@ const Over: React.FC = () => {
   );
 };
 
+const OverShift: React.FC = () => {
+  const g = useCurrentFrame();
+  return <AbsoluteFill style={{transform: `translateX(${shiftX('talk', g)}px)`}}><Over /></AbsoluteFill>;
+};
+
 /* ---------------- grafiche ---------------- */
 const Graphics: React.FC = () => {
   const g = useCurrentFrame();
@@ -132,7 +157,7 @@ const Graphics: React.FC = () => {
       </Layer>
 
       {/* 5-6 · tre parole + lavoratori (dopo i chevron W1) */}
-      <Layer g={g} a={S5.a} b={S5.b} tin="cut" tout="cut">
+      <Layer g={g} a={S5.a} b={S5.b} tin="cut" tout="cut" grp="S5">
         <Paper g={g} />
         <Sequence from={p0104.start} durationInFrames={p0104.len + p0104.hold}>
           <PieceCard p={p0104} rect={{x: 313, y: 240, w: 454, h: 454}} radius={104} faceFrac={0.42} fy={0.45} pOf={() => 1} opOf={(x) => k(x, S5.a, S5.a + 10) * (1 - k(x, T.da2, T.da2 + 10))} />
@@ -152,7 +177,7 @@ const Graphics: React.FC = () => {
       </Layer>
 
       {/* 7-9 · attività -> rischi -> misure */}
-      <Layer g={g} a={S7.a} b={S7.b} tin="cut" tout="cut">
+      <Layer g={g} a={S7.a} b={S7.b} tin="cut" tout="cut" grp="S7">
         <Paper g={g} />
         <Arcs g={g} at={S7.a} />
         <Nav g={g} at={S7.a + 2} out={Infinity} step={step} />
@@ -179,7 +204,7 @@ const Graphics: React.FC = () => {
       </Layer>
 
       {/* 11 · l'azienda e il suo ciclo */}
-      <Layer g={g} a={S11.a} b={S11.b + 12} tin="zoom-out" tout="cut">
+      <Layer g={g} a={S11.a} b={CH_IN + W_IN} tin="zoom-out" tout="cut" grp="S11">
         <Paper g={g} />
         <Heading g={g} at={S11.a + 3} y={250} size={66} parts={[{text: 'rappresentare'}, {text: 'realmente', red: true}, {text: "l'azienda", at: T.azienda + 2}]} />
         {(() => {
@@ -280,12 +305,15 @@ const add = (name: string, peak: number, vol: number) => sfx.push({name, peak, v
 
 export const GiemmeReel2: React.FC<{voce?: 'originale' | 'ai'}> = ({voce = 'originale'}) => (
   <AbsoluteFill style={{background: '#000'}}>
-    {PIECES.map((p, i) => (
-      <Sequence key={`v${i}`} from={p.start} durationInFrames={p.len + p.hold + (i === PIECES.length - 1 ? TOTAL - VOICE_END : 0)}>
-        <PieceVideo p={p} zoomMul={zoomMul(p.id)} />
-      </Sequence>
-    ))}
-    <Over />
+    {SEGS.map((s, i) => {
+      const end = i < SEGS.length - 1 ? segStart[SEGS[i + 1].id] : TOTAL;
+      return (
+        <Sequence key={`v${s.id}`} from={segStart[s.id]} durationInFrames={end - segStart[s.id]}>
+          <SegVideo id={s.id} zoomMul={zoomMul(s.id)} shift={(g) => shiftX('talk', g)} />
+        </Sequence>
+      );
+    })}
+    <OverShift />
     <Graphics />
     {PIECES.map((p, i) => (
       <Sequence key={`a${i}`} from={p.start} durationInFrames={p.len}>

@@ -58,3 +58,39 @@ export const G = (id: string, word: string, n = 0, offset = 0): number => {
   if (!hits[n]) throw new Error(`Parola "${word}" non trovata in ${id}`);
   return toGlobal(id, Math.round((hits[n].t + offset) * FPS));
 };
+
+/** inizio (frame globale) del pezzo che parte al secondo locale `sec` del clip (o subito dopo) */
+export const pieceStartAt = (id: string, sec: number) => {
+  const f = Math.round(sec * FPS) - 1;
+  const p = PIECES.find((q) => q.id === id && q.from >= f);
+  if (!p) throw new Error(`nessun pezzo di ${id} dopo ${sec}s`);
+  return p.start;
+};
+
+/**
+ * Frame del video da mostrare al frame globale g, per il clip `id`: mai fermo.
+ * Durante una pausa il tratto di silenzio intorno al taglio (A frame prima, B dopo) viene rallentato
+ * su tutta la durata della pausa, così il volto resta vivo e il labiale torna in sincrono subito dopo.
+ */
+const A = 7;
+const B = 6;
+export const vmap = (id: string, g: number): number => {
+  const ps = PIECES.filter((q) => q.id === id);
+  const last = ps[ps.length - 1].from + ps[ps.length - 1].len - 1;
+  for (let i = 0; i < ps.length; i++) {
+    const p = ps[i];
+    const next = ps[i + 1];
+    const end = p.from + p.len; // frame locale del taglio
+    const b = next ? B : 0;
+    const winStartG = p.start + Math.max(0, p.len - A);
+    const winEndG = p.start + p.len + p.hold + b;
+    if (p.hold > 0 && g >= winStartG && g < winEndG) {
+      const l0 = end - Math.min(A, p.len);
+      const l1 = end + b;
+      return Math.min(last, Math.round(l0 + ((g - winStartG) / (winEndG - winStartG)) * (l1 - l0)));
+    }
+    if (g < p.start + p.len + p.hold) return Math.min(last, p.from + Math.max(0, g - p.start));
+  }
+  const l = ps[ps.length - 1];
+  return l.from + l.len - 1;
+};

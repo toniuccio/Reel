@@ -3,7 +3,7 @@ import React from 'react';
 import {Freeze, OffthreadVideo, staticFile, useCurrentFrame} from 'remotion';
 import {baseZoom, faceAt} from '../giemme/timeline';
 import {placeVideo} from '../giemme/video';
-import {H, Piece, W} from './timeline2';
+import {H, Piece, W, vmap, segStart} from './timeline2';
 
 const Src: React.FC<{p: Piece; style: React.CSSProperties}> = ({p, style}) => {
   const f = useCurrentFrame();
@@ -50,6 +50,26 @@ export const PieceCard: React.FC<{p: Piece; rect: {x: number; y: number; w: numb
     <div style={{position: 'absolute', left: x, top: y, width: w, height: h, overflow: 'hidden', borderRadius: radius * pr, background: '#000',
       boxShadow: `0 ${18 * pr}px ${50 * pr}px rgba(26,26,30,${0.2 * pr})`, opacity: op, transform: `translateY(${(1 - op) * -60}px) scale(${0.8 + 0.2 * op})`}}>
       <Src p={p} style={pos} />
+    </div>
+  );
+};
+
+/** video a schermo intero di un intero clip (dentro una Sequence che parte a segStart[id]): continuo anche nelle pause */
+export const SegVideo: React.FC<{id: string; zoomMul: (g: number) => number; shift?: (g: number) => number}> = ({id, zoomMul, shift}) => {
+  const f = useCurrentFrame();
+  const g = segStart[id] + f;
+  const local = vmap(id, g);
+  const z = baseZoom(id) * zoomMul(g);
+  const pos = placeVideo(id, local, W, H, z, 0.34);
+  const face = faceAt(id, local);
+  const vx = ((pos.left + face.cx * pos.width) / W) * 100;
+  const vy = ((pos.top + face.cy * pos.height) / H) * 100;
+  return (
+    <div style={{position: 'absolute', inset: 0, overflow: 'hidden', background: '#000', transform: shift ? `translateX(${shift(g)}px)` : undefined}}>
+      <Freeze frame={local}>
+        <OffthreadVideo src={staticFile(`giemme/clips/${id}.mp4`)} muted style={{position: 'absolute', left: pos.left, top: pos.top, width: pos.width, height: pos.height}} />
+      </Freeze>
+      <div style={{position: 'absolute', inset: 0, background: `radial-gradient(ellipse 75% 55% at ${vx}% ${vy + 6}%, transparent 50%, rgba(0,0,0,.26) 100%)`}} />
     </div>
   );
 };
