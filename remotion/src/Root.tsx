@@ -4,7 +4,7 @@ import {Reel} from './Reel';
 import {FPS, H, TOTAL, W} from './timeline';
 import {GiemmeReel} from './giemme/Reel';
 import {TOTAL as G_TOTAL} from './giemme/timeline';
-import {GiemmeReel2} from './giemme2/Reel';
+import {GiemmeReel2, TOTAL2} from './giemme2/Reel';
 
 const FONTS: [string, string, string, string][] = [
   ['Inter Tight', 'fonts/inter-tight-latin-700-normal.woff2', '700', 'normal'],
@@ -33,7 +33,7 @@ export const Root: React.FC = () => (
   <>
     <Composition id="DueVertenze" component={Reel} durationInFrames={TOTAL} fps={FPS} width={W} height={H} />
     <Composition id="GiemmeDVR" component={GiemmeReel} durationInFrames={G_TOTAL} fps={FPS} width={W} height={H} />
-    <Composition id="GiemmeDVR2" component={GiemmeReel2} durationInFrames={G_TOTAL} fps={FPS} width={W} height={H} />
-    <Composition id="GiemmeDVR2AI" component={GiemmeReel2} durationInFrames={G_TOTAL} fps={FPS} width={W} height={H} defaultProps={{voce: 'ai' as const}} />
+    <Composition id="GiemmeDVR2" component={GiemmeReel2} durationInFrames={TOTAL2} fps={FPS} width={W} height={H} />
+    <Composition id="GiemmeDVR2AI" component={GiemmeReel2} durationInFrames={TOTAL2} fps={FPS} width={W} height={H} defaultProps={{voce: 'ai' as const}} />
   </>
 );

@@ -27,6 +27,9 @@ Se il repository è disponibile, riparti da lì invece di riscrivere da zero.
 - **Transizioni**: slide veloci, zoom e film burn **leggero**, mai esagerati. Niente speed ramp sul parlato, niente dissolvenze generiche.
 - **Logo**: piccolo, compare solo quando il soggetto nomina il partito o il brand. In chiusura niente nome e niente logo, salvo richiesta.
 - **Grafiche ed esempi (b-roll)**: quando il soggetto fa esempi o elenca concetti, le scene sono solo grafica e il soggetto compare **solo ogni tanto** (una card o un cerchio, non in ogni scena). Le grafiche riempiono la zona utile con **equilibrio**, senza grandi vuoti bianchi ma ordinate: elementi grandi, distribuiti dall'alto fino al limite del 20% basso.
+- **Tempo per leggere**: ogni grafica con testo deve restare a schermo abbastanza da leggerla. Dove serve si inseriscono pause di lettura (0,5-0,9 s) nei silenzi del parlato, mentre le grafiche coprono il video; ingressi dei testi in ~0,5 s e una sola enfasi per frase, con un piccolo rimbalzo.
+- **Transizioni a chevron**: movimento continuo come nel riferimento: entrata che rallenta fino a coprire, uscita lenta (~1 s) che scopre la scena con il retro a freccia; più strati sfalsati. Niente flash di 2 frame né forme tagliate.
+- **Suoni vari**: per ogni enfasi un suono di entrata e uno di uscita, ma scelti in base al tipo (pop e bolle per pillole e celle, ting/chime per le spunte, carta e tonfo per gli oggetti, blip per le interfacce, whoosh larghi per i chevron). Non ripetere sempre lo stesso whoosh.
 - **Anteprime HTML**: sulle immagini dei fotogrammi metti `max-width:none`, altrimenti la pagina pubblicata le taglia e compare una fascia nera.
 
 ## Testi

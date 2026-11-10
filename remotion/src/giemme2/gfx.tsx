@@ -17,10 +17,10 @@ export const k = (g: number, a: number, b: number, e: (t: number) => number = Ea
 const eo = Easing.out(Easing.cubic);
 
 /** ingresso "da sfocato a nitido" + uscita sfocata: restituisce lo stile e se è visibile */
-export const inOut = (g: number, at: number, out = Infinity, len = 10, rise = 40): React.CSSProperties | null => {
-  if (g < at || g >= out + 8) return null;
+export const inOut = (g: number, at: number, out = Infinity, len = 15, rise = 46): React.CSSProperties | null => {
+  if (g < at || g >= out + 11) return null;
   const p = k(g, at, at + len, eo);
-  const q = Number.isFinite(out) ? k(g, out, out + 8, Easing.in(Easing.cubic)) : 0;
+  const q = Number.isFinite(out) ? k(g, out, out + 11, Easing.inOut(Easing.cubic)) : 0;
   const o = p * (1 - q);
   const blur = 16 * (1 - p) + 14 * q;
   return {opacity: o, filter: blur > 0.3 ? `blur(${blur}px)` : undefined, transform: `translateY(${(1 - p) * rise - q * 30}px) scale(${0.94 + 0.06 * p - 0.06 * q})`};
@@ -301,15 +301,19 @@ export const Heading: React.FC<{g: number; at: number; out?: number; y: number; 
   </div>
 );
 
-/** sottotitoli sul parlato: parole che entrano da sfocate, parola chiave in pillola rossa */
-export const Sub: React.FC<{g: number; y: number; out: number; words: {at: number; text: string; key?: boolean}[]; size?: number}> = ({g, y, out, words, size = 62}) => (
-  <div style={{position: 'absolute', left: 50, right: 50, top: y, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', columnGap: size * 0.26, rowGap: 10, fontFamily: FONT, fontWeight: 700, fontSize: size, letterSpacing: '-0.01em'}}>
+/** sottotitoli sul parlato: parole che entrano da sfocate; la parola chiave arriva con un rimbalzo e la pillola rossa si allarga dietro */
+export const Sub: React.FC<{g: number; y: number; out: number; words: {at: number; text: string; key?: boolean}[]; size?: number}> = ({g, y, out, words, size = 68}) => (
+  <div style={{position: 'absolute', left: 44, right: 44, top: y, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', columnGap: size * 0.26, rowGap: 12, fontFamily: FONT, fontWeight: 800, fontSize: size, letterSpacing: '-0.015em'}}>
     {words.map((w, i) => {
-      const s = inOut(g, w.at, out, 6, 18);
+      const s = inOut(g, w.at, out, w.key ? 12 : 10, 20);
       if (!s) return null;
+      if (!w.key) return <span key={i} style={{...s, color: '#fff', textShadow: '0 4px 24px rgba(0,0,0,.5)'}}>{w.text}</span>;
+      const pill = k(g, w.at + 2, w.at + 12, Easing.out(Easing.cubic));
+      const bump = 1 + 0.12 * Math.sin(Math.min(1, Math.max(0, (g - w.at) / 14)) * Math.PI);
       return (
-        <span key={i} style={{...s, color: '#fff', textShadow: w.key ? 'none' : '0 4px 24px rgba(0,0,0,.45)', ...(w.key ? {background: `linear-gradient(180deg, ${RED_L}, ${RED})`, borderRadius: 99, padding: `2px ${size * 0.36}px`, boxShadow: '0 10px 26px rgba(229,2,16,.35)'} : {})}}>
-          {w.text}
+        <span key={i} style={{...s, position: 'relative', display: 'inline-block', padding: `4px ${size * 0.38}px`, color: '#fff', transform: `${s.transform} scale(${bump})`}}>
+          <i style={{position: 'absolute', inset: 0, borderRadius: 99, background: `linear-gradient(180deg, ${RED_L}, ${RED})`, boxShadow: '0 12px 30px rgba(229,2,16,.4)', transform: `scaleX(${pill})`, transformOrigin: '0 50%', zIndex: -1}} />
+          <span style={{position: 'relative'}}>{w.text}</span>
         </span>
       );
     })}
@@ -326,21 +330,43 @@ export const Underline: React.FC<{g: number; at: number}> = ({g, at}) => {
   );
 };
 
-/* ---------- chevron rossi ---------- */
-export const Chevrons: React.FC<{x: number}> = ({x}) => (
-  <svg width={W} height={H} viewBox="0 0 100 178" preserveAspectRatio="none" style={{position: 'absolute', inset: 0, transform: `translateX(${x}%)`}}>
-    <defs>
-      <linearGradient id="cg2" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0" stopColor="#7A000C" />
-        <stop offset="1" stopColor={RED} />
-      </linearGradient>
-    </defs>
-    <path d="M-160 0 H40 L95 89 L40 178 H-160z" fill="url(#cg2)" />
-    <path d="M-130 0 H62 L117 89 L62 178 H-130z" fill="url(#cg2)" opacity={0.85} />
-    <path d="M62 0 L117 89 L62 178" stroke="rgba(255,255,255,.35)" strokeWidth={0.5} fill="none" />
-    <path d="M40 0 L95 89 L40 178" stroke="rgba(255,255,255,.25)" strokeWidth={0.4} fill="none" />
-  </svg>
-);
+/* ---------- chevron rossi: tre strati che scorrono in continuo (p 0 → 0,5 copre, 0,5 → 1 esce a destra) ---------- */
+const CHEV = ['#B0000E', '#D10112', '#7A000C'];
+export const ChevronWipe: React.FC<{p: number; drift?: number}> = ({p, drift = 0}) => {
+  if (p <= 0 || p >= 1) return null;
+  const layers = [0, 1, 2].map((i) => {
+    // ogni strato parte e arriva leggermente sfalsato: movimento continuo, senza scatti
+    // p 0 → 0,5: entrata che rallenta fino a coprire; 0,5 → 1: uscita lenta e costante che scopre la scena
+    const tip = p < 0.5
+      ? -0.1 * W + 2.2 * W * Easing.out(Easing.cubic)(Math.min(1, Math.max(0, (p / 0.5 - 0.06 * i) / 0.88)))
+      : 2.1 * W + 2.4 * W * Easing.inOut(Easing.sin)(Math.min(1, Math.max(0, ((p - 0.5) / 0.5 - 0.05 * i) / 0.9)));
+    const tipX = tip + drift - i * 0.16 * W;
+    return {i, tip: tipX};
+  });
+  return (
+    <svg width={W} height={H} style={{position: 'absolute', inset: 0}}>
+      <defs>
+        {CHEV.map((c, i) => (
+          <linearGradient key={i} id={`chg${i}`} x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stopColor="#6A000A" />
+            <stop offset="1" stopColor={c} />
+          </linearGradient>
+        ))}
+        <filter id="chsh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="18" dy="0" stdDeviation="22" floodColor="#000" floodOpacity=".35" /></filter>
+      </defs>
+      {layers.reverse().map(({i, tip}) => {
+        const LB = 2.1 * W; // banda a freccia: punta davanti, incavo dietro (come nel riferimento)
+        const d = `M${tip - 0.62 * W - LB} 0 H${tip - 0.62 * W} L${tip} ${H / 2} L${tip - 0.62 * W} ${H} H${tip - 0.62 * W - LB} L${tip - LB} ${H / 2}z`;
+        return (
+          <g key={i} filter="url(#chsh)">
+            <path d={d} fill={`url(#chg${i})`} />
+            <path d={`M${tip - 0.62 * W} 0 L${tip} ${H / 2} L${tip - 0.62 * W} ${H}`} stroke="rgba(255,255,255,.28)" strokeWidth={3} fill="none" />
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
 
 /* ---------- barra del rischio ---------- */
 export const RiskBar: React.FC<{g: number; at: number; out: number; a: number; b: number; y: number}> = ({g, at, out, a, b, y}) => {
