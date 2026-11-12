@@ -130,5 +130,16 @@
   "euro": "10",
   "cent": "00",
   "foto": "sfondi/formaggio-multi.jpg"
+ },
+ {
+  "file": "13-baccala-sottosale",
+  "nome": [
+   "BACCALÀ",
+   "SOTTOSALE"
+  ],
+  "qta": "VASCHETTA",
+  "euro": "12",
+  "cent": "90",
+  "foto": "sfondi/baccala-multi.jpg"
  }
 ]
